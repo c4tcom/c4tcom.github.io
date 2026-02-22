@@ -4,20 +4,20 @@ subtitle: Info about this blog and the metarials it contains.
 url: "/faq"
 ---
 
-#### _General info about this blog and the metarials it contains._
+#### _General info about this blog and the materials it contains._
 
 
 > **_Can i use the material provided by this blog?_**
 
 - _Yes! Feel free to use the materials in this blog under the condition of giving proper credit, as per the *Creative Commons (CC) licensing*_.
 
-> **_How to Get Updates?_**
+> **_How to get updates?_**
 
 - I'm not intending to start a newsletter, however you can use the [RSS feed](/index.xml) with [RSS feed readers](https://www.privacytools.io/privacy-rss-feed-readers).
 
 > **_How to reach out?_**
 
-- **Email is prefered  :** adnane[at]0xdeadbeef.ma & PGP can be found [here](/pgp.txt).
+- **Email is prefered  :** **adnane[at]0xdeadbeef.ma** & PGP can be found [here](/pgp.txt).
 
 > **_Disclaimer_**
 
