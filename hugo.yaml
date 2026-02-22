@@ -21,7 +21,7 @@ params:
     Content: "Blog on Offensive and Defensive security, Vulnerability and Threat research, CTFs and all the fun stuff!"
   socialIcons:
     - name: email
-      url: 'mailto:tea@0xdeadbeef.ma'
+      url: 'mailto:adnane@0xdeadbeef.ma'
     - name: rss
       url: /index.xml
 
