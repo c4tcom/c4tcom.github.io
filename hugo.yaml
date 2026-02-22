@@ -1,4 +1,4 @@
-baseURL: "https:/0xdeadbeef.ma"
+baseURL: "https://0xdeadbeef.ma"
 languageCode: en-us
 title: 0xdeadbeef.ma
 theme: PaperMod
@@ -14,7 +14,7 @@ markup:
 
 
 params:
-  subtitle: It was called the sand war bcs it was sandy.
+  subtitle: It was called the sand war, bcs it was sandy.
   ShowReadingTime: true
   homeInfoParams:
     Title: '<img src="/images/0xPizza.png" width="55" style="vertical-align:middle; display:inline; margin-right:8px;"> 0xdeadbeef.ma'
