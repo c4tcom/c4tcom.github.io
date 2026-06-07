@@ -5,7 +5,7 @@ url: "/faq"
 ---
 
 
-<img src="/images/win-rover-xp.gif" alt="demo" width="400" style="border-radius:8px;">
+<img src="/images/win-rover-xp.gif" alt="demo" width="100" style="border-radius:8px;">
 
 #### _General info about this blog and the materials it contains._
 
