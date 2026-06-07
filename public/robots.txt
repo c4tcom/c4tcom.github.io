@@ -1,3 +1,1 @@
 User-agent: *
-Disallow:
-Sitemap: https:/0xdeadbeef.ma/sitemap.xml

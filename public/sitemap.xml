@@ -2,33 +2,33 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https:/0xdeadbeef.ma/posts/beavers-in-north-africa/</loc>
+    <loc>http://localhost:1313/posts/beavers-in-north-africa/</loc>
     <lastmod>2025-10-31T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https:/0xdeadbeef.ma/</loc>
+    <loc>http://localhost:1313/</loc>
     <lastmod>2025-10-31T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https:/0xdeadbeef.ma/tags/malware/</loc>
+    <loc>http://localhost:1313/tags/malware/</loc>
     <lastmod>2025-10-31T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https:/0xdeadbeef.ma/posts/</loc>
+    <loc>http://localhost:1313/posts/</loc>
     <lastmod>2025-10-31T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https:/0xdeadbeef.ma/tags/</loc>
+    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2025-10-31T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https:/0xdeadbeef.ma/tags/threat-intelligence/</loc>
+    <loc>http://localhost:1313/tags/threat-intelligence/</loc>
     <lastmod>2025-10-31T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https:/0xdeadbeef.ma/tags/threat-research/</loc>
+    <loc>http://localhost:1313/tags/threat-research/</loc>
     <lastmod>2025-10-31T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https:/0xdeadbeef.ma/archives/</loc>
+    <loc>http://localhost:1313/archives/</loc>
   </url><url>
-    <loc>https:/0xdeadbeef.ma/categories/</loc>
+    <loc>http://localhost:1313/categories/</loc>
   </url><url>
-    <loc>https:/0xdeadbeef.ma/faq/</loc>
+    <loc>http://localhost:1313/faq/</loc>
   </url><url>
-    <loc>https:/0xdeadbeef.ma/search/</loc>
+    <loc>http://localhost:1313/search/</loc>
   </url>
 </urlset>

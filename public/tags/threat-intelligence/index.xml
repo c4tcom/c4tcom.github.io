@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Threat Intelligence on 0xdeadbeef.ma</title>
-    <link>https:/0xdeadbeef.ma/tags/threat-intelligence/</link>
+    <link>http://localhost:1313/tags/threat-intelligence/</link>
     <description>Recent content in Threat Intelligence on 0xdeadbeef.ma</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 31 Oct 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https:/0xdeadbeef.ma/tags/threat-intelligence/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/threat-intelligence/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Beaver at the gates, DPRK activity in North africa</title>
-      <link>https:/0xdeadbeef.ma/posts/beavers-in-north-africa/</link>
+      <link>http://localhost:1313/posts/beavers-in-north-africa/</link>
       <pubDate>Fri, 31 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https:/0xdeadbeef.ma/posts/beavers-in-north-africa/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;../images/dprk-expanded.google.png&#34; alt=&#34;Google/Mandiant&#34;&gt;&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/beavers-in-north-africa/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;../images/dprk-expanded.google.png&#34; alt=&#34;Google/Mandiant&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Content on the way! however if you have more information on DPRK activity in or targeting &lt;strong&gt;north africa&lt;/strong&gt; tip at &lt;code&gt;adnane[at]0xdeadbeef.ma&lt;/code&gt;.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

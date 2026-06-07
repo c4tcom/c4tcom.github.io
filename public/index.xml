@@ -2,38 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>0xdeadbeef.ma</title>
-    <link>https:/0xdeadbeef.ma/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content on 0xdeadbeef.ma</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 31 Oct 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https:/0xdeadbeef.ma/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Beaver at the gates, DPRK activity in North africa</title>
-      <link>https:/0xdeadbeef.ma/posts/beavers-in-north-africa/</link>
+      <link>http://localhost:1313/posts/beavers-in-north-africa/</link>
       <pubDate>Fri, 31 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https:/0xdeadbeef.ma/posts/beavers-in-north-africa/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;../images/dprk-expanded.google.png&#34; alt=&#34;Google/Mandiant&#34;&gt;&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/beavers-in-north-africa/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;../images/dprk-expanded.google.png&#34; alt=&#34;Google/Mandiant&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Content on the way! however if you have more information on DPRK activity in or targeting &lt;strong&gt;north africa&lt;/strong&gt; tip at &lt;code&gt;adnane[at]0xdeadbeef.ma&lt;/code&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Archive</title>
-      <link>https:/0xdeadbeef.ma/archives/</link>
+      <link>http://localhost:1313/archives/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https:/0xdeadbeef.ma/archives/</guid>
+      <guid>http://localhost:1313/archives/</guid>
       <description>archives</description>
     </item>
     <item>
       <title>Frequently Asked Questions &amp; info : </title>
-      <link>https:/0xdeadbeef.ma/faq/</link>
+      <link>http://localhost:1313/faq/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https:/0xdeadbeef.ma/faq/</guid>
-      <description>&lt;h4 id=&#34;--general-info-about-this-blog-and-the-metarials-it-contains&#34;&gt;- &lt;em&gt;General info about this blog and the metarials it contains.&lt;/em&gt;&lt;/h4&gt;&#xA;&lt;hr&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;em&gt;Can i use the material provided by this blog?&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;em&gt;Yes! Feel free to use the materials in this blog under the condition of giving proper credit, as per the &lt;em&gt;Creative Commons (CC) licensing&lt;/em&gt;&lt;/em&gt;.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;em&gt;How to Get Updates?&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;em&gt;I&amp;rsquo;m not intending to start a newsletter, but you can use the &lt;a href=&#34;https:/0xdeadbeef.ma/index.xml&#34;&gt;RSS feed&lt;/a&gt; with &lt;a href=&#34;https://www.privacytools.io/privacy-rss-feed-readers&#34;&gt;RSS feed readers&lt;/a&gt; additionally you can follow on &lt;a href=&#34;https://twitter.com/TebbaaX&#34;&gt;X (Twitter)&lt;/a&gt; for updates&lt;/em&gt;.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;em&gt;How to reach out?&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;</description>
+      <guid>http://localhost:1313/faq/</guid>
+      <description>&lt;h4 id=&#34;general-info-about-this-blog-and-the-materials-it-contains&#34;&gt;&lt;em&gt;General info about this blog and the materials it contains.&lt;/em&gt;&lt;/h4&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;em&gt;Can i use the material provided by this blog?&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;em&gt;Yes! Feel free to use the materials in this blog under the condition of giving proper credit, as per the &lt;em&gt;Creative Commons (CC) licensing&lt;/em&gt;&lt;/em&gt;.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;em&gt;How to get updates?&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;I&amp;rsquo;m not intending to start a newsletter, however you can use the &lt;a href=&#34;http://localhost:1313/index.xml&#34;&gt;RSS feed&lt;/a&gt; with &lt;a href=&#34;https://www.privacytools.io/privacy-rss-feed-readers&#34;&gt;RSS feed readers&lt;/a&gt;.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;em&gt;How to reach out?&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Email is prefered  :&lt;/strong&gt; &lt;strong&gt;adnane[at]0xdeadbeef.ma&lt;/strong&gt; &amp;amp; PGP can be found &lt;a href=&#34;http://localhost:1313/pgp.txt&#34;&gt;here&lt;/a&gt;.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;em&gt;Disclaimer&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Search</title>
-      <link>https:/0xdeadbeef.ma/search/</link>
+      <link>http://localhost:1313/search/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https:/0xdeadbeef.ma/search/</guid>
+      <guid>http://localhost:1313/search/</guid>
       <description>search</description>
     </item>
   </channel>
