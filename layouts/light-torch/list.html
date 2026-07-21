@@ -1,0 +1,24 @@
+{{ define "main" }}
+<header style="margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border);">
+  <h1>
+    <img src="/images/light-torch.png" width="32" style="vertical-align:middle; display:inline; margin-right:8px;">
+    Light Torch
+  </h1>
+</header>
+
+{{ range .Pages }}
+<article class="post-entry">
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">{{ .Title }}</h2>
+  </header>
+  <div class="entry-content">
+    <p>{{ .Summary }}</p>
+  </div>
+  <footer class="entry-footer">
+    <span>{{ .Date.Format "January 2, 2006" }}</span>
+    <span>&nbsp;·&nbsp;{{ .ReadingTime }} min</span>
+  </footer>
+</article>
+{{ end }}
+
+{{ end }}

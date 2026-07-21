@@ -56,12 +56,6 @@ outputs:
     - JSON
 
 
-
 homeInfoParams:
   Title: '<img src="/images/0xPizza.png" width="55" style="vertical-align:middle; display:inline; margin-right:8px;"> 0xdeadbeef.ma'
-  Content: >
-    Blog on Offensive and Defensive security, Vulnerability and Threat research, CTFs and all the fun stuff!
-    <br><br>
-    <a href="/light-torch/" style="text-decoration:none;">
-      <img src="/images/light-torch.png" width="24" style="vertical-align:middle; margin-right:6px;">
-    </a>
+  Content: 'Blog on Offensive and Defensive security, Vulnerability and Threat research, CTFs and all the fun stuff!<br><br><a href="/light-torch/"><img src="/images/light-torch.png" width="24" style="vertical-align:middle; margin-right:6px;">Light Torch — quick takes on Moroccan &amp; MENA cybersecurity news</a>'
