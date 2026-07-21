@@ -1,11 +1,8 @@
 {{ define "main" }}
-<link rel="stylesheet" href="https://unpkg.com/xp.css">
-
 <style>
   .xp-feed {
     max-width: 780px;
-    margin: 2rem auto;
-    font-family: 'Trebuchet MS', sans-serif;
+    margin: 0 auto;
   }
   .xp-feed .window {
     margin-bottom: 2rem;
@@ -28,10 +25,25 @@
   .xp-feed a.read-more {
     display: inline-block;
     margin-top: 0.75rem;
+    text-decoration: none;
   }
 </style>
 
 <div class="xp-feed">
+  <div class="window" style="margin-bottom: 2rem;">
+    <div class="title-bar">
+      <div class="title-bar-text">Quick Thoughts — 0xdeadbeef.ma</div>
+      <div class="title-bar-controls">
+        <button aria-label="Minimize"></button>
+        <button aria-label="Maximize"></button>
+        <button aria-label="Close"></button>
+      </div>
+    </div>
+    <div class="window-body">
+      <p>Quick takes on Moroccan & MENA cybersecurity news — ongoing exploits, incident analysis, and field notes.</p>
+    </div>
+  </div>
+
   {{ range .Pages }}
   <div class="window">
     <div class="title-bar">
@@ -45,7 +57,7 @@
     <div class="window-body">
       <p class="post-meta">{{ .Date.Format "02 Jan 2006" }} &nbsp;|&nbsp; {{ .ReadingTime }} min read</p>
       {{ with .Params.tags }}
-      <div class="post-tags">
+      <div class="post-tags" style="margin-bottom: 0.5rem;">
         {{ range . }}<span>{{ . }}</span>{{ end }}
       </div>
       {{ end }}

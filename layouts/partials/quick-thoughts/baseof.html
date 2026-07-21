@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ if .Title }}{{ .Title }} | {{ end }}{{ site.Title }}</title>
+  <link rel="stylesheet" href="https://unpkg.com/xp.css">
+  <style>
+    body {
+      background: #008080;
+      min-height: 100vh;
+      margin: 0;
+      padding: 2rem 1rem;
+      font-family: 'Trebuchet MS', sans-serif;
+    }
+    .xp-nav {
+      max-width: 780px;
+      margin: 0 auto 1.5rem auto;
+      font-size: 0.85rem;
+    }
+    .xp-nav a {
+      color: white;
+      text-decoration: none;
+      margin-right: 1rem;
+    }
+    .xp-nav a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="xp-nav">
+    <a href="/">← Back to 0xdeadbeef.ma</a>
+  </div>
+  {{ block "main" . }}{{ end }}
+</body>
+</html>
