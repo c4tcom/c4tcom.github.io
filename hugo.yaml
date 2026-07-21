@@ -45,10 +45,15 @@ menu:
     name: Search
     url: /search
     weight: 20
+  - identifier: quick-thoughts
+    name: Quick Thoughts
+    url: /quick-thoughts/
+    weight: 15
   - identifier: FAQ
     name: FAQ
     url: /faq
     weight: 50
+  
     
 
 outputs:
