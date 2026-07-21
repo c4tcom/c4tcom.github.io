@@ -2,20 +2,6 @@
 <link rel="stylesheet" href="https://unpkg.com/xp.css">
 
 <style>
-  .thought-entry {
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 1.25rem 1.5rem;
-    margin-bottom: 1.5rem;
-  }
-  .thought-entry h2 {
-    margin: 0 0 0.25rem 0;
-  }
-  .thought-meta {
-    font-size: 0.82rem;
-    color: var(--secondary);
-    margin-bottom: 0.75rem;
-  }
   .xp-read-more {
     text-decoration: none;
     display: inline-block;
@@ -26,10 +12,11 @@
 {{ range .Pages }}
 <div class="thought-entry">
   <h2>{{ .Title }}</h2>
-  <p class="thought-meta">{{ .Date.Format "02 Jan 2006" }} &nbsp;·&nbsp; {{ .ReadingTime }} min read</p>
+  <p style="font-size: 0.82rem; color: var(--secondary);">{{ .Date.Format "02 Jan 2006" }} &nbsp;·&nbsp; {{ .ReadingTime }} min read</p>
   <p>{{ .Summary }}</p>
   <a class="xp-read-more" href="{{ .Permalink }}"><button>Read more »</button></a>
 </div>
+<hr>
 {{ end }}
 
 {{ end }}
