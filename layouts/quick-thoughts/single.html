@@ -1,55 +1,38 @@
 {{ define "main" }}
+<link rel="stylesheet" href="https://unpkg.com/xp.css">
+
 <style>
-  .xp-post {
-    max-width: 780px;
-    margin: 0 auto;
+  .thought-meta {
+    font-size: 0.82rem;
+    color: var(--secondary);
+    margin-bottom: 1.5rem;
+  }
+  .post-tags span {
+    background: #000080;
+    color: white;
+    font-size: 0.75rem;
+    padding: 1px 6px;
+    margin-right: 4px;
     font-family: 'Trebuchet MS', sans-serif;
   }
-  .xp-post .window-body {
-    padding: 1.5rem;
-    line-height: 1.7;
-  }
-  .xp-post .window-body h1,
-  .xp-post .window-body h2,
-  .xp-post .window-body h3 {
-    font-family: 'Trebuchet MS', sans-serif;
-  }
-  .xp-post .window-body code {
-    background: #ececec;
-    padding: 1px 4px;
-    font-size: 0.9rem;
-  }
-  .xp-post .window-body pre {
-    background: #1e1e1e;
-    color: #d4d4d4;
-    padding: 1rem;
-    overflow-x: auto;
-  }
-  .xp-post .status-bar {
-    font-size: 0.8rem;
+  .xp-back {
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 2rem;
   }
 </style>
 
-<div class="xp-post">
-  <div class="window">
-    <div class="title-bar">
-      <div class="title-bar-text">{{ .Title }}</div>
-      <div class="title-bar-controls">
-        <button aria-label="Minimize"></button>
-        <button aria-label="Maximize"></button>
-        <button aria-label="Close"></button>
-      </div>
-    </div>
-    <div class="window-body">
-      {{ .Content }}
-    </div>
-    <div class="status-bar">
-      <p class="status-bar-field">{{ .Date.Format "02 Jan 2006" }}</p>
-      <p class="status-bar-field">{{ .ReadingTime }} min read</p>
-      {{ with .Params.tags }}
-      <p class="status-bar-field">{{ delimit . " · " }}</p>
-      {{ end }}
-    </div>
-  </div>
-</div>
+<h1>{{ .Title }}</h1>
+<p class="thought-meta">
+  {{ .Date.Format "02 Jan 2006" }} &nbsp;·&nbsp; {{ .ReadingTime }} min read
+  {{ with .Params.tags }}
+  &nbsp;·&nbsp;
+  {{ range . }}<span class="post-tags"><span>{{ . }}</span></span>{{ end }}
+  {{ end }}
+</p>
+
+{{ .Content }}
+
+<a class="xp-back" href="/quick-thoughts/"><button>← Back to Quick Thoughts</button></a>
+
 {{ end }}

@@ -1,70 +1,45 @@
 {{ define "main" }}
+<link rel="stylesheet" href="https://unpkg.com/xp.css">
+
 <style>
-  .xp-feed {
-    max-width: 780px;
-    margin: 0 auto;
+  .xp-read-more {
+    text-decoration: none;
   }
-  .xp-feed .window {
-    margin-bottom: 2rem;
-  }
-  .xp-feed .window-body {
-    padding: 1rem;
-  }
-  .xp-feed .post-meta {
-    font-size: 0.8rem;
-    color: #666;
-    margin-bottom: 0.5rem;
-  }
-  .xp-feed .post-tags span {
+  .post-tags span {
     background: #000080;
     color: white;
     font-size: 0.75rem;
     padding: 1px 6px;
     margin-right: 4px;
+    font-family: 'Trebuchet MS', sans-serif;
   }
-  .xp-feed a.read-more {
-    display: inline-block;
-    margin-top: 0.75rem;
-    text-decoration: none;
+  .thought-entry {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .thought-meta {
+    font-size: 0.82rem;
+    color: var(--secondary);
+    margin-bottom: 0.4rem;
   }
 </style>
 
-<div class="xp-feed">
-  <div class="window" style="margin-bottom: 2rem;">
-    <div class="title-bar">
-      <div class="title-bar-text">Quick Thoughts — 0xdeadbeef.ma</div>
-      <div class="title-bar-controls">
-        <button aria-label="Minimize"></button>
-        <button aria-label="Maximize"></button>
-        <button aria-label="Close"></button>
-      </div>
-    </div>
-    <div class="window-body">
-      <p>Quick takes on Moroccan & MENA cybersecurity news — ongoing exploits, incident analysis, and field notes.</p>
-    </div>
-  </div>
+<h1>Quick Thoughts</h1>
+<p style="color: var(--secondary); margin-bottom: 2rem;">Quick takes on Moroccan &amp; MENA cybersecurity news — ongoing exploits, incident analysis, field notes.</p>
 
-  {{ range .Pages }}
-  <div class="window">
-    <div class="title-bar">
-      <div class="title-bar-text">{{ .Title }}</div>
-      <div class="title-bar-controls">
-        <button aria-label="Minimize"></button>
-        <button aria-label="Maximize"></button>
-        <button aria-label="Close"></button>
-      </div>
-    </div>
-    <div class="window-body">
-      <p class="post-meta">{{ .Date.Format "02 Jan 2006" }} &nbsp;|&nbsp; {{ .ReadingTime }} min read</p>
-      {{ with .Params.tags }}
-      <div class="post-tags" style="margin-bottom: 0.5rem;">
-        {{ range . }}<span>{{ . }}</span>{{ end }}
-      </div>
-      {{ end }}
-      <p>{{ .Summary }}</p>
-      <a class="read-more" href="{{ .Permalink }}"><button>Read more »</button></a>
-    </div>
+{{ range .Pages }}
+<div class="thought-entry">
+  <h2 style="margin-bottom: 0.25rem;">{{ .Title }}</h2>
+  <p class="thought-meta">{{ .Date.Format "02 Jan 2006" }} &nbsp;·&nbsp; {{ .ReadingTime }} min read</p>
+  {{ with .Params.tags }}
+  <div class="post-tags" style="margin-bottom: 0.75rem;">
+    {{ range . }}<span>{{ . }}</span>{{ end }}
   </div>
   {{ end }}
+  <p>{{ .Summary }}</p>
+  <a class="xp-read-more" href="{{ .Permalink }}"><button>Read more »</button></a>
 </div>
+{{ end }}
+
 {{ end }}
