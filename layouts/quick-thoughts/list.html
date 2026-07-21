@@ -2,41 +2,31 @@
 <link rel="stylesheet" href="https://unpkg.com/xp.css">
 
 <style>
-  .xp-read-more {
-    text-decoration: none;
-  }
-  .post-tags span {
-    background: #000080;
-    color: white;
-    font-size: 0.75rem;
-    padding: 1px 6px;
-    margin-right: 4px;
-    font-family: 'Trebuchet MS', sans-serif;
-  }
   .thought-entry {
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.25rem 1.5rem;
     margin-bottom: 1.5rem;
+  }
+  .thought-entry h2 {
+    margin: 0 0 0.25rem 0;
   }
   .thought-meta {
     font-size: 0.82rem;
     color: var(--secondary);
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.75rem;
+  }
+  .xp-read-more {
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 0.75rem;
   }
 </style>
 
-<h1>Quick Thoughts</h1>
-<p style="color: var(--secondary); margin-bottom: 2rem;">Quick takes on Moroccan &amp; MENA cybersecurity news — ongoing exploits, incident analysis, field notes.</p>
-
 {{ range .Pages }}
 <div class="thought-entry">
-  <h2 style="margin-bottom: 0.25rem;">{{ .Title }}</h2>
+  <h2>{{ .Title }}</h2>
   <p class="thought-meta">{{ .Date.Format "02 Jan 2006" }} &nbsp;·&nbsp; {{ .ReadingTime }} min read</p>
-  {{ with .Params.tags }}
-  <div class="post-tags" style="margin-bottom: 0.75rem;">
-    {{ range . }}<span>{{ . }}</span>{{ end }}
-  </div>
-  {{ end }}
   <p>{{ .Summary }}</p>
   <a class="xp-read-more" href="{{ .Permalink }}"><button>Read more »</button></a>
 </div>
