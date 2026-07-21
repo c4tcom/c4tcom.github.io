@@ -6,3 +6,4 @@ summary: "Thoughts on the ransomware situation in Morocco"
 ---
 
 
+On the 20th of august, the [assabah.ma](https://assabah.ma) news paper posted an article...
