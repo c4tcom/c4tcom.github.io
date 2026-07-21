@@ -1,0 +1,41 @@
+{{ define "main" }}
+<link rel="stylesheet" href="https://unpkg.com/xp.css">
+
+<style>
+  .xp-post {
+    max-width: 780px;
+    margin: 2rem auto;
+    font-family: 'Trebuchet MS', sans-serif;
+  }
+  .xp-post .window-body {
+    padding: 1.5rem;
+    line-height: 1.7;
+  }
+  .xp-post .status-bar {
+    font-size: 0.8rem;
+  }
+</style>
+
+<div class="xp-post">
+  <div class="window">
+    <div class="title-bar">
+      <div class="title-bar-text">{{ .Title }}</div>
+      <div class="title-bar-controls">
+        <button aria-label="Minimize"></button>
+        <button aria-label="Maximize"></button>
+        <button aria-label="Close"></button>
+      </div>
+    </div>
+    <div class="window-body">
+      {{ .Content }}
+    </div>
+    <div class="status-bar">
+      <p class="status-bar-field">{{ .Date.Format "02 Jan 2006" }}</p>
+      <p class="status-bar-field">{{ .ReadingTime }} min read</p>
+      {{ with .Params.tags }}
+      <p class="status-bar-field">{{ delimit . " · " }}</p>
+      {{ end }}
+    </div>
+  </div>
+</div>
+{{ end }}

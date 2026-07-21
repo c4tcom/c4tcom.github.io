@@ -1,0 +1,58 @@
+{{ define "main" }}
+<link rel="stylesheet" href="https://unpkg.com/xp.css">
+
+<style>
+  .xp-feed {
+    max-width: 780px;
+    margin: 2rem auto;
+    font-family: 'Trebuchet MS', sans-serif;
+  }
+  .xp-feed .window {
+    margin-bottom: 2rem;
+  }
+  .xp-feed .window-body {
+    padding: 1rem;
+  }
+  .xp-feed .post-meta {
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+  }
+  .xp-feed .post-tags span {
+    background: #000080;
+    color: white;
+    font-size: 0.75rem;
+    padding: 1px 6px;
+    margin-right: 4px;
+  }
+  .xp-feed a.read-more {
+    display: inline-block;
+    margin-top: 0.75rem;
+  }
+</style>
+
+<div class="xp-feed">
+  {{ range .Pages }}
+  <div class="window">
+    <div class="title-bar">
+      <div class="title-bar-text">{{ .Title }}</div>
+      <div class="title-bar-controls">
+        <button aria-label="Minimize"></button>
+        <button aria-label="Maximize"></button>
+        <button aria-label="Close"></button>
+      </div>
+    </div>
+    <div class="window-body">
+      <p class="post-meta">{{ .Date.Format "02 Jan 2006" }} &nbsp;|&nbsp; {{ .ReadingTime }} min read</p>
+      {{ with .Params.tags }}
+      <div class="post-tags">
+        {{ range . }}<span>{{ . }}</span>{{ end }}
+      </div>
+      {{ end }}
+      <p>{{ .Summary }}</p>
+      <a class="read-more" href="{{ .Permalink }}"><button>Read more »</button></a>
+    </div>
+  </div>
+  {{ end }}
+</div>
+{{ end }}
