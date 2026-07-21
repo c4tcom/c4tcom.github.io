@@ -40,9 +40,9 @@ menu:
     name: Search
     url: /search
     weight: 20
-  - identifier: quick-thoughts
-    name: Quick Thoughts
-    url: /quick-thoughts/
+  - identifier: light-torch
+    name: Light torch
+    url: /light-torch/
     weight: 15
   - identifier: FAQ
     name: FAQ
@@ -54,3 +54,14 @@ outputs:
     - HTML
     - RSS
     - JSON
+
+
+
+homeInfoParams:
+  Title: '<img src="/images/0xPizza.png" width="55" style="vertical-align:middle; display:inline; margin-right:8px;"> 0xdeadbeef.ma'
+  Content: >
+    Blog on Offensive and Defensive security, Vulnerability and Threat research, CTFs and all the fun stuff!
+    <br><br>
+    <a href="/light-torch/" style="text-decoration:none;">
+      <img src="/images/light-torch.png" width="24" style="vertical-align:middle; margin-right:6px;">
+    </a>
