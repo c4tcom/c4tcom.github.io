@@ -1,3 +1,7 @@
 .list .post-entry:first-of-type {
   margin-top: 2rem;
 }
+
+#menu a[href="/light-torch/"] {
+  color: #e05c5c;
+}
