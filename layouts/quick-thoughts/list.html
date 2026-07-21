@@ -10,13 +10,19 @@
 </style>
 
 {{ range .Pages }}
-<div class="thought-entry">
-  <h2>{{ .Title }}</h2>
-  <p style="font-size: 0.82rem; color: var(--secondary);">{{ .Date.Format "02 Jan 2006" }} &nbsp;·&nbsp; {{ .ReadingTime }} min read</p>
-  <p>{{ .Summary }}</p>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">{{ .Title }}</h2>
+  </header>
+  <div class="entry-content">
+    <p>{{ .Summary }}</p>
+  </div>
+  <footer class="entry-footer">
+    <span>{{ .Date.Format "January 2, 2006" }}</span>
+    <span>&nbsp;·&nbsp;{{ .ReadingTime }} min</span>
+  </footer>
   <a class="xp-read-more" href="{{ .Permalink }}"><button>Read more »</button></a>
-</div>
-<hr>
+</article>
 {{ end }}
 
 {{ end }}
