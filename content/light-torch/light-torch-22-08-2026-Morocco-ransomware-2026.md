@@ -30,7 +30,7 @@ Pulling the full Moroccan victims as of writing this blog, going back to 2021 mo
 - **Qilin :** Claimed Outsourcia (business services/BPO) in March 2026 and Eurodefis on the 10/07/2026, this group has grown into one of the most active ransomware-as-a-service operations worldwide recently, largely by absorbing affiliates displaced from other takedowns, there's a very nice article recently shared by Arctic Wolf on [How Exploitation of CVE-2026-0257 Leads to Qilin Ransomware](https://arcticwolf.com/resources/blog/exploitation-of-cve-2026-0257-leads-to-qilin-ransomware/), worth to mention that 7 days later on friday the 17th maCERT shared a [security bulletin on Qilin](https://www.dgssi.gov.ma/fr/bulletins/groupe-cybercriminel-qilin/) 
 
 
-{{< figure src="/images/light-torch/Qilin-submissions-vt-07-2026.svg" alt="Qilin hashes shared by the DGSSI/maCERT after the recent Moroccan victim" caption="Last 3 months Qilin hashes shared by the DGSSI/maCERT - VT submission date after the recent Moroccan victim" >}}
+{{< figure src="/images/light-torch/Qilin-submissions-vt-07-2026.png" alt="Qilin hashes shared by the DGSSI/maCERT after the recent Moroccan victim" caption="Last 3 months Qilin hashes shared by the DGSSI/maCERT - VT submission date after the recent Moroccan victim" >}}
 
 
 - **RansomHub :** Claimed askgs.ma in February 2025, same as Qilin, RansomHub scaled up fast by picking up affiliates from ALPHV/BlackCat  after that group's exit scam, and briefly became one of the highest-volume RaaS brands globally, the ASKGS made it to the headlines aswell when Ransomhub asked for 500k USD as ransom. 
@@ -38,7 +38,21 @@ Pulling the full Moroccan victims as of writing this blog, going back to 2021 mo
 {{< tweet user="hespress" id="1883998421863809228" >}}
 
 
+- Worth mentioning **INC/Incransom** and **Lynx** too. Lynx emerged roughly a year after INC Ransom and generally assessed as an evolved variant of i , rather than a fully separate operation (active since mid-2023, both has 2 Moroccan victims in total) what makes them relevant right now is the FortiBleed story, according SOCRadar [blog](https://socradar.io/blog/fortibleed-inc-lynx-ransomware-link) a single operator found logged into the negotiation panels of both INC and Lynx at once. 
+
+Putting the pattern together a major RaaS (LockBit) still landing hits years after its "takedown," two of the fastest-growing RaaS brands of the moment (Qilin, RansomHub) already present, and unexplained clusters from newer names, my honest read is that **Morocco is becoming a more attractive target** than it used to be, not just an occasional opportunistic hit, whether that's driven by weak perimeter hygiene, the growing digitization of mid-sized Moroccan businesses, or affiliates simply running wider scans post-CVE, is something I want to keep watching rather than assume.
 
 
-Putting the pattern together a major RaaS lineage (LockBit) still landing hits years after its "takedown," two of the fastest-growing RaaS brands of the moment (Qilin, RansomHub) already present, and unexplained clusters from newer names, my honest read is that **Morocco is becoming a more attractive target** than it used to be, not just an occasional opportunistic hit, whether that's driven by weak perimeter hygiene, the growing digitization of mid-sized Moroccan businesses, or affiliates simply running wider scans post-CVE, is something I want to keep watching rather than assume.
+#### Initial access
 
+Honostly i won't dive into intial access since all these ransomware victims never shared (or they did in closed circles) how they got pwned, however funny enough some ransom groups and IABs are generous to tell you how they managed to get access or in some cases some IABs are selling access to Moroccan companies that later was "claimed" that was compromised.
+
+
+The threat landscape is actively maturing around Moroccan organizations, big and small. I don't think that's cause for panic, but it is cause for actually checking your exposure instead of assuming "we're too small/too local to be a target."
+
+I'll keep tracking this as more details (or attribution) surface and whether that case ever gets attributed to a named group.
+
+If you have more information, corrections, or questions on any of this, reach out at adnane[at]0xdeadbeef.ma.
+
+
+End.

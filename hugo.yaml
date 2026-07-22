@@ -5,6 +5,8 @@ theme: PaperMod
 enableEmoji: true
 defaultTheme: light
 enableRobotsTXT: true
+enableGitInfo: true
+
 
 markup:
   goldmark:
