@@ -22,6 +22,12 @@
   <footer class="entry-footer">
     <span>{{ .Date.Format "January 2, 2006" }}</span>
     <span>&nbsp;·&nbsp;{{ .ReadingTime }} min</span>
+    {{ with .Params.tags }}
+    &nbsp;·&nbsp;
+    {{ range . }}
+    <a href="/tags/{{ . | urlize }}" style="font-size: 0.78rem; color: var(--secondary); margin-right: 4px;">#{{ . }}</a>
+    {{ end }}
+    {{ end }}
   </footer>
   <a class="entry-link" href="{{ .Permalink }}" aria-label="{{ .Title }}"></a>
 </article>
