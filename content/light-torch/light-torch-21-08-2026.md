@@ -7,14 +7,15 @@ summary: "Thoughts on the evolving ransomware situation in Morocco."
 
 On the 20th of August, [assabah.ma](https://assabah.ma) published an [article](https://assabah.ma/938227.html?1&1) about a Moroccan "economic group" being extorted by a ransomware group, what stands out is that this kind of story rarely surfaces in mainstream Moroccan media most of these incidents and specially ransomware gets a quiet attention among practitioners, if at all. The article's focus is less on the technical side and more on the fact that the victim brought in a foreign negotiation firm to deal with the threat actors directly.
 
-The contact was reportedly initiated via a "dark web message" informing the victim that data had already been taken, with samples provided as proof. The demand was **$2 million USD** (This has to be a jackpot company) payable in cryptocurrency within a two-month window, with negotiations still ongoing to bring that figure down. 
+The contact was reportedly initiated via a "dark web message" informing the victim that data had already been taken, with samples provided as proof. The demand was **$2 million USD** payable in cryptocurrency within a two-month window, with negotiations still ongoing to bring that figure down. 
 
 
 #### StealBIT/ Software/S1200
 
 One technical detail worth pulling out that the attackers reportedly used **StealBit** for exfiltration, "StealBit" isn't some generic tool it's LockBit's own purpose-built exfiltration utility, released alongside LockBit 2.0 & 3.0 specifically so affiliates wouldn't have to rely on third-party file-sharing services that can be taken down, seeing it show up here suggests this incident sits somewhere in the LockBit lineage and either a current affiliate, or one of the many groups that have repurposed LockBit's builder since it leaked in 2022. That's a meaningful clue even without an on-record group attribution.
 
-![Stealbit comparative table by lockbit](/images/light-torch/stealbit-lockbit.png)
+
+{{< figure src="/images/light-torch/stealbit-lockbit.png" alt="Stealbit comparative table by lockbit" caption="Stealbit comparative table by Lockbit" >}}
 
 
 #### What we should actually be watching for
