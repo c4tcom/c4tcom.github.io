@@ -6,7 +6,7 @@
       {{ .Title }}
     </h1>
     <div class="post-meta">
-      <span>{{ .Date.Format "January 2, 2006 · 15:04" }}</span>
+      <span>{{ .Date.Format "January 2, 2006" }}</span>
       &nbsp;·&nbsp;
       <span>{{ .ReadingTime }} min</span>
       {{ if .Lastmod }}
@@ -15,9 +15,9 @@
       {{ end }}
     </div>
     {{ with .Summary }}
-    <blockquote style="border-left: 3px solid var(--primary); margin: 1.5rem 0; padding: 0.5rem 1rem; color: var(--secondary); font-style: italic;">
+    <p style="margin: 1.5rem 0; padding: 0.5rem 0; color: var(--secondary); font-style: italic;">
       {{ . }}
-    </blockquote>
+    </p>
     {{ end }}
     {{ with .Params.tags }}
     <div style="margin-bottom: 1rem;">
