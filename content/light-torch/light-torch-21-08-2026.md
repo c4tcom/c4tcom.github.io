@@ -18,7 +18,7 @@ One technical detail worth pulling out, that the attackers reportedly used **Ste
 {{< figure src="/images/light-torch/stealbit-lockbit.png" alt="Stealbit comparative table by lockbit" caption="Stealbit comparative table by Lockbit" >}}
 
 
-#### What we should actually be watching for
+#### What actually should be watched for 
 
 Pulling the full Moroccan victims as of writing this blog, going back to 2021 most of it is noise, one&off opportunistic claims from smaller or short-lived operators, but a handful of groups on that list are the ones worth actually tracking, because of how established, prolific, or capable they are globally, not just locally:
 
@@ -30,10 +30,14 @@ Pulling the full Moroccan victims as of writing this blog, going back to 2021 mo
 - **Qilin :** Claimed Outsourcia (business services/BPO) in March 2026 and Eurodefis on the 10/07/2026, this group has grown into one of the most active ransomware-as-a-service operations worldwide recently, largely by absorbing affiliates displaced from other takedowns, there's a very nice article recently shared by Arctic Wolf on [How Exploitation of CVE-2026-0257 Leads to Qilin Ransomware](https://arcticwolf.com/resources/blog/exploitation-of-cve-2026-0257-leads-to-qilin-ransomware/), worth to mention that 7 days later on friday the 17th maCERT shared a [security bulletin on Qilin](https://www.dgssi.gov.ma/fr/bulletins/groupe-cybercriminel-qilin/) 
 
 
-{{< figure src="/images/light-torch/Qilin-submissions-vt-07-2026.svg" alt="Qilin hashes shared by the DGSSI/maCERT after the recent Moroccan victim" caption="Last 3 months Qilin hashes shared by the DGSSI/maCERT VT submission date after the recent Moroccan victim" >}}
+{{< figure src="/images/light-torch/Qilin-submissions-vt-07-2026.svg" alt="Qilin hashes shared by the DGSSI/maCERT after the recent Moroccan victim" caption="Last 3 months Qilin hashes shared by the DGSSI/maCERT - VT submission date after the recent Moroccan victim" >}}
 
 
-- **RansomHub :** Claimed askgs.ma in February 2025, same as Qilin, RansomHub scaled up fast by picking up affiliates from ALPHV/BlackCat  after that group's exit scam, and briefly became one of the highest-volume RaaS brands globally.
+- **RansomHub :** Claimed askgs.ma in February 2025, same as Qilin, RansomHub scaled up fast by picking up affiliates from ALPHV/BlackCat  after that group's exit scam, and briefly became one of the highest-volume RaaS brands globally, the ASKGS made it to the headlines aswell when Ransomhub asked for 500k USD as ransom. 
+
+{{< x user="hespress" id="1883998421863809228" >}}
+
+
 
 
 Putting the pattern together a major RaaS lineage (LockBit) still landing hits years after its "takedown," two of the fastest-growing RaaS brands of the moment (Qilin, RansomHub) already present, and unexplained clusters from newer names, my honest read is that **Morocco is becoming a more attractive target** than it used to be, not just an occasional opportunistic hit, whether that's driven by weak perimeter hygiene, the growing digitization of mid-sized Moroccan businesses, or affiliates simply running wider scans post-CVE, is something I want to keep watching rather than assume.
