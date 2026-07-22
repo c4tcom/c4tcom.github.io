@@ -1,33 +1,36 @@
 {{ define "main" }}
-<article class="post-single">
-  <header class="post-header">
-    <h1 class="post-title">{{ .Title }}</h1>
-    <div class="post-meta">
-      <span>{{ .Date.Format "January 2, 2006" }}</span>
-      &nbsp;·&nbsp;
-      <span>{{ .ReadingTime }} min</span>
-      {{ if .Lastmod }}
-      &nbsp;·&nbsp;
-      <span style="color: var(--secondary); font-size: 0.85rem;">
-        Updated: {{ .Lastmod.Format "January 2, 2006" }}
-      </span>
-      {{ end }}
-    </div>
-    {{ with .Summary }}
-    <blockquote style="border-left: 3px solid var(--primary); margin: 1.5rem 0; padding: 0.5rem 1rem; color: var(--secondary); font-style: italic;">
-      {{ . }}
-    </blockquote>
-    {{ end }}
-    {{ with .Params.tags }}
-    <div style="margin-bottom: 1rem;">
-      {{ range . }}
-      <a href="/tags/{{ . | urlize }}" style="font-size: 0.78rem; color: var(--secondary); margin-right: 6px;">#{{ . }}</a>
-      {{ end }}
-    </div>
-    {{ end }}
+<header style="margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border);">
+  <h1>
+    <img src="/images/light-torch.png" width="85" style="vertical-align:middle; display:inline; margin-right:8px;">
+    Light Torch
+  </h1>
+  {{ with .Description }}
+  <p style="color: var(--secondary); margin-top: 0.5rem; font-size: 0.95rem;">{{ . }}</p>
+  {{ end }}
+</header>
+
+{{ range .Pages }}
+<article class="post-entry">
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </h2>
   </header>
-  <div class="post-content">
-    {{ .Content }}
+  <div class="entry-content">
+    <p>{{ .Summary }}</p>
   </div>
+  <footer class="entry-footer">
+    <span>{{ .Date.Format "January 2, 2006" }}</span>
+    <span>&nbsp;·&nbsp;{{ .ReadingTime }} min</span>
+    {{ with .Params.tags }}
+    &nbsp;·&nbsp;
+    {{ range . }}
+    <a href="/tags/{{ . | urlize }}" style="font-size: 0.78rem; color: var(--secondary); margin-right: 4px;">#{{ . }}</a>
+    {{ end }}
+    {{ end }}
+  </footer>
+  <a class="entry-link" href="{{ .Permalink }}" aria-label="{{ .Title }}"></a>
 </article>
+{{ end }}
+
 {{ end }}
