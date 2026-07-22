@@ -12,7 +12,9 @@
 {{ range .Pages }}
 <article class="post-entry">
   <header class="entry-header">
-    <h2 class="entry-hint-parent">{{ .Title }}</h2>
+    <h2 class="entry-hint-parent">
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </h2>
   </header>
   <div class="entry-content">
     <p>{{ .Summary }}</p>
@@ -21,6 +23,7 @@
     <span>{{ .Date.Format "January 2, 2006" }}</span>
     <span>&nbsp;·&nbsp;{{ .ReadingTime }} min</span>
   </footer>
+  <a class="entry-link" href="{{ .Permalink }}" aria-label="{{ .Title }}"></a>
 </article>
 {{ end }}
 
