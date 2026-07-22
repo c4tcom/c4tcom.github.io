@@ -6,7 +6,7 @@ summary: "A breakdown of the ransomware groups actively targeting Moroccan compa
 description: "A breakdown of the ransomware groups actively targeting Moroccan companies in 2026 : LockBit, Medusa, Qilin, and much more."
 ---
 
-On the 20th of August, [assabah.ma](https://assabah.ma) published an [article](https://assabah.ma/938227.html?1&1) about a Moroccan "economic group" being extorted by a ransomware group, what stands out is that this kind of story rarely surfaces in mainstream Moroccan media most of these incidents and specially ransomware gets a quiet attention among practitioners, if at all. The article's focus is less on the technical side and more on the fact that the victim brought in a foreign negotiation firm to deal with the threat actors directly.
+On the 20th of August, [assabah.ma](https://assabah.ma) published an [article](https://assabah.ma/938227.html?1&1) about a Moroccan "economic group" being extorted by a ransomware group, what stands out is that this kind of story rarely surfaces in this style in mainstream Moroccan media most of these incidents and specially ransomware gets a quiet attention among practitioners. The article's focus is less on the technical side (as usual) and more on the fact that the victim brought in a foreign negotiation firm to deal with the threat actors directly.
 
 The contact was reportedly initiated via a "dark web message" informing the victim that data had already been taken, with samples provided as proof. The demand was **$2 million USD** payable in cryptocurrency within a two-month window, with negotiations still ongoing to bring that figure down. 
 
@@ -46,14 +46,12 @@ Putting the pattern together a major RaaS (LockBit) still landing hits years aft
 
 #### Initial access
 
-Honostly i won't dive into intial access since all these ransomware victims never shared (or they did in closed circles) how they got pwned, however funny enough some ransom groups and IABs are generous to tell you how they managed to get access or in some cases some IABs are selling access to Moroccan companies that later was "claimed" that was compromised.
+Honostly i won't dive into intial access, since all these ransomware victims never shared (or they did share in closed circles) how they got pwned, however funny enough some ransom groups and IABs are generous to tell you how they managed to get access or in some cases some IABs are selling access to Moroccan companies and was later "claimed" and announced in the victims list.
 
 
 The threat landscape is actively maturing around Moroccan organizations, big and small. I don't think that's cause for panic, but it is cause for actually checking your exposure instead of assuming "we're too small/too local to be a target."
 
-I'll keep tracking this as more details (or attribution) surface and whether that case ever gets attributed to a named group.
-
-If you have more information, corrections, or questions on any of this, reach out at adnane[at]0xdeadbeef.ma.
+I'll keep tracking this as more details (or attribution) surface and whether that case ever gets attributed or named. If you have more information, corrections, or questions on any of this, reach out at adnane[at]0xdeadbeef.ma.
 
 
 End.
