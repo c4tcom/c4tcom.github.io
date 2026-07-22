@@ -35,7 +35,7 @@ Pulling the full Moroccan victims as of writing this blog, going back to 2021 mo
 
 - **RansomHub :** Claimed askgs.ma in February 2025, same as Qilin, RansomHub scaled up fast by picking up affiliates from ALPHV/BlackCat  after that group's exit scam, and briefly became one of the highest-volume RaaS brands globally, the ASKGS made it to the headlines aswell when Ransomhub asked for 500k USD as ransom. 
 
-{{< x user="hespress" id="1883998421863809228" >}}
+{{< tweet user="hespress" id="1883998421863809228" >}}
 
 
 
