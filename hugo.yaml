@@ -16,6 +16,7 @@ markup:
 params:
   mainSections:
     - posts
+    - light-torch
   subtitle: It was called the sand war, bcs it was sandy.
   ShowReadingTime: true
   homeInfoParams:
