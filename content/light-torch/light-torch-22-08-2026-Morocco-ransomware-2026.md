@@ -1,9 +1,10 @@
 ---
 title: "Morocco's $2 Million Reason to Patch Your VPN."
-date: 2025-07-22
+date: 2026-07-22
 tags: ["Morocco", "Ransomware", "Lockbit", "Qilin"]
 summary: "A breakdown of the ransomware groups actively targeting Moroccan companies in 2026 : LockBit, Medusa, Qilin, and much more."
 description: "A breakdown of the ransomware groups actively targeting Moroccan companies in 2026 : LockBit, Medusa, Qilin, and much more."
+
 ---
 
 On the 20th of August, [assabah.ma](https://assabah.ma) published an [article](https://assabah.ma/938227.html?1&1) about a Moroccan "economic group" being extorted by a ransomware group, what stands out is that this kind of story rarely surfaces in this style in mainstream Moroccan media most of these incidents and specially ransomware gets a quiet attention among practitioners. The article's focus is less on the technical side (as usual) and more on the fact that the victim brought in a foreign negotiation firm to deal with the threat actors directly.
@@ -47,6 +48,9 @@ Putting the pattern together a major RaaS (LockBit) still landing hits years aft
 #### Initial access
 
 Honostly i won't dive into intial access, since all these ransomware victims never shared (or they did share in closed circles) how they got pwned, however funny enough some ransom groups and IABs are generous to tell you how they managed to get access or in some cases some IABs are selling access to Moroccan companies and was later "claimed" and announced in the victims list.
+
+{{< figure src="/images/light-torch/torch-light-stormous-2026.jpeg" alt="Stormous describing access" caption="Stormous claimed access to a Moroccan company and put it up for sale with screenshots as proof. however, Stormous claims are generally unverified and should be treated with caution." >}}
+
 
 
 The threat landscape is actively maturing around Moroccan organizations, big and small. I don't think that's cause for panic, but it is cause for actually checking your exposure instead of assuming "we're too small/too local to be a target."
