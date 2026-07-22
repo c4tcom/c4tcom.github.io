@@ -6,27 +6,27 @@ summary: "Thoughts on the evolving ransomware situation in Morocco."
 ---
 
 
-On the 20th of August, [assabah.ma](https://assabah.ma) published an [article](https://assabah.ma/938227.html?1&1) about a Moroccan "economic group" being extorted by a ransomware group. What stands out is that this kind of story rarely surfaces in mainstream Moroccan media most of these incidents  and specially ransomware gets a quiet attention among practitioners, if at all. The article's focus is less on the technical side and more on the fact that the victim brought in a foreign negotiation firm to deal with the threat actors directly.
+On the 20th of August, [assabah.ma](https://assabah.ma) published an [article](https://assabah.ma/938227.html?1&1) about a Moroccan "economic group" being extorted by a ransomware group, what stands out is that this kind of story rarely surfaces in mainstream Moroccan media most of these incidents and specially ransomware gets a quiet attention among practitioners, if at all. The article's focus is less on the technical side and more on the fact that the victim brought in a foreign negotiation firm to deal with the threat actors directly.
 
 The contact was reportedly initiated via a "dark web message" informing the victim that data had already been taken, with samples provided as proof. The demand was **$2 million USD** (This has to be a jackpot company) payable in cryptocurrency within a two-month window, with negotiations still ongoing to bring that figure down. 
 
 
-#### StealBIT/ Software/S1200
+### StealBIT/ Software/S1200
 
 One technical detail worth pulling out that the attackers reportedly used **StealBit** for exfiltration, "StealBit" isn't some generic tool it's LockBit's own purpose-built exfiltration utility, released alongside LockBit 2.0 & 3.0 specifically so affiliates wouldn't have to rely on third-party file-sharing services that can be taken down, seeing it show up here suggests this incident sits somewhere in the LockBit lineage and either a current affiliate, or one of the many groups that have repurposed LockBit's builder since it leaked in 2022. That's a meaningful clue even without an on-record group attribution.
 
 
-#### What we should actually be watching for
+### What we should actually be watching for
 
 Pulling the full Moroccan victims as of writing this blog, going back to 2021 most of it is noise! one-off opportunistic claims from smaller or short-lived operators, but a handful of groups on that list are the ones worth actually tracking, because of how established, prolific, or capable they are globally, not just locally:
 
-- **LockBit (2.0 / 3.0 / 5.0) :** the group behind StealBit itself, and the most persistent name on the Moroccan list by far: ceratube.ma (2021), galenica.ma (famous one) + others and most recently Planet Sport under LockBit 5.0 (April 2026) and potentially more victims that went un-noticed or kept their secracy (like our big economic group), despite (Operation Cronos)[https://www.europol.europa.eu/media-press/newsroom/news/law-enforcement-disrupt-worlds-biggest-ransomware-operation] takedown in 2024, the brand and leaked builder are clearly still circulating and still landing Moroccan victims years later.
+- **LockBit (2.0 / 3.0 / 5.0) :** the group behind StealBit itself, and the most persistent name on the Moroccan list by far: ceratube.ma (2021), galenica.ma (famous one) + others and most recently Planet Sport under LockBit 5.0 (April 2026) and potentially more victims that went un-noticed or kept their secracy (like our big economic group), despite [Operation Cronos](https://www.europol.europa.eu/media-press/newsroom/news/law-enforcement-disrupt-worlds-biggest-ransomware-operation) takedown in 2024, the brand and leaked builder are clearly still circulating and still landing Moroccan victims years later.
 
 
 - **Medusa :** hit Steripharma (pharma) in 2023 and La Voie Express (logistics) in 2025 for 2 more Moroccan targets that maybe payed the ransom or somehow managed to not appear in their DLS, Medusa is known for their aggressive double-extortion and a public leak-site countdown model, and has been one of the more active RaaS operations globally over the past two years.
 
+- **Qilin :** claimed Outsourcia (business services/BPO) in March 2026 and Eurodefis on the 10/07/2026, this group has grown into one of the most active ransomware-as-a-service operations worldwide recently, largely by absorbing affiliates displaced from other takedowns, there's very nice article recently shared by Arctic wolf on [How Exploitation of CVE-2026-0257 Leads to Qilin Ransomware](https://arcticwolf.com/resources/blog/exploitation-of-cve-2026-0257-leads-to-qilin-ransomware/), worth to mention that 7 days later on the friday 17th maCERT shared a [security bulletin on Qilin](https://www.dgssi.gov.ma/fr/bulletins/groupe-cybercriminel-qilin/) 
 
-- **Qilin :** claimed Outsourcia (business services/BPO) in March 2026 and Eurodefis on the 10/70, this group has grown into one of the most active ransomware-as-a-service operations worldwide recently, largely by absorbing affiliates displaced from other takedowns, there's very nice article recently shared by Arctic wolf on [How Exploitation of CVE-2026-0257 Leads to Qilin Ransomware](https://arcticwolf.com/resources/blog/exploitation-of-cve-2026-0257-leads-to-qilin-ransomware/). 
 
 - **RansomHub :** claimed askgs.ma in February 2025, same as Qilin, RansomHub scaled up fast by picking up affiliates from ALPHV/BlackCat  after that group's exit scam, and briefly became one of the highest-volume RaaS brands globally.
 
