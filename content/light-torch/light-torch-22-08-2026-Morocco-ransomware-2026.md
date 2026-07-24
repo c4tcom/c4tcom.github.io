@@ -53,7 +53,7 @@ Honostly i won't dive into intial access, since all these ransomware victims nev
 
 The threat landscape is actively maturing around Moroccan organizations, big and small. I don't think that's cause for panic, but it is cause for actually checking your exposure instead of assuming "we're too small/too local to be a target."
 
-I'll keep tracking this as more details (or attribution) surface and whether that case ever gets attributed or named. If you have more information, corrections, or questions on any of this, reach out at adnane[at]0xdeadbeef.ma.
+I'll keep tracking this as more details (or attribution) surface and whether that case ever gets attributed or named. If you have more information, corrections, or questions on any of this, reach out at **adnane[at]0xdeadbeef.ma**.
 
 
 End.
