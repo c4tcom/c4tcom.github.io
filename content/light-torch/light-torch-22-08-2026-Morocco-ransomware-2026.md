@@ -4,9 +4,7 @@ date: 2026-07-22
 tags: ["Morocco", "Ransomware", "Lockbit", "Qilin"]
 summary: "A breakdown of the ransomware groups actively targeting Moroccan companies in 2026 : LockBit, Medusa, Qilin, and much more."
 cover:
-    image: "images/light-torch/tumblr_1f0e.jpeg"
-    alt: "Morocco ransomware 2026"
-    caption: "Ransomware groups targeting Morocco in 2026"
+    image: "images/light-torch/tumblr_1f0e.jpg"
     relative: false
 ---
 
