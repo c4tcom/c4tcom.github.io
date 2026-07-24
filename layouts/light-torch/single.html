@@ -26,6 +26,18 @@
       {{ end }}
     </div>
     {{ end }}
+    {{ with .Params.cover.image }}
+    {{ $img := . }}
+    {{ if not $.Params.cover.relative }}{{ $img = printf "/%s" $img }}{{ end }}
+    <div class="post-cover" style="margin: 1.5rem 0;">
+      <img src="{{ $img }}"
+           alt="{{ $.Params.cover.alt | default $.Title }}"
+           style="width:100%; border-radius: 8px;">
+      {{ with $.Params.cover.caption }}
+      <p style="text-align:center; font-size:0.85rem; color:var(--secondary); margin-top:0.4rem;">{{ . | markdownify }}</p>
+      {{ end }}
+    </div>
+    {{ end }}
   </header>
   <div class="post-content">
     {{ .Content }}

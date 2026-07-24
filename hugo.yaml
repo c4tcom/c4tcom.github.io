@@ -14,6 +14,7 @@ markup:
       unsafe: true
 
 params:
+  env: production
   mainSections:
     - posts
     - light-torch
