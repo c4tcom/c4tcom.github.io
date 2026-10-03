@@ -8,7 +8,6 @@ tags:
 - Threat research
 - Malware
 title: Beaver at the gates, DPRK activity in North africa
-weight: 10
 ---
 
 
