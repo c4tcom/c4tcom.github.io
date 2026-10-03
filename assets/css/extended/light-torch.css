@@ -55,3 +55,11 @@
 .menu-dropdown-list li a:hover {
   background: var(--code-bg);
 }
+
+body:not(.list) {
+  background: #F5F5F5;
+}
+
+html[data-theme="dark"] body:not(.list) {
+  background: var(--theme);
+}

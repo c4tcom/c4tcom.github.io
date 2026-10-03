@@ -65,7 +65,7 @@ menu:
   - identifier: hackthebox
     name: HackTheBox
     url: /categories/hackthebox/
-    pre: '<img src="/images/htb.png" width="14" style="vertical-align:middle; margin-right:5px;">'
+    pre: '<img src="/images/htb-logo.png" width="14" style="vertical-align:middle; margin-right:5px;">'
     parent: more
     weight: 30
   - identifier: FAQ
