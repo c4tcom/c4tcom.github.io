@@ -38,6 +38,7 @@
   z-index: 20;
   list-style: none;
   margin: 0;
+  line-height: 1.4;
 }
 
 .menu-dropdown:hover .menu-dropdown-list,
@@ -54,6 +55,14 @@
 
 .menu-dropdown-list li a:hover {
   background: var(--code-bg);
+}
+
+#menu a[href*="hackthebox"] {
+  color: #9fef00;
+}
+
+#menu a[href*="hackthebox"]:hover {
+  opacity: 0.85;
 }
 
 body:not(.list) {
