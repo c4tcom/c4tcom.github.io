@@ -50,10 +50,12 @@ menu:
     name: Search
     url: /search
     weight: 20
-  - identifier: more
-    name: More
-    url: "#"
-    weight: 40
+  - identifier: hackthebox
+    name: HackTheBox
+    url: /categories/hackthebox/
+    pre: '<img src="/images/htb-logo.png" width="14" style="vertical-align:middle; margin-right:5px;">'
+    parent: more
+    weight: 5
   - identifier: archives
     name: Archives
     url: /archives/
@@ -64,14 +66,6 @@ menu:
     url: /tags/
     parent: more
     weight: 20
-  - identifier: hackthebox
-    name: HackTheBox
-    url: /categories/hackthebox/
-    parent: more
-    weight: 30
-  - identifier: FAQ
-    name: FAQ
-    url: /faq
     weight: 50
 
 outputs:

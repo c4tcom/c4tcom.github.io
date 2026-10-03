@@ -30,9 +30,8 @@
   position: absolute;
   top: 100%;
   left: 0;
-  background: var(--entry);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  background: transparent;
+  border: none;
   min-width: 140px;
   padding: 6px 0;
   z-index: 20;
