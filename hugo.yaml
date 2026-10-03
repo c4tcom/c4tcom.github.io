@@ -40,14 +40,28 @@ menu:
     name: Home
     url: /
     weight: 10
-  - identifier: search
-    name: Search
-    url: /search
-    weight: 20
   - identifier: light-torch
     name: Light torch
     url: /light-torch/
     weight: 15
+  - identifier: search
+    name: Search
+    url: /search
+    weight: 20
+  - identifier: more
+    name: More
+    url: "#"
+    weight: 40
+  - identifier: archives
+    name: Archives
+    url: /archives/
+    parent: more
+    weight: 10
+  - identifier: tags
+    name: Tags
+    url: /tags/
+    parent: more
+    weight: 20
   - identifier: FAQ
     name: FAQ
     url: /faq

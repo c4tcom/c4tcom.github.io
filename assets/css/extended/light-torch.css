@@ -5,3 +5,57 @@
 #menu a[href="https://0xdeadbeef.ma/light-torch/"] {
   color: #e05c5c;
 }
+
+.home-info.first-entry {
+  margin-bottom: var(--gap);
+}
+
+.list .home-info + .post-entry {
+  margin-top: 0.5rem;
+}
+
+.list {
+  background: var(--theme);
+}
+
+.menu-dropdown {
+  position: relative;
+}
+
+.menu-dropdown-toggle {
+  display: flex !important;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.menu-dropdown-list {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--entry);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  min-width: 140px;
+  padding: 6px 0;
+  z-index: 20;
+  list-style: none;
+  margin: 0;
+}
+
+.menu-dropdown:hover .menu-dropdown-list,
+.menu-dropdown:focus-within .menu-dropdown-list {
+  display: block;
+}
+
+.menu-dropdown-list li a {
+  display: block;
+  padding: 8px 14px;
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+.menu-dropdown-list li a:hover {
+  background: var(--code-bg);
+}
