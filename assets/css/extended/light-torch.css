@@ -63,3 +63,7 @@ body:not(.list) {
 html[data-theme="dark"] body:not(.list) {
   background: var(--theme);
 }
+
+#menu {
+  overflow: visible;
+}
