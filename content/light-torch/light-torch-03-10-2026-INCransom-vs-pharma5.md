@@ -8,14 +8,14 @@ summary: "DGSSI/maCERT moved quickly after INC Ransom listed Pharma5, a look at 
 It's genuinely cool to see DGSSI/maCERT react this fast, the same day Pharma5 (pharma5.ma) was publicly listed as a victim by INC Ransom (aka INC, INCransom) on September 25, they already had a bulletin out on the group.
 My first thought was FortiBleed. If you remember that story, I went through that directory and a huge number of Moroccan companies were affected, and while the full picture was never entirely clear, it was attributed to a financially motivated threat actor. According to the folks over at SOCRadar, one operator was observed logged into both the INC Ransom and Lynx negotiation panels at once, which is about as direct a link as you get between a mass credential-theft campaign and actual ransomware deployment.
 
-#### The hit
+### The hit
 INC Ransom listed the Casablanca-based pharmaceutical company³ on September 25, claiming ~50GB of exfiltrated data includes corporate and financial records, product and supply chain data, quality control and certification records, drug testing documentation, and employee personal data.
 
 
 {{< figure src="/images/light-torch/2026-10-pharma5.jpeg" alt="Pharma5.ma listing on INC's ransomware blog" caption="Pharma5.ma listing on INC's ransomware blog" >}}
 
 
-#### Ruling out FortiBleed
+### Ruling out FortiBleed
 I don't think this traces back to FortiBleed. **I went through the full FortiBleed directory**, and neither Pharma5 nor any Fortinet device tied to them shows up in it. Pharma5 does run a FortiGate. A quick Shodan check turns one up at ```102.50.244.4```, registered under Laboratoires Pharma5, but it isn’t one of the devices caught up in the FortiBleed campaign
 
 
@@ -23,7 +23,7 @@ I don't think this traces back to FortiBleed. **I went through the full FortiBle
 
 
 
-#### INC Modus Operandi
+### INC Modus Operandi
 
 So if not FortiBleed, what does INC's usual playbook look like? It's worth laying out before drawing conclusions on Pharma5. INC doesn't lean on a single signature exploit, and knowing their documented patterns makes it much easier to judge which explanation for this specific case holds up.
 I'm not going to go through their full TTPs this time. In cases like this I'm mostly interested in the snake's head of initial access.
