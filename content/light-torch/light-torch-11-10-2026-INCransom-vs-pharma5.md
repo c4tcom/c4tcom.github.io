@@ -5,7 +5,8 @@ tags: ["Morocco", "Ransomware", "INC Ransom", "Pharma5.ma", "FortiBleed"]
 summary: "DGSSI/maCERT moved quickly after INC Ransom listed Pharma5, a look at the bulletin, the group's TTPs, and the FortiBleed/Lynx connection."
 ---
 
-It's genuinely cool to see DGSSI/maCERT react this fast, the same day Pharma5 (pharma5.ma) was publicly listed as a victim by INC Ransom (aka INC, INCransom) on September 25, they already had [a bulletin](https://www.dgssi.gov.ma/fr/bulletins/groupe-cybercriminel-inc-ransom/) out on the group.
+Cool to see DGSSI/maCERT react this fast, the same day Pharma5 (pharma5.ma) was publicly listed as a victim by INC Ransom (aka INC, INCransom) on September 25, they already had [a bulletin](https://www.dgssi.gov.ma/fr/bulletins/groupe-cybercriminel-inc-ransom/) out on the group (coinsidence?).
+
 My first thought was FortiBleed. If you remember that story, I went through that directory and a huge number of Moroccan companies were affected, and while the full picture was never entirely clear, it was attributed to a financially motivated threat actor. According to the folks over at SOCRadar, one operator was observed logged into both the INC Ransom and Lynx negotiation panels at once, which is about as direct a link as you get between a mass credential-theft campaign and actual ransomware deployment.
 
 ### The hit
