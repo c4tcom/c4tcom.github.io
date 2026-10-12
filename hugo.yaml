@@ -46,16 +46,17 @@ menu:
     name: Light torch
     url: /light-torch/
     weight: 15
+  
+  - identifier: faq
+    name: FAQ
+    url: /FAQ
+    weight: 20
+ 
   - identifier: search
     name: Search
     url: /search
     weight: 20
-  - identifier: hackthebox
-    name: HackTheBox
-    url: /categories/hackthebox/
-    pre: '<img src="/images/htb-logo.png" width="14" style="vertical-align:middle; margin-right:5px;">'
-    parent: more
-    weight: 5
+
   - identifier: archives
     name: Archives
     url: /archives/
