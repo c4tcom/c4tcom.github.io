@@ -18,7 +18,7 @@ INC Ransom listed the Casablanca-based pharmaceutical company on September 25, c
 
 
 ### Ruling out FortiBleed
-I don't think this traces back to FortiBleed. **I went through the full FortiBleed directory**, and neither Pharma5 nor any Fortinet device tied to them shows up in it. Pharma5 does run a FortiGate. A quick Shodan check turns one up at `102.50.244.4`, registered under Laboratoires Pharma5, but it isn’t one of the devices caught up in the FortiBleed campaign.
+I don't think this traces back to FortiBleed. **I went through the full FortiBleed directory**, and neither Pharma5 nor any Fortinet device tied to them shows up in it. Pharma5 does run a FortiGate. A quick Shodan check turns one up at **102.50.244.4**, registered under Laboratoires Pharma5, but it isn’t one of the devices caught up in the FortiBleed campaign.
 
 
 {{< figure src="/images/light-torch/2026-Pharma5-Fortinet.jpeg" alt="Pharma5 FortiGate seen on Shodan" caption="Fortinet under pharma5, now taken offline." >}}
@@ -101,7 +101,7 @@ A few other things that stand out :
 
 Windows in July and August, Linux in September. Every Windows executable in the set first appears in July or August. All the Linux material (two ELFs and two ZIPs, including snapshot.zip) appears in September, in the three weeks before the Pharma5 listing. That includes the most recent upload, INC's ESXi crypter used to target VMware hypervisors. snapshot.zip contains yet another INC Linux ransomware build.
 
-The index.html.NNN burst. Eight ZIP files named **index.html.973** to **index.html.1008** were submitted on August 12. That naming is what **wget** produces when it keeps saving the same URL into a directory that already has the file, so something likely fetched the same URL a thousand times and got a different archive each time. I can't say what served them, but it looks like automated delivery rather than a single payload.
+The **index.html.NNN burst**. Eight ZIP files named **index.html.973** to **index.html.1008** were submitted on August 12. That naming is what **wget** produces when it keeps saving the same URL into a directory that already has the file, so something likely fetched the same URL a thousand times and got a different archive each time. I can't say what served them, but it looks like automated delivery rather than a single payload.
 
 **ransomware_notes-main.zip**. The **-main.zip** suffix is what GitHub gives a downloaded repository archive, so this is probably a collection of ransom notes rather than a binary.
 
@@ -119,7 +119,7 @@ Putting the pieces together:
 
 I can't tell you how INC actually got into Pharma5. What the evidence does suggest is that the weak point worth watching here isn't an l33t exploit, it's stolen creds on remote access.
 
-If you have something to add on this case, or you're seeing the same patterns, reach me at `adnane [at] 0xdeadbeef.ma`.
+If you have something to add on this case, or you're seeing the same patterns, reach me at **adnane [at] 0xdeadbeef.ma**.
 
 
-**Note 10/10/2026** : Just saw that Qilin added the CNESTEN (Centre national de l'énergie des sciences et des techniques nucléaires) to their victim list, very interesting to keep an eye on, maybe bulletin this week?
+**Note 10/10/2026** : Just saw that Qilin added the CNESTEN (Centre national de l'énergie des sciences et des techniques nucléaires) to their victim list, very interesting to keep an eye on, maybe maCERT bulletin this week?
