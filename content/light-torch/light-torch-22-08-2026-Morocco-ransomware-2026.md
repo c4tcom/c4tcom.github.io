@@ -38,7 +38,7 @@ Pulling the full Moroccan victims as of writing this blog, going back to 2021 mo
 {{< tweet user="hespress" id="1883998421863809228" >}}
 
 
-- Worth mentioning **INC/Incransom** and **Lynx** too. Lynx emerged roughly a year after INC Ransom and generally assessed as an evolved variant of i , rather than a fully separate operation (active since mid-2023, both has 2 Moroccan victims in total) what makes them relevant right now is the FortiBleed story, according SOCRadar [blog](https://socradar.io/blog/fortibleed-inc-lynx-ransomware-link) a single operator found logged into the negotiation panels of both INC and Lynx at once. 
+- Worth mentioning **INC/Incransom** and **Lynx** too. Lynx emerged roughly a year after INC Ransom and generally assessed as an evolved variant of INC , rather than a fully separate operation (active since mid-2023, both has 2 Moroccan victims in total) what makes them relevant right now is the FortiBleed story, according SOCRadar [blog](https://socradar.io/blog/fortibleed-inc-lynx-ransomware-link) a single operator found logged into the negotiation panels of both INC and Lynx at once. 
 
 Putting the pattern together a major RaaS (LockBit) still landing hits years after its "takedown," two of the fastest-growing RaaS brands of the moment (Qilin, RansomHub) already present, and unexplained clusters from newer names, my honest read is that **Morocco is becoming a more attractive target** than it used to be, not just an occasional opportunistic hit, whether that's driven by weak perimeter hygiene, the growing digitization of mid-sized Moroccan businesses, or affiliates simply running wider scans post-CVE, is something I want to keep watching rather than assume.
 
