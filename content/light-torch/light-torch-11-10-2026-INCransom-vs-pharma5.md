@@ -32,7 +32,7 @@ I'm not going to go through their full TTPs this time. In cases like this I'm mo
 
 INC has exploited several vulnerabilities in the past : **Citrix (CitrixBleed, CVE-2023-3519)**, **Fortinet (CVE-2023-48788, CVE-2025-24472)** and **SimpleHelp (multiple privilege escalation CVEs)**. Besides these, which can grant initial access or at least lateral movement, phishing campaigns have also been observed and attributed to INC.
 
-There's an old but good thread by the Microsoft Threat Intelligence team noting that Vice Society (tracked as Vanilla Tempest) was observed deploying INC. Vanilla Tempest in turn receives its initial access from Storm-0494, the actor behind the Gootloader malware.
+There's an old but gold thread by the Microsoft Threat Intelligence team noting that Vice Society (tracked as Vanilla Tempest) was observed deploying INC. Vanilla Tempest in turn receives its initial access from Storm-0494, the actor behind the Gootloader malware.
 
 {{< tweet user="MsftSecIntel" id="1836456406276342215" >}}
 
@@ -59,7 +59,8 @@ https://vpn.pharma5.ma:4043/proxy/[redacted]/https/10.x.xx.2x/hra-space/portal
 ```
 
 
-The result is multiple employee infostealer infections tied to Pharma5's VPN and RDP services. A look into the raw logs shows a RisePro Telegram bot handle, which isn't surprising: RisePro is a commodity stealer sold on Telegram and widely pushed through pay-per-install loaders and cracked-software lures, and it shows code similarities with Vidar. 
+The result is multiple employee infostealer infections tied to Pharma5's VPN and RDP services. A look into the raw logs shows a RisePro Telegram bot handle, which isn't surprising.
+RisePro is a commodity stealer sold on Telegram and widely pushed through pay-per-install loaders and cracked-software lures, and it shows code similarities with Vidar. 
 
 ```
 ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
@@ -100,11 +101,11 @@ A few other things that stand out :
 
 Windows in July and August, Linux in September. Every Windows executable in the set first appears in July or August. All the Linux material (two ELFs and two ZIPs, including snapshot.zip) appears in September, in the three weeks before the Pharma5 listing. That includes the most recent upload, INC's ESXi crypter used to target VMware hypervisors. snapshot.zip contains yet another INC Linux ransomware build.
 
-The index.html.NNN burst. Eight ZIP files named `index.html.973` to `index.html.1008` were submitted on August 12. That naming is what `wget` produces when it keeps saving the same URL into a directory that already has the file, so something likely fetched the same URL a thousand times and got a different archive each time. I can't say what served them, but it looks like automated delivery rather than a single payload.
+The index.html.NNN burst. Eight ZIP files named **index.html.973** to **index.html.1008** were submitted on August 12. That naming is what **wget** produces when it keeps saving the same URL into a directory that already has the file, so something likely fetched the same URL a thousand times and got a different archive each time. I can't say what served them, but it looks like automated delivery rather than a single payload.
 
-`ransomware_notes-main.zip`. The `-main.zip` suffix is what GitHub gives a downloaded repository archive, so this is probably a collection of ransom notes rather than a binary.
+**ransomware_notes-main.zip**. The **-main.zip** suffix is what GitHub gives a downloaded repository archive, so this is probably a collection of ransom notes rather than a binary.
 
-The caveat that applies to all of this: a first-submission date is only a floor for when a sample existed in the wild. It doesn't tell me when or where it was deployed, and none of these samples is tied to Pharma5. What it does show is that INC's Linux and ESXi tooling was showing up on VirusTotal in the weeks before the group listed a Moroccan pharma company.
+The caveat that applies to all of this, a first-submission date is only a floor for when a sample existed in the wild. It doesn't tell me when or where it was deployed, and none of these samples is tied to Pharma5. What it does show is that INC's Linux and ESXi tooling was showing up on VirusTotal in the weeks before the group listed a Moroccan pharma company.
 
 
 
@@ -112,7 +113,7 @@ The caveat that applies to all of this: a first-submission date is only a floor 
 
 Putting the pieces together:
 
-- **FortiBleed doesn't explain Pharma5.** I checked the full dataset: neither Pharma5 nor its FortiGate is in it.
+- **FortiBleed doesn't explain Pharma5.** I checked the full dataset and neither Pharma5 nor its FortiGate is in it.
 - **The exposure points at valid-account abuse.** Infostealer intelligence shows infected employee devices with saved sessions on Pharma5's VPN and RDP, with RisePro in the logs. That fits INC's documented patterns, but it's an opportunity, not proof of entry.
 
 
