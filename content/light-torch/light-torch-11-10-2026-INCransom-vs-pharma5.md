@@ -5,9 +5,9 @@ tags: ["Morocco", "Ransomware", "INC Ransom", "Pharma5.ma", "FortiBleed"]
 summary: "DGSSI/maCERT moved quickly after INC Ransom listed Pharma5, a look at the bulletin, the group's TTPs, and the FortiBleed/Lynx connection."
 ---
 
-Cool to see DGSSI/maCERT react this fast, the same day Pharma5 (pharma5.ma) was publicly listed as a victim by INC Ransom (aka INC, INCransom) on September 25, they already had [a bulletin](https://www.dgssi.gov.ma/fr/bulletins/groupe-cybercriminel-inc-ransom/) out on the group (coinsidence?).
+Cool to see DGSSI/maCERT react this fast, the same day Pharma5 (pharma5.ma) was publicly listed as a victim by INC Ransom (aka INC, INCransom) on September 25, they already had [a bulletin](https://www.dgssi.gov.ma/fr/bulletins/groupe-cybercriminel-inc-ransom/) out on the group (coincidence?).
 
-My first thought was FortiBleed. If you remember that story, I went through that directory and a huge number of Moroccan companies were affected, and while the full picture was never entirely clear, it was attributed to a financially motivated threat actor. According to the folks over at SOCRadar, one operator was observed logged into both the INC Ransom and Lynx negotiation panels at once, which is about as direct a link as you get between a mass credential-theft campaign and actual ransomware deployment.
+My first thought was FortiBleed. If you remember that story, I went through that directory and a huge number of Moroccan companies were affected, and while the full picture was never entirely clear, it was attributed to a financially motivated threat actor & according to the folks over at SOCRadar, one operator was observed logged into both the INC Ransom and Lynx negotiation panels at once, which is about as direct a link as you get between a mass credential-theft campaign and actual ransomware deployment.
 
 ### The hit
 INC Ransom listed the Casablanca-based pharmaceutical company on September 25, claiming ~50GB of exfiltrated data, including corporate and financial records, product and supply chain data, quality control and certification records, drug testing documentation, and employee personal data.
@@ -58,16 +58,43 @@ https://vpn.pharma5.ma:4043/proxy/[redacted]/https/10.x.xx.2x/hra-space/portal
 ```
 
 
-The result is multiple employee infostealer infections tied to Pharma5's VPN and RDP services. It's not surprising to see a RisePro telegram bot handle in the logs, a commodity stealer sold on Telegram and widely pushed through pay-per-install loaders and cracked-software lures, that shows code similarities with Vidar.
+The result is multiple employee infostealer infections tied to Pharma5's VPN and RDP services. A look into the raw logs and it's not surprising to see a RisePro Telegram bot handle in the logs, a commodity stealer sold on Telegram and widely pushed through pay-per-install loaders and cracked-software lures, that shows code similarities with Vidar.
+
+
+```
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+─████████████████───██████████─██████████████─██████████████─██████████████─████████████████───██████████████─
+─██░░░░░░░░░░░░██───██░░░░░░██─██░░░░░░░░░░██─██░░░░░░░░░░██─██░░░░░░░░░░██─██░░░░░░░░░░░░██───██░░░░░░░░░░██─
+─██░░████████░░██───████░░████─██░░██████████─██░░██████████─██░░██████░░██─██░░████████░░██───██░░██████░░██─
+─██░░██────██░░██─────██░░██───██░░██─────────██░░██─────────██░░██──██░░██─██░░██────██░░██───██░░██──██░░██─
+─██░░████████░░██─────██░░██───██░░██████████─██░░██████████─██░░██████░░██─██░░████████░░██───██░░██──██░░██─
+─██░░░░░░░░░░░░██─────██░░██───██░░░░░░░░░░██─██░░░░░░░░░░██─██░░░░░░░░░░██─██░░░░░░░░░░░░██───██░░██──██░░██─
+─██░░██████░░████─────██░░██───██████████░░██─██░░██████████─██░░██████████─██░░██████░░████───██░░██──██░░██─
+─██░░██──██░░██───────██░░██───────────██░░██─██░░██─────────██░░██─────────██░░██──██░░██─────██░░██──██░░██─
+─██░░██──██░░██████─████░░████─██████████░░██─██░░██████████─██░░██─────────██░░██──██░░██████─██░░██████░░██─
+─██░░██──██░░░░░░██─██░░░░░░██─██░░░░░░░░░░██─██░░░░░░░░░░██─██░░██─────────██░░██──██░░░░░░██─██░░░░░░░░░░██─
+─██████──██████████─██████████─██████████████─██████████████─██████─────────██████──██████████─██████████████─
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+───────────────────────────────────── Telegram: https://t.me/risepro_bot ─────────────────────────────────────
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────
+Storage: Edge [Default]
+URL: https://vpn.pharma5.ma:4043/proxy/[REDACTED]/https/10.9.25.xx/hra-space/portal/
+Login: [REDACTED]
+Password: [REDACTED]
+
+URL: https://vpn.pharma5.ma:4043/remote/logincheck
+Login: [REDACTED]
+Password: [REDACTED]
+
+```
+
 That covers the door, but not what came through it, the stealer logs only tell me who was exposed, not what ran afterwards. That's where the DGSSI bulletin comes in, alongside its description of the group, it shares a set of INC samples (hashes), and samples are the one thing I can use to look at the intrusion side instead of the exposure side.
 
 
 ### The Bulletin
-I ran every hash from the bulletin through VT and pulled the first submission date for each, to see how recent this activity really is and whether it lines up with the Pharma5 listing, very interesting findings, notably a recent upload of INC's ESXi crypter used to target VMware ESXi hypervisors.
-
+I ran every hash from the bulletin through VT and pulled the first submission date for each, to see how recent this activity really is and whether it lines up with the Pharma5 listing, and very interesting findings, notably a recent upload of INC's ESXi crypter used to target VMware ESXi hypervisors.
 
 {{< figure src="/images/light-torch/carbon-INC-macert-dgssi.png" alt="some of DGSSI's maCERT shared hashes" caption="some of DGSSI's maCERT shared hashes" >}}
-
 
 A few other things that stand out :
 
@@ -75,7 +102,7 @@ Windows in July and August, Linux in September. Every Windows executable in the 
 
 The index.html.NNN burst. Eight ZIP files named `index.html.973` to `index.html.1008` were submitted on August 12. That naming is what `wget` produces when it keeps saving the same URL into a directory that already has the file, so something likely fetched the same URL a thousand times and got a different archive each time. I can't say what served them, but it looks like automated delivery rather than a single payload.
 
-**`ransomware_notes-main.zip`.** The `-main.zip` suffix is what GitHub gives a downloaded repository archive, so this is probably a collection of ransom notes rather than a binary.
+`ransomware_notes-main.zip`. The `-main.zip` suffix is what GitHub gives a downloaded repository archive, so this is probably a collection of ransom notes rather than a binary.
 
 The caveat that applies to all of this: a first-submission date is only a floor for when a sample existed in the wild. It doesn't tell me when or where it was deployed, and none of these samples is tied to Pharma5. What it does show is that INC's Linux and ESXi tooling was showing up on VirusTotal in the weeks before the group listed a Moroccan pharma company.
 
@@ -86,7 +113,7 @@ The caveat that applies to all of this: a first-submission date is only a floor 
 Putting the pieces together:
 
 - **FortiBleed doesn't explain Pharma5.** I checked the full dataset: neither Pharma5 nor its FortiGate is in it.
-- **The exposure points at valid-account abuse.** Infostealer intelligence shows infected employee devices with saved sessions on Pharma5's VPN, RDP and webmail, and RisePro in the logs. That fits INC's documented patterns, but it's an opportunity, not proof of entry.
+- **The exposure points at valid-account abuse.** Infostealer intelligence shows infected employee devices with saved sessions on Pharma5's VPN, RDP. RisePro in the logs. That fits INC's documented patterns, but it's an opportunity, not proof of entry.
 
 
 I can't tell you how INC actually got into Pharma5. What the evidence does suggest is that the weak point worth watching here isn't an l33t exploit, it's stolen creds on remote access.
