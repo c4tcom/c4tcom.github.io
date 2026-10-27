@@ -24,7 +24,7 @@ params:
   ShowReadingTime: true
   homeInfoParams:
     Title: '<img src="/images/0xPizza.png" width="55" style="vertical-align:middle; display:inline; margin-right:8px;"> 0xdeadbeef.ma'
-    Content: "Blog on Offensive and Defensive security, Vulnerability and Threat research, CTFs and all the fun stuff!"
+    Content: "Blog on Offensive and Defensive security, Vulnerability and Threat research, CTFs and all the fun stuff, with an eye on Morocco and the MENA region threat landscape."
   socialIcons:
     - name: email
       url: 'mailto:adnane@0xdeadbeef.ma'
