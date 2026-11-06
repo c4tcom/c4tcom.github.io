@@ -1,0 +1,22 @@
+body,
+.post-content,
+.entry-content,
+.entry-footer,
+.post-meta,
+.footer,
+#menu a,
+.logo {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6,
+.post-title,
+.entry-header h2 {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 700;
+}
+
+/* keep code readable, not Montserrat */
+code, pre, kbd, samp {
+  font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+}
