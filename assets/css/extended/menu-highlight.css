@@ -1,0 +1,10 @@
+/* Highlight the CTFs entry in the "more" dropdown in HTB-green, as a cue
+   it's HackTheBox-related until its own page exists. */
+#menu a[href*="/ctfs/"] span {
+  color: #9fef00;
+}
+
+#menu a[href*="/ctfs/"]:hover span,
+#menu a[href*="/ctfs/"] span.active {
+  color: #9fef00;
+}

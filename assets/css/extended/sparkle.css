@@ -17,8 +17,8 @@
   opacity: 0;
   pointer-events: none;
   animation-name: sparkle-float;
-  animation-duration: 4.5s;
-  animation-timing-function: linear;
+  animation-duration: 5s;
+  animation-timing-function: ease-out;
   animation-iteration-count: infinite;
 }
 
@@ -27,24 +27,24 @@
     transform: translateY(0) translateX(0);
     opacity: 0;
   }
-  10% {
-    opacity: 0.85;
+  12% {
+    opacity: 0.9;
   }
-  80% {
-    opacity: 0.4;
+  45% {
+    opacity: 0.6;
   }
   100% {
-    transform: translateY(-48px) translateX(var(--drift, 6px));
+    transform: translateY(-80px) translateX(var(--drift, 2px));
     opacity: 0;
   }
 }
 
-.sparkle-bit:nth-of-type(1) { left: -10%; animation-delay: 0s;   --drift: 5px; }
-.sparkle-bit:nth-of-type(2) { left: 30%;  animation-delay: 0.7s; --drift: -6px; }
-.sparkle-bit:nth-of-type(3) { left: 60%;  animation-delay: 1.4s; --drift: 4px; }
-.sparkle-bit:nth-of-type(4) { left: 90%;  animation-delay: 2.1s; --drift: -5px; }
-.sparkle-bit:nth-of-type(5) { left: 10%;  animation-delay: 2.8s; --drift: 6px; }
-.sparkle-bit:nth-of-type(6) { left: 75%;  animation-delay: 3.5s; --drift: -4px; }
+.sparkle-bit:nth-of-type(1) { left: -10%; animation-delay: 0s;   --drift: 2px; }
+.sparkle-bit:nth-of-type(2) { left: 30%;  animation-delay: 0.7s; --drift: -2px; }
+.sparkle-bit:nth-of-type(3) { left: 60%;  animation-delay: 1.4s; --drift: 1px; }
+.sparkle-bit:nth-of-type(4) { left: 90%;  animation-delay: 2.1s; --drift: -1px; }
+.sparkle-bit:nth-of-type(5) { left: 10%;  animation-delay: 2.8s; --drift: 2px; }
+.sparkle-bit:nth-of-type(6) { left: 75%;  animation-delay: 3.5s; --drift: -2px; }
 
 @media (prefers-reduced-motion: reduce) {
   .sparkle-bit {

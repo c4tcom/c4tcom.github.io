@@ -46,17 +46,27 @@ menu:
     name: Light torch
     url: /light-torch/
     weight: 15
-  
+
   - identifier: faq
     name: FAQ
     url: /FAQ
     weight: 20
- 
+
   - identifier: search
     name: Search
     url: /search
     weight: 20
 
+  - identifier: ctfs
+    name: CTFs
+    url: /ctfs/
+    parent: more
+    weight: 5
+  - identifier: projects
+    name: Projects
+    url: /projects/
+    parent: more
+    weight: 8
   - identifier: archives
     name: Archives
     url: /archives/
@@ -67,7 +77,6 @@ menu:
     url: /tags/
     parent: more
     weight: 20
-    weight: 50
 
 outputs:
   home:
