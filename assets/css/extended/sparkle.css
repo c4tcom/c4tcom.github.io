@@ -1,0 +1,38 @@
+.sparkle-wrap {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.sparkle-bit {
+  position: absolute;
+  bottom: 10%;
+  z-index: 0;
+  font-family: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;
+  font-size: 0.7rem;
+  color: #e05c5c;
+  opacity: 0;
+  pointer-events: none;
+  animation-name: sparkle-float;
+  animation-duration: 4.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes sparkle-float {
+  0%   { transform: translateY(0) translateX(0); opacity: 0; }
+  10%  { opacity: 0.85; }
+  80%  { opacity: 0.4; }
+  100% { transform: translateY(-48px) translateX(var(--drift, 6px)); opacity: 0; }
+}
+
+.sparkle-bit:nth-of-type(1) { left: -10%; animation-delay: 0s;   --drift: 5px; }
+.sparkle-bit:nth-of-type(2) { left: 30%;  animation-delay: 0.7s; --drift: -6px; }
+.sparkle-bit:nth-of-type(3) { left: 60%;  animation-delay: 1.4s; --drift: 4px; }
+.sparkle-bit:nth-of-type(4) { left: 90%;  animation-delay: 2.1s; --drift: -5px; }
+.sparkle-bit:nth-of-type(5) { left: 10%;  animation-delay: 2.8s; --drift: 6px; }
+.sparkle-bit:nth-of-type(6) { left: 75%;  animation-delay: 3.5s; --drift: -4px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .sparkle-bit { animation: none; opacity: 0; }
+}

@@ -23,7 +23,7 @@ params:
   subtitle: It was called the sand war, bcs it was sandy.
   ShowReadingTime: true
   homeInfoParams:
-    Title: '<img src="/images/0xPizza.png" width="55" style="vertical-align:middle; display:inline; margin-right:8px;"> 0xdeadbeef.ma'
+    Title: Title: '<span class="sparkle-wrap" style="margin-right:8px;"><img src="/images/0xPizza.webp" width="55" style="vertical-align:middle; display:inline;"><span class="sparkle-bit">0</span><span class="sparkle-bit">1</span><span class="sparkle-bit">1</span><span class="sparkle-bit">0</span><span class="sparkle-bit">1</span><span class="sparkle-bit">0</span></span> 0xdeadbeef.ma'
     Content: "Security and threat research, with a focus on Morocco and the wider MENA region. Posts cover vulnerability research, offensive and defensive tradecraft, incident analysis, and CTFs."
   socialIcons:
     - name: email
