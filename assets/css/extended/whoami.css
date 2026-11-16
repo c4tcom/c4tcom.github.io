@@ -1,0 +1,118 @@
+.whoami-box {
+  position: relative;
+  margin: 2.5rem 0 1rem;
+  padding: 1.5rem 1.75rem;
+  background: var(--entry);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.whoami-box__avatar-wrap {
+  position: relative;
+  flex: 0 0 auto;
+  width: 110px;
+  height: 110px;
+}
+
+.whoami-box__avatar {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.25));
+}
+
+.whoami-box__bit {
+  position: absolute;
+  bottom: 10%;
+  z-index: 0;
+  font-family: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;
+  font-size: 0.8rem;
+  color: #e05c5c;
+  opacity: 0;
+  pointer-events: none;
+  animation-name: whoami-float;
+  animation-duration: 4.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes whoami-float {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.85;
+  }
+  80% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(-130px) translateX(var(--drift, 8px));
+    opacity: 0;
+  }
+}
+
+.whoami-box__bit:nth-of-type(1) { left: 2%;  animation-delay: 0s;    --drift: 8px; }
+.whoami-box__bit:nth-of-type(2) { left: 18%; animation-delay: 0.6s;  --drift: -12px; }
+.whoami-box__bit:nth-of-type(3) { left: 40%; animation-delay: 1.2s;  --drift: 6px; }
+.whoami-box__bit:nth-of-type(4) { left: 62%; animation-delay: 1.8s;  --drift: -8px; }
+.whoami-box__bit:nth-of-type(5) { left: 80%; animation-delay: 2.4s;  --drift: 10px; }
+.whoami-box__bit:nth-of-type(6) { left: 95%; animation-delay: 3s;    --drift: -6px; }
+.whoami-box__bit:nth-of-type(7) { left: 28%; animation-delay: 3.6s;  --drift: 4px; }
+.whoami-box__bit:nth-of-type(8) { left: 70%; animation-delay: 4.2s;  --drift: -10px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .whoami-box__bit {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+.whoami-box__body {
+  flex: 1 1 240px;
+  min-width: 0;
+}
+
+.whoami-box__prompt {
+  font-family: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;
+  font-size: 0.9rem;
+  color: var(--secondary);
+  margin: 0 0 0.6rem;
+}
+
+.whoami-box__cursor {
+  display: inline-block;
+  width: 0.55em;
+  background: var(--primary);
+  margin-left: 2px;
+  animation: whoami-blink 1.1s steps(1) infinite;
+}
+
+@keyframes whoami-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.whoami-box__body p {
+  margin: 0.35rem 0;
+  color: var(--content);
+  font-size: 0.97rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 480px) {
+  .whoami-box {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
