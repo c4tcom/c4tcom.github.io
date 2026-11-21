@@ -1,0 +1,129 @@
+/* Shared notification (toast) styles for the v2 lab client, used by both the
+ * instructions and console frames. The .closeNotification glyph depends on the
+ * 'lab-client-layout-v2' icon font, which both v2 frames already @font-face. */
+
+#notificationContainer {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    bottom: 0;
+    box-sizing: border-box;
+    margin-right: 32px;
+    margin-bottom: 115px;
+    margin-left: 15px;
+}
+
+#notificationContainer:dir(rtl) {
+    left: 0;
+    right: auto;
+    margin-right: 15px;
+    margin-left: 32px;
+}
+
+/* Console frame has no instructions footer to clear, so sit lower. */
+body.virtualization-client #notificationContainer {
+    margin-bottom: 32px;
+}
+
+.notification {
+    margin-top: 10px;
+    position: relative;
+    max-width: 100%;
+    border-radius: 8px;
+    border: solid 2px #333;
+    box-shadow: rgba(0, 0, 0, 0.5) 2px 4px 8px;
+}
+
+.notificationContent {
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: auto;
+    padding: 25px;
+    box-sizing: border-box;
+}
+
+@media only screen and (min-width: 238px) {
+    .notification {
+        width: 150px;
+    }
+}
+
+@media only screen and (min-width: 288px) {
+    .notification {
+        width: 200px;
+    }
+}
+
+@media only screen and (min-width: 338px) {
+    .notification {
+        width: 250px;
+    }
+}
+
+@media only screen and (min-width: 387px) {
+    .notification {
+        width: 300px;
+    }
+}
+
+.closeNotification {
+    cursor: pointer;
+    float: right;
+    margin: 0 0 8px 12px;
+}
+
+.closeNotification:dir(rtl) {
+    float: left;
+    margin: 0 12px 8px 0;
+}
+
+.closeNotification::before {
+    content: '\a000';
+    font-family: 'lab-client-layout-v2';
+    display: inline-block;
+    vertical-align: top;
+    font-size: 1em;
+    padding: 0.214em;
+}
+
+.closeNotification:focus::before,
+.dialogCloseButton:focus::before {
+    outline: rgb(255, 255, 255, 0.5) solid 1px;
+}
+
+.notificationButtonWrapper {
+    margin-top: 15px;
+}
+
+.notificationButtonWrapper input + input {
+    margin-left: 5px;
+}
+
+.notificationButtonWrapper input + input:dir(rtl) {
+    margin-left: 0px;
+    margin-right: 5px;
+}
+
+.listedNotification {
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    overflow: auto;
+    max-height: 400px;
+}
+
+.listedNotification .listedNotificationDate {
+    margin-bottom: 10px;
+    font-size: 11px;
+    opacity: 0.8;
+}
+
+.screen-reader-only {
+    position: absolute;
+    height: 1px;
+    width: 1px;
+    clip: rect(1px 1px 1px 1px);
+    clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+    -webkit-clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+    overflow: hidden !important;
+}

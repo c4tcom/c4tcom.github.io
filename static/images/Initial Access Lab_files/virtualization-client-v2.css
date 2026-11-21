@@ -1,0 +1,864 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+
+@font-face {
+    font-family: "lab-client-layout-v2";
+    src: url("/fonts/lab-client-layout-v2.woff?v=1") format("woff"), url("/fonts/lab-client-layout-v2.ttf?v=1") format("truetype"), url("/fonts/lab-client-layout-v2.svg?v=1") format("svg");
+}
+
+body,
+html {
+    --title-bar-height: 1.714em;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    background-color: #000 !important;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    height: 100%;
+}
+
+.spark-remote-controller-wrapper {
+    position: absolute;
+    top: var(--title-bar-height);
+    bottom: 0px;
+    left: 0;
+    overflow: auto;
+    z-index: 0;
+    display: inline-block;
+    white-space: nowrap;
+    background-color: #444;
+    text-align: center;
+}
+
+.spark-remote-controller-wrapper:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.spark-remote-controller-wrapper canvas,
+.spark-remote-controller-wrapper object,
+.spark-remote-controller-wrapper div {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* spark input offset fix */
+.spark-remote-controller-wrapper div[contenteditable="true"] {
+    left: 0 !important;
+    top: 0 !important;
+}
+
+iframe {
+    border-style: none;
+}
+
+.title-bar,
+#titleBar {
+    height: var(--title-bar-height);
+    user-select: none;
+    line-height: var(--title-bar-height);
+    white-space: nowrap;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.tabbed .title-bar {
+    justify-content: start;
+}
+
+@media screen and (max-width: 600px) {
+    .title-bar {
+        justify-content: start;
+    }
+}
+
+#quickMessage {
+    font-size: 0.786em;
+    /* Own-font-size basis (11px), not the ambient 14px, since margin
+       resolves against this element's own (already-scaled) font-size. */
+    margin-left: 0.4545em;
+}
+
+#quickMessage:dir(rtl) {
+    margin-right: 0.4545em;
+}
+
+.virtualization-menu-button {
+    margin: 0.0714em 0.2857em;
+    padding: 0 0.1429em;
+    cursor: pointer;
+}
+
+.virtualization-menu-button:focus {
+    outline: solid 1px #ccc;
+}
+
+.virtualization-menu-button::before {
+    font-family: "lab-client-layout-v2";
+    vertical-align: top;
+    display: inline-block;
+}
+
+#machineCommands::before {
+    content: "\a025";
+    font-size: 1.286em;
+}
+
+#fullscreen::before {
+    content: "\a047";
+    font-size: 0.857em;
+}
+
+#fullscreen.active::before {
+    content: "\a048";
+}
+
+#splitWindowTitleBarButton .material-symbols-outlined,
+#collapseInstructionsButton .material-symbols-outlined {
+    font-size: 1.143em;
+    vertical-align: middle;
+    line-height: 1;
+    position: relative;
+    top: -0.0625em;
+}
+
+#collapseInstructionsButton {
+    margin-left: auto;
+    flex-shrink: 0;
+}
+
+#displayMenuTitle::before {
+    content: "\a028";
+    font-size: 0.929em;
+}
+
+.machine-selector {
+    font-size: 0.929em;
+    margin: 0.0769em 0.4615em 0.0769em 1.5385em;
+    padding: 0 0.1538em 0 0.3077em;
+    font-weight: 500;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.machine-selector:dir(rtl) {
+    margin: 0.0769em 1.5385em 0.0769em 0.4615em;
+    padding: 0 0.3077em 0 0.1538em;
+}
+
+.machine-selector:focus {
+    outline: solid 1px #ccc;
+}
+
+.machine-selector::after {
+    font-family: "lab-client-layout-v2";
+    content: "\a044";
+    /* 1em matches the parent's own already-scaled font-size - re-deriving
+       against the ambient 14px here would compound the two. */
+    font-size: 1em;
+    margin-left: 0.4615em;
+    font-weight: 400;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 0;
+}
+
+.machine-selector:dir(rtl)::after {
+    margin-left: 0;
+    margin-right: 0.4615em;
+}
+
+.virtualization-menu .menu-item.selected::before {
+    content: "•";
+    font-size: 1.571em;
+    margin-top: -0.214em;
+    padding-left: 0.571em;
+}
+
+.virtualization-menu .menu-item.selected:dir(rtl)::before {
+    padding-left: 0;
+    padding-right: 0.571em;
+}
+
+#poorConnectionWarning {
+    display: none;
+}
+
+#poorConnectionWarningIndicator {
+    color: #FFBF42;
+    font-size: 0.929em;
+    font-style: normal;
+    font-weight: 600;
+    margin-left: 1.2308em;
+}
+
+#poorConnectionWarningIndicator:dir(rtl) {
+    margin-left: 0;
+    margin-right: 1.2308em;
+}
+
+#poorConnectionWarningIndicator::before {
+    color: #FFBF42;
+    font-family: "lab-client-layout-v2";
+    content: "\a016";
+    font-weight: 400;
+    margin-right: 0.3333em;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 0.9231em;
+}
+
+#poorConnectionWarningIndicator:dir(rtl)::before {
+    margin-right: 0;
+    margin-left: 0.3333em;
+}
+
+#poorConnectionTooltip {
+    display: none;
+    position: absolute;
+    top: calc(var(--title-bar-height) + 0.5em);
+    z-index: 9;
+    width: 14em;
+    color: white;
+    white-space: normal;
+    background-color: #222;
+    font-size: 1em;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.4286;
+    padding: 0.5714em 0.8571em;
+    border-radius: 0.5714em;
+    box-shadow: rgba(0, 0, 0, 0.5) 2px 4px 8px;
+}
+
+#poorConnectionTooltip::before {
+    content: "\a045";
+    /* Own-font-size basis (10px): top/margin-left resolve against this
+       element's own (already-scaled) font-size, not the ambient 14px. */
+    font-size: 0.7143em;
+    color: #222;
+    font-family: "lab-client-layout-v2";
+    position: absolute;
+    top: -1.2em;
+    margin-left: -0.5em;
+    left: 50%;
+}
+
+#poorConnectionTooltip:dir(rtl)::before {
+    margin-left: 0;
+    left: auto;
+    margin-right: -0.5em;
+    right: 50%;
+}
+
+.virtualization-menu {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    font-size: 0.857em;
+    font-weight: 500;
+    line-height: 1.5;
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.24);
+    top: 1.75em;
+    border-radius: 0.6667em;
+    padding: 0.6667em 0;
+    margin: 0;
+}
+
+.virtualization-menu .virtualization-menu-heading {
+    font-size: 1em;
+    padding: 0.3333em 2.3333em;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.virtualization-menu .virtualization-menu-divider {
+    border-top-style: solid;
+    border-top-width: 1px;
+    /* Stays px: font-size:0 on this element would zero out an em margin. */
+    margin: 4px 0;
+    font-size: 0;
+    line-height: 0;
+}
+
+.virtualization-menu .menu-item {
+    cursor: pointer;
+    padding: 0.3333em 2.3333em;
+    white-space: nowrap;
+    list-style: none;
+}
+
+.virtualization-menu .parent-menu::after {
+    font-family: "lab-client-layout-v2";
+    content: "\a015";
+    display: inline-block;
+    vertical-align: top;
+    position: absolute;
+    font-size: 1em;
+    right: 0.6667em;
+    cursor: default;
+}
+
+.virtualization-menu .parent-menu:dir(rtl)::after {
+    right: auto;
+    left: 0.6667em;
+    transform: scaleX(-1);
+}
+
+.virtualization-menu .child-menu {
+    top: initial;
+}
+
+.virtualization-menu .menuItem::before {
+    font-family: "lab-client-layout-v2";
+    font-size: 1em;
+    display: inline-block;
+    vertical-align: top;
+    position: absolute;
+    margin-left: -1.6667em;
+}
+
+.virtualization-menu .menuItem:dir(rtl)::before {
+    margin-left: 0;
+    margin-right: -1.6667em;
+}
+
+/* Machine dropdown label styling to preserve vertical layout */
+label.selectHeading {
+    display: block;
+    margin-bottom: 0.3333em;
+}
+
+#refreshDisplay::before {
+    content: "\a040";
+}
+
+#turnOnMachine::before,
+#turnOffMachine::before {
+    content: "\a043";
+}
+
+#pauseMachine::before {
+    content: "\a041";
+}
+
+#resumeMachine::before {
+    content: "\a015";
+}
+
+#resetMachine::before {
+    content: "\a042";
+}
+
+.spark-remote-controller-wrapper {
+    scrollbar-face-color: #aaaaaa !important;
+    scrollbar-shadow-color: #666666 !important;
+    scrollbar-highlight-color: #666666 !important;
+    scrollbar-3dlight-color: #666666 !important;
+    scrollbar-darkshadow-color: #666666 !important;
+    scrollbar-track-color: #666666 !important;
+    scrollbar-arrow-color: #aaaaaa !important;
+}
+
+.spark-remote-controller-wrapper::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+.spark-remote-controller-wrapper::-webkit-scrollbar-track {
+    background-color: #666666;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+}
+
+.spark-remote-controller-wrapper::-webkit-scrollbar-thumb {
+    background-color: #aaaaaa;
+    width: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+}
+
+.spark-remote-controller-wrapper::-webkit-scrollbar-corner {
+    background-color: #000;
+}
+
+button,
+input[type="button"],
+label.button {
+    border-radius: 8px;
+    border: none;
+    font-size: 1.143em;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.375;
+    padding: 0.357em 1.143em;
+}
+
+button:hover,
+input[type="button"]:hover,
+label.button:hover {
+    cursor: pointer;
+}
+
+
+#vmOff {
+    position: absolute;
+    z-index: 0;
+    left: 0;
+    top: var(--title-bar-height);
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+#vmOff:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+#vmOff>div {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#startMachine {
+    margin-top: 10px;
+}
+
+#vmOpenInSeparateWindow {
+    font-size: 1.071em;
+    position: relative;
+    transform: translateY(-50%);
+    text-align: center;
+    margin-top: 1.786em;
+}
+
+#closeMachineWindow {
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+#closeMachineWindow:dir(rtl) {
+    margin-left: 0;
+    margin-right: 10px;
+}
+
+#closeMachineWindow::before {
+    content: "\a000";
+    font-family: "lab-client-layout-v2";
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 0.214em;
+    margin-right: 0.286em;
+    font-size: 0.857em;
+}
+
+#closeMachineWindow:dir(rtl)::before {
+    margin-right: 0;
+    margin-left: 4px;
+}
+
+.httpEndpointFrame {
+    width: 100%;
+    height: 99%;
+    border: none;
+    background-color: #fff;
+}
+
+.endpoint-wrapper {
+    position: absolute;
+    top: var(--title-bar-height);
+    bottom: 0px;
+    left: 0;
+    right: 0px;
+    overflow: auto;
+    z-index: 1;
+    display: inline-block;
+    white-space: nowrap;
+    background-color: black;
+}
+
+.sshClient {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 0;
+    bottom: 0;
+}
+
+.sshClient:dir(rtl) {
+    left: auto;
+    right: 10px;
+}
+
+.sshClientStatus {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #fff;
+    z-index: 100;
+}
+
+.sshClientStatus:dir(rtl) {
+    left: auto;
+    right: 10px;
+}
+
+.terminal .xterm-viewport {
+    overflow-y: auto !important;
+}
+
+#contentDialogContentWrapper {
+    position: absolute;
+    z-index: 2001;
+    top: 80px;
+    bottom: 80px;
+    left: 80px;
+    right: 80px;
+    background-color: #000;
+    border: solid 1px #fff;
+}
+
+#contentDialogTitle {
+    color: #fff;
+    padding: 12px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: right;
+}
+
+#contentDialogTitle:dir(rtl) {
+    text-align: left;
+}
+
+#closeContentDialogButton {
+    position: absolute;
+    top: 0.286em;
+    right: 0.286em;
+    cursor: pointer;
+    width: 2.286em;
+    height: 2.286em;
+}
+
+#closeContentDialogButton:dir(rtl) {
+    right: auto;
+    left: 0.286em;
+}
+
+#closeContentDialogButton::before {
+    content: "\a000";
+    font-family: "lab-client-layout-v2";
+    display: inline-block;
+    vertical-align: top;
+    font-size: 1.143em;
+    padding: 0.214em;
+}
+
+#contentDialogContent {
+    margin: 0 20px 20px 20px;
+    position: absolute;
+    top: 32px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+#contentDialogIFrame {
+    width: 100%;
+    height: 100%;
+}
+
+#contentDialogVideo {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#contentDialogMask {
+    position: absolute;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+    opacity: .5;
+}
+
+.rdp-client-message,
+.telnet-client-message,
+.vnc-client-message {
+    color: #fff;
+    position: absolute;
+    z-index: 100;
+    height: 100%;
+    width: 100%;
+    /* Connection status text ("Connecting...", "Disconnected", etc.) overlaid
+       on the remote-control area - reader-facing, so it scales like other
+       message text rather than staying a fixed size. */
+    font-size: 1.071em;
+    font-weight: 600;
+    white-space: pre-wrap;
+    text-align: center;
+    align-content: center;
+    padding: 1.429em;
+    box-sizing: border-box;
+}
+
+
+.blinking-cursor {
+    position: absolute;
+    display: none;
+    height: 16px !important;
+    border-bottom: solid 2px #fff;
+    animation: cursor-blink .5s steps(1) infinite;
+}
+
+@keyframes cursor-blink {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1.0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* spark login dialog that appears when there is an authentication issue to an RDP endpoint. We never want to see this.*/
+.appdlg {
+    display: none !important;
+}
+
+/* FULL SCREEN DIALOG */
+#fullScreenMessage {
+    position: absolute;
+    z-index: 2001;
+    top: 0;
+    left: auto;
+    right: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#fullScreenMessageMask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+}
+
+#fullScreenMessageCenter {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#fullScreenMessageTextWrapper {
+    padding: 0 2.857em;
+    background-repeat: no-repeat;
+}
+
+#fullScreenMessageTitle {
+    font-size: 2.286em;
+    font-weight: 500;
+    line-height: 1.5;
+    margin: 0;
+}
+
+#fullScreenMessageText {
+    margin: 1.786em 0;
+    font-size: 1.429em;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+#fullScreenMessageButtonWrapper {
+    margin-top: 1.071em;
+}
+
+#fullScreenMessageButtonWrapper input[type=button] {
+    margin-right: 0.571em;
+    font-weight: 500;
+}
+
+#fullScreenMessageButtonWrapper input[type=button]:dir(rtl) {
+    margin-right: 0px;
+    margin-left: 0.571em;
+}
+
+#fullScreenMessageButtonWrapper button,
+#fullScreenMessageButtonWrapper input[type="button"] {
+    height: 48px;
+    padding: 0px 32px;
+    margin-bottom: 10px;
+}
+
+#fullScreenMessageButtonWrapper button:hover,
+#fullScreenMessageButtonWrapper input[type="button"]:hover {
+    cursor: pointer;
+}
+
+#fullScreenProgressBar {
+    width: 500px;
+    height: 10px;
+    margin-top: 1.071em;
+    border-radius: 5px;
+}
+
+#fullScreenProgressFill {
+    height: 10px;
+    width: 0;
+    border-radius: 5px;
+}
+
+#fullScreenProgressText {
+    margin-top: 1.071em;
+    font-size: 1.143em;
+}
+
+#fullScreenMessage.withLoadingImage #fullScreenMessageTextWrapper {
+    margin-left: 2.286em;
+}
+
+#fullScreenMessage.withLoadingImage #fullScreenMessageTextWrapper:dir(rtl) {
+    margin-left: 0;
+    margin-right: 2.286em;
+}
+
+#fullScreenMessageLoadingIcon {
+    display: none;
+    position: absolute;
+    margin-left: -2.571em;
+    margin-top: 0.714em;
+}
+
+#fullScreenMessageLoadingIcon:dir(rtl) {
+    margin-left: 0px;
+    margin-right: -2.571em;
+}
+
+#fullScreenMessage.withLoadingImage #fullScreenMessageLoadingIcon {
+    display: block;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loadingAnimation-large {
+    border-style: solid;
+    display: inline-block;
+    border-width: 5px;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    animation: spin 1s linear infinite;
+}
+
+.loadingAnimation-medium {
+    border-style: solid;
+    display: inline-block;
+    border-width: 4px;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    animation: spin 1s linear infinite;
+}
+
+.loadingAnimation-small {
+    border-style: solid;
+    display: inline-block;
+    border-width: 3px;
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+    animation: spin 1s linear infinite;
+}
+
+#notification {
+    z-index: 4;
+    width: 250px;
+    height: 200px;
+    position: absolute;
+    color: #fff;
+    background-color: #222;
+    border-radius: 10px;
+}
+
+#notificationMask {
+    width: 250px;
+    height: 200px;
+}
+
+#notificationScrollable {
+    position: absolute;
+    border: solid 2px #000;
+    box-sizing: border-box;
+    width: 250px;
+    height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-radius: 10px;
+}
+
+#notificationScrollable div.mCSB_scrollTools {
+    top: 8px;
+    bottom: 8px;
+    height: auto;
+}
+
+#notificationContent {
+    padding: 8px;
+}
+
+#labConsole div.closeButton {
+    position: absolute;
+    right: -6px;
+    top: -6px;
+    z-index: 5;
+    cursor: pointer;
+    background-image: url("/images/virtualization-client/CloseIcon.png?v=9");
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+}
+
+/* Visually hidden, still announced by screen readers. */
+.sr-only {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}

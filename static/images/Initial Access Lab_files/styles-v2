@@ -1,0 +1,478 @@
+:root {
+    --logo-width: 100px;
+    --logo-height: 50px;
+    --lab-name-display: none;
+    --logo-display: block;
+    --text-color: #272740;
+    --page-background-color: #FFFFFF;
+    --page-header-background-color: #222222;
+    --page-header-text-color: #FFFFFF;
+    --instructions-footer-background-color: #FFFFFF;
+    --primary-color: #12BF79;
+    --primary-color-low-opacity: rgba(18, 191, 121, 0.25);
+    --primary-color-background-text-color: #FFFFFF;
+    --heading-color: #333333;
+    --link-color: #12BF79;
+    --accent-background-color: #F7F7F7;
+    --accent-background2-color: #dddddd;
+    --accent-border-color: #888888;
+    --positive-feedback-color: #12BF79;
+    --negative-feedback-color: #ff3139;
+    --menu-background-color: #FFFFFF;
+    --menu-item-color: #333333;
+    --menu-item-hover-background-color: rgba(18, 191, 121, 0.075);
+    --virtualization-header-background-color: #222222;
+    --virtualization-header-text-color: #FFFFFF;
+    --virtualization-menu-background-color: #222222;
+    --virtualization-menu-item-text-color: #FFFFFF;
+    --virtualization-menu-item-hover-background-color: #444444;
+    --virtualization-menu-icon-color: #12BF79;
+    --virtualization-menu-divider-color: rgba(18, 191, 121, 0.25);
+    --chat-response-background-color: #FFFFFF;
+    --page-nNavigation-button-background-color: #FFFFFF;
+    --page-navigation-button-text-color: #12BF79;
+    --page-navigation-button-border-color: #12BF79;
+    --page-navigation-button-hover-background-color: rgba(18, 191, 121, 0.075);
+    --checkbox-check-color: #FFFFFF;
+    --checkbox-border-color: #12BF79;
+    --checkbox-background-color: #FFFFFF;
+    --checkbox-checked-background-color: #12BF79;
+    --input-border-color: #dddddd;
+    --input-background-color: #F7F7F7;
+    --scrollbar-track-color: #efefef;
+    --scrollbar-face-color: #12BF79;
+    --button-background-color: #eeeeee;
+    --button-text-color: #333333;
+    --button-hover-background-color: #dddddd;
+    --primary-button-background-color: #12BF79;
+    --primary-button-text-color: #fff;
+    --primary-button-hover-background-color: rgba(18, 191, 121, 0.85);
+    --alert-block-color: #ff3139;
+    --help-block-color: #9575CD;
+    --hint-block-color: #FFBF42;
+    --note-block-color: #888888;
+    --code-block-background-color: #333333;
+    --code-block-title-background-color: #666666;
+    --table-border-color: #e5e5e5;
+    --notification-background-color: #FFFFFF;
+    --focus-outline-color: #141414;
+    --placeholder-text-color: #767676;
+    --text-decoration: none;
+}
+
+@font-face {
+    font-family: 'theme-font';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/inter/v13/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2) format('woff2');
+}
+
+@font-face {
+    font-family: 'theme-heading-font';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/inter/v13/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2) format('woff2');
+}
+
+body, html, .page-background-color, #fullScreenMessageMask {
+    background-color: var(--page-background-color);
+    color: var(--text-color);
+}
+
+.lab-client-header {
+    background-color: var(--page-header-background-color);
+    color: var(--page-header-text-color);
+}
+
+.instructions-footer {
+    background-color: var(--instructions-footer-background-color);
+}
+
+.theme-logo {
+    width: var(--logo-width);
+    height: var(--logo-height);
+    background-image: url("data:image/png+xml;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAyCAYAAACqNX6+AAAFCmlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iWE1QIENvcmUgNS41LjAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIgogICAgeG1sbnM6cGhvdG9zaG9wPSJodHRwOi8vbnMuYWRvYmUuY29tL3Bob3Rvc2hvcC8xLjAvIgogICAgeG1sbnM6ZXhpZj0iaHR0cDovL25zLmFkb2JlLmNvbS9leGlmLzEuMC8iCiAgICB4bWxuczp0aWZmPSJodHRwOi8vbnMuYWRvYmUuY29tL3RpZmYvMS4wLyIKICAgIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIgogICAgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIKICAgeG1wOkNyZWF0ZURhdGU9IjIwMjUtMDItMThUMTI6MTA6MDcrMDAwMCIKICAgeG1wOk1vZGlmeURhdGU9IjIwMjUtMDItMThUMTI6MTY6MThaIgogICB4bXA6TWV0YWRhdGFEYXRlPSIyMDI1LTAyLTE4VDEyOjE2OjE4WiIKICAgcGhvdG9zaG9wOkRhdGVDcmVhdGVkPSIyMDI1LTAyLTE4VDEyOjEwOjA3KzAwMDAiCiAgIHBob3Rvc2hvcDpDb2xvck1vZGU9IjMiCiAgIHBob3Rvc2hvcDpJQ0NQcm9maWxlPSJzUkdCIElFQzYxOTY2LTIuMSIKICAgZXhpZjpQaXhlbFhEaW1lbnNpb249IjEwMCIKICAgZXhpZjpQaXhlbFlEaW1lbnNpb249IjUw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");
+    background-repeat: no-repeat;
+    background-position: center left;
+    background-size: contain;
+    display: var(--logo-display);
+}
+
+.lab-name {
+    display: var(--lab-name-display);
+}
+
+.exit-button {
+    color: var(--page-header-text-color);
+}
+
+.exit-button::before {
+    color: var(--page-header-text-color) !important;
+}
+
+.primary-color,
+.page h1.primary-color,
+hr,
+.primary-color-icon,
+.primary-color-icon::before,
+.icon-link:before,
+details > summary::after,
+blockquote.knowledge:before,
+.ai-completion-type-selector .option::before,
+.ai-output::before,
+.ai-output .buttons .collapse,
+.copyable::before,
+.typeText::before,
+.special-action-link::before,
+:not(pre) > code:not(.nocopy)::before,
+.text-size-choice .checkbox {
+    color: var(--primary-color);
+}
+
+.primary-color-svg {
+    fill: var(--primary-color);
+}
+
+.page h1, .page h2, .page h3, .page h4, .page h5, .page h6 {
+    font-family: 'theme-heading-font', sans-serif;
+    color: var(--heading-color);
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: var(--text-decoration);
+}
+
+input, textarea, select {
+    color: var(--text-color);
+    border-color: var(--input-border-color);
+    background-color: var(--input-background-color);
+}
+
+.special-action-link, .copyable, .typeText, #settings-menu .link-list-item a, a.link-list-item {
+    color: var(--text-color);
+}
+
+.task-list-item .checkbox input + span::before, .activity .answer label input {
+    color: var(--checkbox-check-color);
+    border-color: var(--checkbox-border-color);
+    background-color: var( --checkbox-background-color);
+}
+
+.task-list-item .checkbox input:checked + span::before, .activity .answer label input:checked {
+    background-color: var(--checkbox-checked-background-color);
+    border-color: var(--checkbox-border-color);
+}
+
+.primary-color-border, input:focus, textarea:focus, select:focus, .activity .answer label input, .machine.selected, .contentResource.selected, .container.selected, .endpoint.selected {
+    border-color: var(--primary-color);
+}
+
+.primary-color-low-opacity-border,
+.moreKnowledge, blockquote.knowledge,
+.special-action-link {
+    border-color: var(--primary-color-low-opacity);
+}
+
+.primary-color-background, .ai-chat .message.user, .tree-node.selected > .node-name {
+    background-color: var(--primary-color);
+    color: var(--primary-color-background-text-color);
+}
+
+.primary-color-background a {
+    color: var(--primary-color-background-text-color);
+}
+
+.primary-color-low-opacity-background {
+    background-color: var(--primary-color-low-opacity);
+}
+
+.menu {
+    color: var(--menu-item-color);
+    background-color: var(--menu-background-color);
+}
+
+.menu .menu-item:hover {
+    background-color: var(--menu-item-hover-background-color);
+}
+
+.virtualization-menu {
+    color: var(--virtualization-menu-item-text-color);
+    background-color: var(--virtualization-menu-background-color);
+}
+
+.virtualization-menu .menu-item:hover {
+    background-color: var(--virtualization-menu-item-hover-background-color);
+}
+
+.virtualization-menu .parent-menu::after,
+.virtualization-menu .menu-item::before,
+.virtualization-menu-heading {
+    color: var(--virtualization-menu-icon-color);
+}
+
+.virtualization-menu .virtualization-menu-divider {
+    border-color: var(--virtualization-menu-divider-color);
+}
+
+.virtualization-client .title-bar {
+    background-color: var(--virtualization-header-background-color);
+    color: var(--virtualization-header-text-color);
+}
+
+.instructions-navigation .previous-button, .instructions-navigation .next-button {
+    color: var(--page-navigation-button-text-color);
+    background-color: var(--page-nNavigation-button-background-color);
+    border-color: var(--page-navigation-button-border-color);
+}
+
+.instructions-navigation .previous-button:hover, .instructions-navigation  .next-button:hover {
+    background-color: var(--page-navigation-button-hover-background-color);
+}
+
+details {
+    border-color: var(--primary-color-low-opacity);
+}
+
+.accent-color {
+    color: #888888;
+}
+
+.accent-border, blockquote {
+    border-color: var(--accent-border-color);
+}
+
+blockquote.expandable {
+    border-color: var(--primary-color);
+    background-color:var(--page-background-color);
+}
+
+.accent-background, blockquote, .activity .feedback {
+    background-color: var(--accent-background-color);
+}
+
+.accent-background-2 {
+    background-color: var(--accent-background2-color);
+}
+
+button, input[type="button"], label.button {
+    background-color: var(--button-background-color);
+    color: var(--button-text-color);
+}
+
+button:not(:disabled):hover, input[type="button"]:not(:disabled):hover, label.button:not(:disabled):hover {
+    background-color: var(--button-hover-background-color);
+}
+
+button.primary, input[type="button"].primary, label.button.primary {
+    background-color: var(--primary-button-background-color);
+    color: var(--primary-button-text-color);
+}
+
+button.primary:not(:disabled):hover, input[type="button"].primary:not(:disabled):hover, label.button.primary:not(:disabled):hover {
+    background-color: var(--primary-button-hover-background-color);
+}
+
+button.primary:not(:disabled):focus, input[type="button"].primary:not(:disabled):focus, label.button.primary:not(:disabled):focus {
+    outline: var(--focus-outline-color) solid 2px;
+    outline-offset: -2px;
+}
+
+.loadingAnimation-large, .loadingAnimation-medium, .loadingAnimation-small {
+    border-color: var(--primary-color-low-opacity);
+    border-top-color: var(--primary-color);
+}
+
+blockquote.alert {
+    border-color: var(--alert-block-color);
+}
+
+blockquote.alert::before, .activity .feedback.negative:before, .error-message, blockquote.alert > details > summary::after {
+    color: var(--alert-block-color);
+}
+
+blockquote.help {
+    border-color: var(--help-block-color);
+}
+
+blockquote.help::before, blockquote.help > details > summary::after {
+    color: var(--help-block-color);
+}
+
+blockquote.hint {
+    border-color: var(--hint-block-color);
+}
+
+blockquote.hint::before, blockquote.hint > details > summary::after {
+    color: var(--hint-block-color);
+}
+
+blockquote.note {
+    border-color: var(--note-block-color);
+}
+
+blockquote.note::before, blockquote.note > details > summary::after {
+    color: var(--note-block-color);
+}
+
+blockquote.knowledge.collapsed::after {
+    background: linear-gradient(transparent, var(--page-background-color));
+}
+
+.ai-chat .message.ai {
+    background-color: var(--chat-response-background-color);
+}
+
+.listedNotification {
+    background-color: var(--accent-background-color);
+}
+
+.feedback.negative {
+    color: var(--text-color);
+    border: 1px solid var(--negative-feedback-color);
+}
+
+.negative {
+    color: var(--negative-feedback-color);
+}
+
+.positive {
+    color: var(--positive-feedback-color);
+}
+
+.thumbs-up::before, .thumbs-down::before {
+    color: var(--text-color);
+}
+
+.thumbs-up.selected::before {
+    color: var(--positive-feedback-color);
+    border-color: var(--positive-feedback-color);
+}
+
+.thumbs-down.selected::before {
+    color: var(--negative-feedback-color);
+    border-color: var(--negative-feedback-color);
+}
+
+.activity .feedback.positive:before,
+.activity .scriptTask.pass .response,
+.activity .scriptTask.pass .result:before,
+.activityResult.pass .result:before,
+.activityResult .scriptTask.pass .result:before
+{
+    color: var(--positive-feedback-color);
+}
+
+.activity .scriptTask.pass .result:before,
+.activityResult .scriptTask.pass .result:before,
+.activityResult .answer.correct label,
+.activityResult.pass .result:before {
+    border-color: var(--positive-feedback-color);
+}
+
+.activityResult .answer.incorrect label {
+    border-color: var(--negative-feedback-color);
+}
+
+.activityResult.fail .result::before,
+.activityResult .scriptTask.fail.withResult .result:before {
+    border-color: var(--negative-feedback-color);
+    color: var(--negative-feedback-color);
+}
+
+.clickFeedbackMessage {
+    background-color: var(--primary-color);
+    color: var(--primary-color-background-text-color);
+}
+
+code {
+    background-color: var(--code-block-background-color);
+}
+
+.codeTitle {
+    background-color: var(--code-block-title-background-color);
+}
+
+.page table thead tr {
+    border-bottom-color: var(--table-border-color);
+}
+
+.page table tr:not(:last-child) {
+    border-bottom-color: var(--table-border-color);
+}
+
+.notification {
+    background-color: var(--notification-background-color);
+}
+
+.dialogMask, .modal-menu-mask {
+    background-color: var(--text-color);
+}
+
+.dialogBox {
+    background-color: var(--page-background-color);
+    border-color: var(--page-background-color);
+}
+
+.activity .scriptTask .result:before {
+    border-color: var(--text-color);
+    background-color: var(--page-background-color);
+}
+
+body {
+    scrollbar-face-color: var(--scrollbar-face-color);
+    scrollbar-shadow-color: var(--scrollbar-track-color);
+    scrollbar-highlight-color: var(--scrollbar-track-color);
+    scrollbar-3dlight-color: var(--scrollbar-track-color);
+    scrollbar-darkshadow-color: var(--scrollbar-track-color);
+    scrollbar-track-color: var(--scrollbar-track-color);
+    scrollbar-arrow-color: var(--scrollbar-face-color);
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--scrollbar-track-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-face-color);
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    background-color: var(--scrollbar-track-color);
+}
+
+input[type=range]::-webkit-slider-thumb {
+    background-color: var(--scrollbar-face-color);
+}
+
+input[type=range]::-moz-range-track {
+    background-color: var(--scrollbar-track-color);
+}
+
+input[type=range]::-moz-range-thumb {
+    background-color: var(--scrollbar-face-color);
+}
+
+input[type=range]::-ms-thumb {
+    background-color: var(--scrollbar-face-color);
+}
+
+-webkit-scrollbar-corner {
+    background-color: var(--page-background-color);
+}
+
+#splitter {
+    background-color: #222;
+}
+
+/* AUTHORING */
+
+.tree-node > .node-name:hover {
+    background-color: var(--button-hover-background-color);
+}
+
+.tree-node.selected > .node-name {
+    background-color: var(--primary-button-background-color);
+    color: var(--primary-button-text-color);
+}
+

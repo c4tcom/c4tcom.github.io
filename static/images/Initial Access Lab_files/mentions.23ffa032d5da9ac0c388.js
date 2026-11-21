@@ -1,0 +1,1 @@
+(self.webpackChunkcodeneuron_templates=self.webpackChunkcodeneuron_templates||[]).push([[61615],{55663:()=>{},7086:(e,s,a)=>{a.p=window.assetsPath+"/webpack/"}},e=>{var s=s=>e(e.s=s);s(7086),s(55663)}]);

@@ -1,0 +1,3687 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+
+@font-face {
+    font-family: 'lab-client-layout-v2';
+    src:
+        url('/fonts/lab-client-layout-v2.woff?v=1') format('woff'),
+        url('/fonts/lab-client-layout-v2.ttf?v=1') format('truetype'),
+        url('/fonts/lab-client-layout-v2.svg?v=1') format('svg');
+}
+
+.material-symbols-outlined {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+body,
+html {
+    font-family: 'theme-font', sans-serif;
+    font-size: 14px;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+    height: 100%;
+}
+
+.instructions-client.integrated-layout {
+    margin-left: 2px; /* adjust for the parent page re-size bar */
+}
+
+.instructions-client.integrated-layout:dir(rtl) {
+    margin-left: 0px;
+    margin-right: 2px;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    width: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+p {
+    margin: 1.143em 0;
+    line-height: 1.429;
+}
+
+input,
+textarea,
+button,
+label.button {
+    font-family: 'theme-font', sans-serif;
+    font-size: 1em;
+}
+
+input.validation-error,
+select.validation-error,
+textarea.validation-error {
+    border-color: red !important;
+}
+
+input[type='text'],
+input[type='password'],
+input[type='number'],
+input[type='datetime-local'],
+textarea,
+select,
+label.button {
+    box-sizing: border-box;
+    padding: 4px 8px;
+    border-radius: 8px;
+    border-width: 1px;
+    border-style: solid;
+    font-size: 1.143em;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.375;
+}
+
+input[type='text']:focus,
+input[type='password']:focus,
+input[type='number']:focus,
+input[type='datetime-local']:focus,
+textarea:focus,
+select:focus,
+label.button:focus {
+    outline: 2px solid var(--primary-color, var(--focus-outline-color));
+}
+
+input[type='checkbox'],
+input[type='radio'] {
+    padding: 8px;
+}
+
+input[type='checkbox']:focus,
+input[type='radio']:focus {
+    outline: 2px solid var(--primary-color, var(--focus-outline-color));
+    outline-offset: 2px;
+    box-shadow:
+        0 0 0 2px #fff,
+        0 0 0 4px var(--primary-color, var(--focus-outline-color));
+}
+
+input[type='range'] {
+    -webkit-appearance: none;
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+    width: 300px;
+    height: 5px;
+    border: none;
+    border-radius: 3px;
+}
+
+input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    margin-top: -5px;
+}
+
+input[type='range']:focus {
+    outline: 2px solid var(--primary-color, var(--focus-outline-color));
+}
+
+input[type='submit']:disabled,
+input[type='button']:disabled,
+button:disabled,
+label.button:disabled {
+    opacity: 0.6;
+    cursor: default;
+}
+
+input[data-val-required] + span:before,
+input.required + span:before,
+select.required + span:before {
+    content: ' * ';
+}
+
+input[type='number'] {
+    min-width: 80px;
+}
+
+input.variableTextBox {
+    width: 250px;
+    max-width: 100%;
+}
+
+input:disabled {
+    opacity: 0.6;
+    cursor: default !important;
+}
+
+textarea.variableTextBox {
+    width: 100%;
+    min-width: 100px;
+    max-width: 100%;
+}
+
+select option {
+    padding: 8px;
+    border-radius: 0;
+}
+
+#labClient {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.lab-client-header {
+    display: flex;
+    flex-shrink: 0;
+    min-height: 4.571em;
+    align-items: center;
+    justify-content: space-between;
+    align-self: stretch;
+    padding: 0 16px;
+    gap: 25px;
+    position: relative;
+}
+
+.lab-name {
+    overflow: hidden;
+    max-height: 4.571em;
+}
+
+a.icon:hover,
+a.icon:focus {
+    text-decoration: none;
+}
+
+.icon:before,
+.icon:after {
+    font-family: 'lab-client-layout-v2';
+    font-weight: normal;
+    font-size: 1.143em;
+}
+
+.tab-headings {
+    display: flex;
+    flex-shrink: 0;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 2.571em;
+    border-bottom: solid 1px;
+    padding: 0 16px;
+}
+
+.tab-holder {
+    display: flex;
+    gap: 16px;
+    line-height: 2.571;
+    /* min-width:0 overrides the flex item's default min-width:auto, letting
+       this shrink and scroll instead of forcing the bar wider. */
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.tab-heading {
+    border-width: 0;
+    border-bottom-width: 2px;
+    border-style: none;
+    padding-bottom: 0;
+    cursor: pointer;
+    font-weight: normal;
+    flex-shrink: 0;
+}
+
+.tab-heading.selected {
+    font-weight: 500;
+    border-bottom-style: solid;
+}
+
+a.tab-heading {
+    color: inherit;
+}
+
+a.tab-heading:hover,
+a.tab-heading:focus {
+    text-decoration: none !important;
+}
+
+.modal-menu-button::before {
+    display: inline-block;
+    vertical-align: top;
+    padding: 0.071em 0.286em;
+    line-height: 1.286em;
+    margin-top: -0.143em;
+}
+
+.icon-holder {
+    margin-top: 3px;
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.icon-holder .icon {
+    cursor: pointer;
+}
+
+.icon-holder .notifications-button {
+    visibility: hidden;
+}
+
+.icon-holder .notifications-button::before {
+    content: '\a001';
+}
+
+.icon-holder .notifications-button.active {
+    visibility: inherit;
+}
+
+.icon-holder .help-button::before {
+    content: '\a002';
+}
+
+.icon-holder .settings-button::before {
+    content: '\a003';
+}
+
+.tabs {
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+    /* Containing block for .modal-menu below. */
+    position: relative;
+}
+
+.tab {
+    display: none;
+}
+
+.tab.selected {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.tab-content {
+    padding: 16px;
+    overflow-y: auto;
+    overflow-x: auto;
+    /* min-height:0 lets this shrink and scroll instead of growing to fit its
+       content (the flexbox default is min-height:auto). */
+    flex: 1;
+    min-height: 0;
+    /* Containing block for absolutely positioned content (task status icons,
+       task-list checkboxes, etc.). Without it they resolve against .tabs,
+       which sits outside this scroll container, so they don't scroll with
+       the content and get clipped by .tabs' overflow:hidden. */
+    position: relative;
+}
+
+.instructions .page {
+    display: none;
+}
+
+.instructions .page.selected {
+    display: block;
+}
+
+.instructions-footer {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 16px;
+    border-top: solid 1px;
+    min-height: 7.143em;
+    box-sizing: border-box;
+}
+
+.instructions-navigation {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    font-weight: 500;
+    /* No font-size/line-height here - the child <button>s already scale
+       themselves via the global button rule; setting it here too would
+       compound the two. */
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.instructions-navigation .previous-button,
+.instructions-navigation .next-button {
+    flex: 1;
+    min-width: 8em;
+    flex-shrink: 0;
+    cursor: pointer;
+    line-height: 1.125;
+    border: solid 1.5px;
+    border-radius: 5px;
+    user-select: none;
+}
+
+.instructions-navigation .previous-button::before {
+    content: '\a005';
+    content: '\a005' / '';
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 0.5em;
+}
+
+.instructions-navigation .previous-button:dir(rtl)::before {
+    content: '';
+}
+
+.instructions-navigation .previous-button:dir(rtl)::after {
+    content: '\a004';
+    content: '\a004' / '';
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 0.5em;
+}
+
+.instructions-navigation .next-button::after {
+    content: '\a004';
+    content: '\a004' / '';
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 0.5em;
+}
+
+.instructions-navigation .next-button:dir(rtl)::after {
+    content: '';
+}
+
+.instructions-navigation .next-button:dir(rtl)::before {
+    content: '\a005';
+    content: '\a005' / '';
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 0.5em;
+}
+
+.instructions-navigation .previous-arrow,
+.instructions-navigation .next-arrow {
+    font-family: 'lab-client-layout-v2';
+    font-weight: normal;
+    margin-right: 0.357em;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 1.143em;
+}
+
+.instructions-navigation .previous-button.disabled {
+    opacity: 0.6;
+    cursor: default;
+}
+
+.instructions-navigation .next-button.disabled {
+    cursor: default;
+    opacity: 0.6;
+}
+
+.instructions-navigation .previous-button.disabled:hover,
+.instructions-navigation .next-button.disabled:hover {
+    background-color: transparent;
+}
+
+.progress-and-timer-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: center;
+}
+
+.lab-progress-bar {
+    height: 8px;
+    border-radius: 5px;
+    flex: 1;
+}
+
+.lab-progress-fill {
+    height: 8px;
+    border-radius: 5px;
+}
+
+.timer-wrapper {
+}
+
+.timer {
+    font-weight: 500;
+}
+
+.timer-wrapper .timer.expiring {
+    color: #ff3139;
+}
+
+/* instructions content */
+
+.lab-title {
+    margin-top: 0;
+    font-size: 2em;
+    line-height: 1.286;
+    font-weight: 500;
+    padding-bottom: 1.143em;
+    border-bottom: solid 2px;
+}
+
+h1 {
+    font-size: 2em;
+    line-height: 1.286;
+    font-weight: 400;
+    margin: 16px 0;
+}
+
+.page > h1:first-child {
+    margin-top: 0;
+}
+
+h2 {
+    font-size: 1.714em;
+    line-height: 1.333;
+    font-weight: 500;
+    margin: 16px 0;
+}
+
+h3 {
+    font-size: 1.429em;
+    line-height: 1.6;
+    font-weight: 500;
+    margin: 16px 0;
+}
+
+h4 {
+    font-size: 1.286em;
+    line-height: 1.444;
+    font-weight: 500;
+    margin: 16px 0;
+}
+
+h5 {
+    font-size: 1.143em;
+    line-height: 1.375;
+    font-weight: 500;
+    margin: 16px 0;
+}
+
+h6 {
+    font-size: 1em;
+    line-height: 1.429;
+    font-weight: 500;
+    margin: 16px 0;
+}
+
+hr {
+    border-width: 1px;
+    border-style: solid;
+    opacity: 0.5;
+    margin: 16px 0;
+}
+
+ul,
+ol {
+    margin: 16px 0;
+    /* Keep markers outside (an inside marker pushes block children such as
+       <p> onto the line below it) and reserve inline-start room for them so
+       they aren't clipped. Logical property keeps RTL correct. */
+    padding: 0;
+    padding-inline-start: 1.143em;
+    list-style-position: outside;
+}
+
+li > ul,
+li > ol {
+    margin-left: 1.143em;
+}
+
+ul li,
+ol li {
+    margin: 5px 0;
+}
+
+/* Matches p, so a list item has the same room around inline buttons. */
+.instructions .page li {
+    line-height: 1.429;
+}
+
+/* Code keeps its own spacing inside a list item, including the li of
+   numbered code lines. */
+.instructions .page pre,
+.instructions .page pre li {
+    line-height: normal;
+}
+
+.page table {
+    border-collapse: collapse;
+}
+
+.page table thead tr {
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+}
+
+.page table tr:not(:last-child) {
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+}
+
+.page table th:not(:empty) {
+    font-weight: bold;
+    padding: 5px 10px;
+}
+
+.page table td {
+    padding: 5px 10px;
+}
+
+.page img,
+.dialogContent img {
+    max-width: 100%;
+    vertical-align: middle;
+    margin: 5px 0;
+}
+
+.page video,
+.dialogContent video {
+    display: block;
+    margin: 16px 0;
+    max-width: 100%;
+}
+
+.page ol {
+    list-style-type: decimal;
+}
+
+.page ol li ol {
+    list-style-type: lower-alpha;
+}
+
+.page ol li ol li ol {
+    list-style-type: lower-roman;
+}
+
+.page ol li ol li ol li ol {
+    list-style-type: decimal;
+}
+
+.page ol li ol li ol li ol li ol {
+    list-style-type: lower-alpha;
+}
+
+.page ol li ol li ol li ol li ol li ol {
+    list-style-type: lower-roman;
+}
+
+/* LINKS */
+
+a {
+    text-decoration: none;
+    font-weight: 500;
+}
+
+a:hover,
+a:focus {
+    text-decoration: underline;
+}
+
+.icon-link::before,
+.copyable::before,
+.typeText::before,
+.special-action-link::before {
+    font-family: 'lab-client-layout-v2';
+    font-weight: normal;
+    margin-right: 0.3125em;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 1.143em;
+}
+
+.icon-link:dir(rtl)::before,
+.copyable:dir(rtl)::before,
+.typeText:dir(rtl)::before,
+.special-action-link:dir(rtl)::before {
+    margin-right: 0px;
+    margin-left: 0.3125em;
+    transform: scaleX(-1);
+}
+
+.special-action-link::before {
+    font-size: 1.143em;
+    margin-right: 0.3125em;
+}
+
+.helpLink::before {
+    content: '\a002';
+}
+
+.external-link::before {
+    content: '\a006';
+}
+
+.portalLink::before {
+    content: '\a007';
+}
+
+.dialogLink::before {
+    content: '\a008';
+}
+
+.hintLink::before {
+    content: '\a009';
+}
+
+.knowledgeLink::before {
+    content: '\a010';
+}
+
+.videoLink::before {
+    content: '\a011';
+}
+
+.audioLink::before {
+    content: '\a012';
+}
+
+.imageLink::before {
+    content: '\a013';
+}
+
+.fileLink::before {
+    content: '\a014';
+}
+
+.print-icon::before {
+    content: '\a046';
+}
+
+/* IDLX behavior links */
+
+.special-action-link,
+.copyable,
+.typeText {
+    /* Smaller than the text and unpadded vertically, so the box clears
+       the lines above and below without spreading them. */
+    padding: 0 6px;
+    font-size: 0.929em;
+    line-height: 1.2;
+    border-radius: 3px;
+    border: 1px solid #eee;
+    cursor: pointer;
+    font-weight: normal;
+    /* Not inline-flex: every child would become a flex item, and a child
+       holding only whitespace (e.g. the token spans prettyprint emits)
+       collapses to zero width, so the words run together. */
+    display: inline-block;
+}
+
+.special-action-link::before,
+.copyable::before,
+.typeText::before {
+    /* Keeps the icon from making the button taller than its text. */
+    line-height: 1;
+}
+
+/* A tint rather than an outline, so the edge does not crowd the lines
+   above and below. */
+.copyable,
+.typeText {
+    border-color: transparent;
+    background-color: color-mix(in srgb, var(--primary-color) 16%, transparent);
+}
+
+.copyable:hover,
+.typeText:hover {
+    background-color: color-mix(in srgb, var(--primary-color) 26%, transparent);
+}
+
+.special-action-link:hover {
+    text-decoration: none;
+}
+
+.special-action-link:focus-visible,
+.copyable:focus-visible,
+.typeText:focus-visible {
+    outline: 2px solid var(--primary-color, var(--focus-outline-color));
+    outline-offset: 2px;
+}
+
+.ctrlAltDeleteLink::before,
+.keyComboLink::before {
+    content: '\a027';
+}
+
+.copyable::before {
+    content: '\a018';
+    font-size: 1.143em;
+}
+
+.typeText::before {
+    content: '\a025';
+    font-size: 1.077em;
+}
+
+.copyable.typeText::before {
+    content: '\a025\a018';
+    font-size: 1.143em;
+}
+
+.loadMediaLink.opticalMedia::before {
+    content: '\a029';
+}
+
+.loadMediaLink.floppyMedia::before {
+    content: '\a038';
+}
+
+.selectEndpointLink::before,
+.selectMachineLink::before {
+    content: '\a028';
+}
+
+.commandLink::before {
+    content: '\a030';
+}
+
+.command {
+    display: none;
+}
+
+/* BLOCKS */
+blockquote {
+    position: relative;
+    margin: 16px 0;
+    border-left: solid 8px;
+    padding: 0.1px 1.429em;
+    min-height: 1em;
+    border-radius: 4px;
+    min-height: 52px; /** Ensure empty expandable text blocks render the same as wehn filled out */
+}
+
+blockquote:dir(rtl) {
+    border-left-style: none;
+    border-right-width: 8px;
+    border-right-style: solid;
+}
+
+blockquote.alert,
+blockquote.help,
+blockquote.hint,
+blockquote.note,
+blockquote.knowledge {
+    background-color: transparent;
+}
+
+blockquote.alert,
+blockquote.note,
+blockquote.help,
+blockquote.hint {
+    border-radius: 4px;
+    border-width: 1px 1px 1px 8px;
+    border-style: solid;
+    padding-left: 2.286em;
+}
+
+blockquote.alert:dir(rtl),
+blockquote.note:dir(rtl),
+blockquote.help:dir(rtl),
+blockquote.hint:dir(rtl) {
+    border-width: 1px 8px 1px 1px;
+    padding-left: 1.429em;
+    padding-right: 2.286em;
+}
+
+blockquote.expandable {
+    border-radius: 4px;
+    border-width: 1px 1px 1px 8px;
+    border-style: solid;
+}
+
+blockquote.expandable:dir(rtl) {
+    border-width: 1px 8px 1px 1px;
+}
+
+blockquote.alert:before,
+blockquote.note:before,
+blockquote.help:before,
+blockquote.hint:before,
+blockquote.knowledge:before {
+    font-family: 'lab-client-layout-v2';
+    position: absolute;
+    /* Must match the padding-left gutter above (2.286em) - both scale
+       together. */
+    margin-left: -1.375em;
+    /* Must match p's own top margin (1.143em) - keep both in sync. */
+    top: 1em;
+    font-size: 1.143em;
+}
+
+blockquote.alert:dir(rtl):before,
+blockquote.note:dir(rtl):before,
+blockquote.help:dir(rtl):before,
+blockquote.hint:dir(rtl):before,
+blockquote.knowledge:dir(rtl):before {
+    margin-right: -1.375em;
+}
+
+blockquote.alert:before {
+    content: '\a016';
+}
+
+blockquote.note:before {
+    content: '\a017';
+}
+
+blockquote.help:before {
+    content: '\a002';
+}
+
+blockquote.hint:before {
+    content: '\a009';
+}
+
+blockquote.knowledge:before {
+    content: '\a010';
+}
+
+blockquote.knowledge:dir(rtl):before {
+    transform: scaleX(-1);
+}
+
+blockquote.knowledge {
+    padding-left: 2.286em;
+    border-width: 1px;
+    border-style: solid;
+    margin-bottom: 0px;
+    border-radius: 4px;
+}
+
+blockquote.knowledge:dir(rtl) {
+    padding-left: 1.429em;
+    padding-right: 2.286em;
+}
+
+blockquote.knowledge.collapsed,
+blockquote.knowledge.expanded {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-style: none;
+}
+
+blockquote.knowledge.collapsed {
+    position: relative;
+    max-height: 100px;
+    overflow: hidden;
+}
+
+blockquote.knowledge.collapsed::after {
+    content: '';
+    font-size: 0;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background: linear-gradient(transparent, #fff);
+    height: 60px;
+    width: 100%;
+}
+
+blockquote.knowledge.expanded {
+    overflow: auto;
+    max-height: inherit;
+}
+
+blockquote.knowledge.expanded::after {
+    height: 0;
+    display: none;
+}
+
+.moreKnowledge {
+    display: none;
+    box-sizing: border-box;
+    padding-top: 0;
+    padding-left: 2.286em;
+    margin-top: 0;
+    min-height: 10px;
+    border-style: solid;
+    border-width: 1px;
+    border-top-style: none;
+    border-top-width: 0;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.moreKnowledge {
+    padding-left: 1.429em;
+    padding-right: 2.286em;
+}
+
+blockquote.knowledge.collapsed + .moreKnowledge,
+blockquote.knowledge.expanded + .moreKnowledge {
+    display: block;
+}
+
+.moreKnowledge a {
+    display: inline-block;
+    padding: 0 0 16px 0;
+}
+
+details {
+    position: relative;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 4px;
+    padding: 8px;
+    margin: 1.143em 0;
+}
+
+details > summary {
+    /* position:relative keeps summary::after centered on this row, not the
+       taller expanded details box. */
+    position: relative;
+    list-style: none;
+    font-size: 1em;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.429;
+    cursor: pointer;
+    padding-right: 20px;
+}
+
+details > summary::after {
+    content: '\a015';
+    font-family: 'lab-client-layout-v2';
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+details[open] > summary::after {
+    transform: translateY(-50%) rotate(90deg);
+}
+
+details[open] summary {
+    margin-bottom: 10px;
+}
+
+details > summary::-webkit-details-marker {
+    display: none;
+}
+
+#helpTab details > summary {
+    font-weight: 700;
+}
+
+/* nested details/summary blocks */
+
+blockquote details {
+    border: none;
+    padding: 0;
+}
+
+blockquote > details > summary::after {
+    right: 0px;
+    top: 50%;
+}
+
+/* EXIT MENU */
+
+.exit-button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1em;
+}
+
+.exit-button::before {
+    margin: 0;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 0.857em;
+}
+
+.exit-button:dir(rtl)::before {
+    margin: 0;
+}
+
+#exitMenuButton::before {
+    content: '\a000';
+}
+
+#exitMenu {
+    display: none;
+    position: absolute;
+    right: 16px;
+    z-index: 1;
+    top: 100%;
+}
+
+#exitMenu:dir(rtl) {
+    right: initial;
+    left: 16px;
+}
+
+.menu {
+    position: absolute;
+    box-sizing: border-box;
+    border-radius: 8px;
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.24);
+}
+
+.menu .menu-item {
+    padding: 0.75em 2em 0.75em 2.25em;
+    cursor: pointer;
+    font-size: 1.143em;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.375;
+    display: flex;
+    align-items: center;
+}
+
+.menu .menu-item:dir(rtl) {
+    padding: 0.75em 2.25em 0.75em 2em;
+}
+
+.menu .menu-item:first-child {
+    border-radius: 8px 8px 0 0;
+}
+
+.menu .menu-item:last-child {
+    border-radius: 0 0 8px 8px;
+}
+
+.menu .menu-item::before {
+    font-family: 'lab-client-layout-v2';
+    position: absolute;
+    /* Must match .menu-item's padding-left gutter above - both scale
+       together. */
+    margin-left: -1.5em;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 1.143em;
+}
+
+.menu .menu-item:dir(rtl)::before {
+    margin-left: 0;
+    margin-right: -1.5em;
+    transform: scaleX(-1);
+}
+
+.save-button::before {
+    content: '\a038';
+}
+
+.cancel-button::before {
+    content: '\a000';
+}
+
+.disconnect-button::before {
+    content: '\a039';
+}
+
+/* MODAL DIALOG */
+.dialog {
+    z-index: 2500;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.dialogMask,
+.modal-menu-mask {
+    opacity: 0.6;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.dialogBox {
+    height: 95%;
+    width: 90%;
+    margin: auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #fff;
+    border-style: solid;
+    border-width: 1px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.dialog-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.857em 1.786em;
+}
+
+.dialogCloseButton {
+    cursor: pointer;
+}
+
+.dialogCloseButton::before {
+    content: '\a000';
+    font-family: 'lab-client-layout-v2';
+    display: inline-block;
+    vertical-align: top;
+    font-size: 1.143em;
+    padding: 0.214em;
+}
+
+.dialogTitle {
+    font-size: 1.429em;
+    flex: 1;
+}
+
+.dialogContent {
+    overflow: auto;
+    flex: 1;
+    padding: 1.429em 1.786em;
+}
+
+.dialogContent.noScroll {
+    overflow: inherit;
+}
+
+.dialogContent.noPadding {
+    padding: 0;
+}
+
+.dialogButtons {
+    display: none;
+    padding: 1.786em;
+}
+
+.dialog.hasButtons .dialogButtons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+#extendExpireForm {
+    display: flex;
+    flex-direction: column;
+}
+
+#extendExpireDate {
+    max-width: min-content;
+    margin-top: 8px;
+}
+
+/* MODAL MENU */
+
+.modal-menu-mask {
+    z-index: 500;
+}
+
+.modal-menu {
+    display: none;
+    position: absolute;
+    z-index: 501;
+    top: 16px;
+    bottom: 16px;
+    right: 16px;
+    left: 16px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.modal-menu-title-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.714em;
+    border-radius: 10px 10px 0 0;
+    line-height: 1.429;
+}
+
+.modal-menu-title {
+    font-size: 1em;
+    font-style: normal;
+    font-weight: 500;
+    line-height: inherit;
+    margin: 0;
+    display: inline-block;
+}
+
+.close-modal-menu-button {
+    cursor: pointer;
+    font-weight: 400;
+}
+
+.close-modal-menu-button::before {
+    content: '\a000';
+    font-family: 'lab-client-layout-v2';
+    display: inline-block;
+    vertical-align: top;
+    font-size: 1em;
+    padding: 0.071em 0.286em;
+}
+
+.close-modal-menu-button:focus::before {
+    outline: rgb(255, 255, 255, 0.5) solid 1px;
+}
+
+.modal-menu-content {
+    padding: 16px 0.714em;
+    overflow: auto;
+    width: 100%;
+    box-sizing: border-box;
+    position: absolute;
+    /* Must track .modal-menu-title-bar's padding/line-height above, or this
+       overlaps the title bar. */
+    top: 2.857em;
+    bottom: 0px;
+}
+
+.modal-menu h3 {
+    font-size: 1.143em;
+    line-height: 1.375;
+}
+
+.support-information {
+    font-size: 0.857em;
+    font-weight: 500;
+    padding: 16px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    align-self: stretch;
+}
+
+.support-information .title {
+    /* Relative to the parent's own 0.857em, not the html base - accounts
+       for compounding. */
+    font-size: 1.167em;
+    font-weight: 500;
+    margin: 0;
+}
+
+#supportTicketLink a::before,
+.support-link::before {
+    content: '\a031';
+    font-family: 'lab-client-layout-v2';
+    display: inline-block;
+    vertical-align: top;
+    font-size: 1.143em;
+    margin-right: 0.3125em;
+}
+
+#supportTicketLink:dir(rtl) a::before,
+.support-link:dir(rtl)::before {
+    margin-right: 0px;
+    margin-left: 0.3125em;
+}
+
+.bug-link::before {
+    content: '\a032';
+}
+
+.link-list-item {
+    line-height: 1.714em;
+    display: block;
+}
+
+.skillable-branding-block {
+    margin-top: 20px;
+    font-size: 0.857em;
+    font-weight: 500;
+}
+
+.skillable-links-separator {
+    font-size: 0.833em;
+    font-weight: 400;
+    margin: 0 2px 0 2px;
+}
+
+#help-menu a {
+    font-weight: 400;
+}
+
+.modal-menu-content .settings-heading {
+    font-size: 1em;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.429;
+    text-transform: uppercase;
+    margin: 16px 0;
+}
+
+.language-selector-icon::before {
+    content: '\a049';
+    font-family: 'lab-client-layout-v2';
+    font-size: 1.714em;
+    margin-left: 0.2083em;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.edit-link::before {
+    content: '\a033';
+}
+
+.assign-link::before {
+    content: '\a037';
+}
+
+.transfer-link::before {
+    content: '\a004';
+}
+
+.share-link::before {
+    content: '\a035';
+}
+
+.split-windows-link::before {
+    content: '\a008';
+}
+
+.join-windows-link::before {
+    content: '\a008';
+}
+
+.install-link::before {
+    content: '\a034';
+}
+
+#settings-menu .link-list-item {
+    line-height: 2.25;
+}
+
+#settings-menu hr {
+    margin: 20px 0 20px 0;
+}
+
+#settings-menu .link-list-item a,
+#settings-menu .link-list-item {
+    font-weight: 500;
+    font-size: 1.143em;
+}
+
+#settings-menu .link-list-item a::before,
+#settings-menu .link-list-item::before {
+    font-size: 1em;
+}
+
+#settings-menu .icon-link {
+    cursor: pointer;
+}
+
+#settings-menu .icon-link:hover {
+    text-decoration: underline;
+}
+
+#commit-lab-profile-changes::before {
+    content: '\a036';
+}
+
+/* Pins these previews back to 1rem so they don't inherit the *currently
+   selected* zoom level - otherwise picking Extra-Large makes "Standard"
+   render biggest. */
+.text-size-options {
+    font-size: 1rem;
+}
+
+.text-size-choice {
+    margin: 16px 0;
+}
+
+.text-size-choice label {
+    cursor: pointer;
+    padding: 2px 5px;
+}
+
+.text-size-choice label:focus-within {
+    outline: 2px solid var(--primary-color, var(--focus-outline-color));
+}
+
+#text-size-choice-large {
+    /* Fixed size so it doesn't scale with the rest of the layout */
+    font-size: 20px;
+}
+
+#text-size-choice-extra-large {
+    /* Fixed size so it doesn't scale with the rest of the layout */
+    font-size: 24px;
+}
+
+.text-size-choice .checkbox::before {
+    opacity: 0;
+    content: '\a026';
+    font-family: 'lab-client-layout-v2';
+    /* Fixed size so it doesn't scale with the rest of the layout - scaling
+       it per-row (matching each row's bigger preview font-size) threw off
+       its vertical alignment against the label text, so it's back to a
+       uniform size across all three rows. */
+    font-size: 16px;
+    margin-right: 6px;
+    vertical-align: middle;
+    display: inline-block;
+    margin-top: -2px;
+}
+
+.text-size-choice .checkbox:dir(rtl)::before {
+    margin-right: 0;
+    margin-left: 6px;
+}
+
+.text-size-choice input[type='radio'] {
+    opacity: 0;
+    position: absolute;
+    padding: 0;
+    margin: 0;
+}
+
+.text-size-choice input[type='radio']:hover + .checkbox::before {
+    opacity: 0.2;
+}
+
+.text-size-choice input[type='radio']:checked + .checkbox::before {
+    opacity: 1;
+}
+
+/* FULL SCREEN DIALOG */
+#fullScreenMessage {
+    position: absolute;
+    z-index: 2001;
+    top: 0;
+    left: auto;
+    right: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#fullScreenMessageMask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+}
+
+#fullScreenMessageCenter {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#fullScreenMessageTextWrapper {
+    padding: 0 2.857em;
+    background-repeat: no-repeat;
+}
+
+#fullScreenMessageTitle {
+    font-size: 2.286em;
+    font-weight: 500;
+    line-height: 1.5;
+    margin: 0;
+    outline: none;
+}
+
+#fullScreenMessageText {
+    margin: 1.786em 0;
+    font-size: 1.429em;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+#fullScreenMessageButtonWrapper {
+    margin-top: 1.071em;
+}
+
+#fullScreenMessageButtonWrapper input[type='button'] {
+    margin-right: 0.571em;
+}
+
+#fullScreenMessageButtonWrapper input[type='button']:dir(rtl) {
+    margin-right: 0px;
+    margin-left: 0.571em;
+}
+
+#fullScreenProgressBar {
+    width: 500px;
+    height: 10px;
+    margin-top: 1.071em;
+    border-radius: 5px;
+}
+
+#fullScreenProgressFill {
+    height: 10px;
+    width: 0;
+    border-radius: 5px;
+}
+
+#fullScreenProgressText {
+    margin-top: 1.071em;
+    font-size: 1.143em;
+}
+
+#fullScreenMessage.withLoadingImage #fullScreenMessageTextWrapper {
+    margin-left: 2.286em;
+}
+
+#fullScreenMessage.withLoadingImage #fullScreenMessageTextWrapper:dir(rtl) {
+    margin-left: 0;
+    margin-right: 2.286em;
+}
+
+#fullScreenMessageLoadingIcon {
+    display: none;
+    position: absolute;
+    margin-left: -2.571em;
+    margin-top: 0.714em;
+}
+
+#fullScreenMessageLoadingIcon:dir(rtl) {
+    margin-left: 0px;
+    margin-right: -2.571em;
+}
+
+#fullScreenMessage.withLoadingImage #fullScreenMessageLoadingIcon {
+    display: block;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loadingAnimation-large {
+    border-style: solid;
+    display: inline-block;
+    border-width: 0.357em;
+    border-radius: 50%;
+    width: 1.286em;
+    height: 1.286em;
+    animation: spin 1s linear infinite;
+}
+
+.loadingAnimation-medium {
+    border-style: solid;
+    display: inline-block;
+    border-width: 0.286em;
+    border-radius: 50%;
+    width: 0.857em;
+    height: 0.857em;
+    animation: spin 1s linear infinite;
+}
+
+.loadingAnimation-small {
+    border-style: solid;
+    display: inline-block;
+    border-width: 0.214em;
+    border-radius: 50%;
+    width: 0.571em;
+    height: 0.571em;
+    animation: spin 1s linear infinite;
+}
+
+button,
+input[type='button'],
+label.button {
+    box-sizing: border-box;
+    border-radius: 8px;
+    border: none;
+    font-size: 1.143em;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.375;
+    padding: 0.3125em 1em;
+}
+
+button:hover,
+input[type='button']:hover,
+label.button:hover {
+    cursor: pointer;
+}
+
+#fullScreenMessageButtonWrapper button,
+#fullScreenMessageButtonWrapper input[type='button'] {
+    height: 48px;
+    padding: 0px 32px;
+    margin-bottom: 10px;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+/* Code */
+
+/* Pretty printing for code blocks. Used with prettify.js. */
+
+pre .str,
+code .str {
+    color: #78e844;
+}
+/* string  - green */
+pre .kwd,
+code .kwd {
+    color: #ffa37e;
+}
+/* keyword - dark pink */
+pre .com,
+code .com {
+    color: #aeaeae;
+    font-style: italic;
+}
+/* comment - gray */
+pre .typ,
+code .typ {
+    color: #62c9ff;
+}
+/* type - light blue */
+pre .lit,
+code .lit {
+    color: #3387cc;
+}
+/* literal - blue */
+pre .pun,
+code .pun {
+    color: #fff;
+}
+/* punctuation - white */
+pre .pln,
+code .pln {
+    color: #fff;
+}
+/* plaintext - white */
+pre .tag,
+code .tag {
+    color: #62c9ff;
+}
+/* html/xml tag    - light blue */
+pre .atn,
+code .atn {
+    color: #bdb76b;
+}
+/* html/xml attribute name  - khaki */
+pre .atv,
+code .atv {
+    color: #65b042;
+}
+/* html/xml attribute value - green */
+pre .dec,
+code .dec {
+    color: #3387cc;
+}
+/* decimal - blue */
+
+code.prettyprint:focus-visible {
+    outline: 2px solid var(--primary-color, var(--focus-outline-color));
+    outline-offset: 2px;
+}
+
+.prettyprint ol.linenums {
+    list-style: none;
+    counter-reset: li;
+}
+
+.prettyprint ol.linenums > li::before {
+    content: counter(li);
+    color: cadetblue;
+    display: inline-block;
+    text-align: right;
+    direction: rtl;
+    width: 0;
+    margin-left: -10px;
+    margin-right: 30px;
+}
+
+.prettyprint ol.linenums > li {
+    counter-increment: li;
+    margin: 0;
+    padding: 2px 0 2px 10px;
+}
+
+/* override alternate shading for lines */
+
+.prettyprint li.L1,
+li.L3,
+li.L5,
+li.L7,
+li.L9 {
+    background: transparent;
+}
+
+code {
+    padding: 2px 5px;
+    font-family:
+        Consolas,
+        Monaco,
+        Lucida Console,
+        Liberation Mono,
+        DejaVu Sans Mono,
+        Bitstream Vera Sans Mono,
+        Courier New,
+        monospace;
+    display: inline-block;
+}
+
+.codeTitle {
+    color: #fff;
+    font-family: 'Inter Tight', sans-serif;
+    margin-top: 16px;
+    background-color: #595959;
+    padding: 10px;
+    font-size: 0.857em;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.667;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px 5px 0 0;
+}
+
+.codeTitle .title {
+    align-self: center;
+}
+
+.codeTitle .titleActions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+
+pre code {
+    padding: 16px;
+    display: block;
+    overflow: auto;
+    border-radius: 0 0 5px 5px;
+}
+
+pre code.wrap {
+    white-space: pre-wrap;
+}
+
+code .variable {
+    color: pink;
+}
+
+.copy-code-block,
+.type-code-block {
+    cursor: pointer;
+    padding: 8px 11px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.copy-code-block::before,
+.type-code-block::before {
+    font-family: 'lab-client-layout-v2';
+    font-size: 1.143em;
+    margin-right: 0.3125em;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.copy-code-block::before {
+    content: '\a018';
+}
+
+.type-code-block::before {
+    content: '\a025';
+}
+
+.copy-code-block:hover,
+.type-code-block:hover {
+    background-color: #333;
+}
+
+.copy-code-block:focus-visible,
+.type-code-block:focus-visible {
+    outline: 2px solid var(--primary-color, var(--focus-outline-color));
+    outline-offset: 2px;
+}
+
+:not(pre) > code:not(.nocopy) {
+    margin-left: 1.714em;
+    margin-right: 3px;
+    position: relative;
+    /* Not inline-flex: prettyprint wraps each token (spaces included) in its
+       own span, and as flex items the whitespace-only spans collapse to zero
+       width, so "kubectl get nodes" renders as "kubectlgetnodes". */
+    display: inline-block;
+}
+
+:not(pre) > code:not(.nocopy):dir(rtl) {
+    margin-left: 0;
+    margin-right: 1.714em;
+    position: relative;
+}
+
+:not(pre) > code:not(.nocopy)::before {
+    font-weight: normal;
+    content: '\a018';
+    font-family: 'lab-client-layout-v2';
+    font-size: 1.143em;
+    position: absolute;
+    /* Must match the margin-left gutter above (1.714em) - both scale
+       together. */
+    margin-left: -1.5em;
+    cursor: pointer;
+}
+
+:not(pre) > code:not(.nocopy):dir(rtl)::before {
+    margin-left: 0;
+    margin-right: -1.5em;
+}
+
+.childClient :not(pre) > code:not(.nocopy)::before {
+    content: '\a025';
+}
+
+code.nocode {
+    color: #fff;
+}
+
+@media print {
+    pre .str,
+    code .str {
+        color: #060;
+    }
+
+    pre .kwd,
+    code .kwd {
+        color: #006;
+        font-weight: bold;
+    }
+
+    pre .com,
+    code .com {
+        color: #600;
+        font-style: italic;
+    }
+
+    pre .typ,
+    code .typ {
+        color: #404;
+        font-weight: bold;
+    }
+
+    pre .lit,
+    code .lit {
+        color: #044;
+    }
+
+    pre .pun,
+    code .pun {
+        color: #440;
+    }
+
+    pre .pln,
+    code .pln {
+        color: #000;
+    }
+
+    pre .tag,
+    code .tag {
+        color: #006;
+        font-weight: bold;
+    }
+
+    pre .atn,
+    code .atn {
+        color: #404;
+    }
+
+    pre .atv,
+    code .atv {
+        color: #060;
+    }
+}
+
+/* ============================================================
+   AI Tools - Shared
+   Rules used by more than one AI tool (chat, practice, completion menu).
+   Keep additions here generic; anything specific to one tool belongs in
+   that tool's own section instead (e.g. "AI Completion Menu" below).
+   ============================================================ */
+
+.ai-content-warning {
+    color: var(--text-color);
+    font-size: 0.875em;
+}
+
+.thumbs-up.selected {
+    opacity: 1;
+    color: var(--positive-feedback-color);
+    border: solid 1px var(--positive-feedback-color);
+}
+
+.thumbs-down.selected {
+    opacity: 1;
+    color: var(--negative-feedback-color);
+    border: solid 1px var(--negative-feedback-color);
+}
+
+.ai-tool.collapsed .buttons .collapse .material-symbols-outlined {
+    transform: rotate(-90deg);
+}
+
+.ai-tool-symbol {
+    color: var(--primary-color-background-text-color);
+    border-radius: 100px;
+    padding: 5px;
+    background-color: var(--primary-color);
+    font-size: 1.5em;
+}
+
+.ai-tool .buttons {
+    gap: 0.25em;
+}
+
+.ai-tool .buttons button {
+    width: 1.714em;
+    height: 1.714em;
+    padding: 0;
+    justify-content: center;
+}
+
+.ai-tool .buttons .material-symbols-outlined {
+    font-size: 1.143em;
+}
+
+/* The "keyboard_arrow_down" glyph optically fills less of its em-box than
+   its neighbors - bumped up so it reads as the same visual size regardless
+   of which icon it's sitting next to (a property of this specific glyph,
+   not of any one tool's button pairing). */
+.ai-tool .buttons .collapse .material-symbols-outlined {
+    transition: transform 0.15s ease;
+    font-size: 1.429em;
+}
+
+.ai-tool-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5em;
+    padding: 0.5em 0.9375em;
+    font-size: 0.857em;
+    background-color: var(--accent-background-color);
+    border-radius: 4px 4px 0 0;
+    border-bottom: 1px solid var(--accent-border-color);
+}
+
+.ai-tool-header > div {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    min-width: 0;
+}
+
+.ai-tool-header > div:last-child {
+    flex-shrink: 0;
+}
+
+.ai-tool-header h3 {
+    padding: 0;
+    margin: 0;
+}
+
+.ai-tool-header .topic {
+    font-family: 'theme-heading-font';
+    color: var(--heading-color);
+    font-size: 1.333em;
+    font-weight: 500;
+    min-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.ai-tool-header .material-symbols-outlined {
+    user-select: none;
+    text-decoration: none;
+}
+
+.ai-tool-header .suggest-topics {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    color: var(--primary-color);
+}
+
+.ai-tool-header button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.4375em;
+    background: none;
+}
+
+.ai-tool-header button:focus-visible {
+    outline: 2px solid var(--primary-color, var(--focus-outline-color));
+    outline-offset: 2px;
+}
+
+.ai-tool .ai-input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    align-self: stretch;
+    margin: 0.9375em;
+    padding: 0.375em 0.5em;
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    background: none;
+}
+
+.ai-tool .ai-input-wrapper:focus-within {
+    outline: 2px solid var(--primary-color, var(--focus-outline-color));
+    outline-offset: 0;
+}
+
+.ai-tool .ai-input {
+    flex: 1;
+    min-width: 0;
+    resize: none;
+    align-self: center;
+    line-height: 1.571;
+    min-height: 2.286em;
+    max-height: calc(1.571em * 4 + 10px);
+    overflow-y: auto;
+    font-size: 1em;
+    padding: 5px 10px;
+    border-style: none;
+    background: none;
+}
+
+.ai-tool .ai-input:focus {
+    outline: none;
+}
+
+.ai-tool .ai-submit {
+    box-sizing: border-box;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2em;
+    height: 2em;
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--primary-button-background-color);
+    color: var(--primary-button-text-color);
+    cursor: pointer;
+}
+
+.ai-tool .ai-submit:hover {
+    background-color: var(--primary-button-hover-background-color);
+}
+
+.ai-tool .ai-submit .material-symbols-outlined {
+    font-size: 1.143em;
+}
+
+.ai-tool .ai-submit:focus {
+    outline: none;
+}
+
+.chat-response-loading {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.chat-response-loading .ai-loading-label {
+    color: var(--text-color);
+    font-size: 0.875em;
+}
+
+.chat-response-loading .dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    margin: 0 1px;
+    border-radius: 50%;
+}
+
+@keyframes jumpingAnimation {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    16% {
+        transform: translate(0, -6px);
+    }
+
+    33% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+/* The dots are the first 3 children now that .ai-loading-label comes after
+   them - :nth-child (from the front) instead of :nth-last-child, keeping
+   the same left-to-right wave (rightmost dot animates first). */
+.chat-response-loading .dot:nth-child(3) {
+    animation: jumpingAnimation 0.8s 0.2s ease-in infinite;
+}
+
+.chat-response-loading .dot:nth-child(2) {
+    animation: jumpingAnimation 0.8s 0.4s ease-in infinite;
+}
+
+.chat-response-loading .dot:nth-child(1) {
+    animation: jumpingAnimation 0.8s 0.6s ease-in infinite;
+}
+
+/* ============================================================
+   AI Completion Menu
+   The "ai[...]"/"ai-menu[...]" prompt button, its teach/show/quiz/resources
+   dropdown, and the .ai-output card it renders a completion into.
+   ============================================================ */
+
+.ai-completion-prompt-wrapper {
+    position: relative;
+    display: inline-block;
+    vertical-align: baseline;
+}
+
+.ai-completion-prompt {
+    display: inline-flex;
+    /* The label is the only baseline-aligned item, so the button's baseline
+       is the label's and it lines up with the surrounding text. */
+    align-items: baseline;
+    vertical-align: baseline;
+    /* Sized like .typeText, so the border clears the surrounding lines. */
+    font-size: 0.929em;
+    padding: 0 8px;
+    gap: 0.3125em;
+    border-radius: 100px;
+    border: 1px solid transparent;
+    color: var(--primary-color);
+    background: color-mix(in srgb, var(--primary-color) 16%, transparent);
+    line-height: 1.2;
+}
+
+/* :not(:disabled) outranks the theme's generic button hover. */
+.ai-completion-prompt:not(:disabled):hover {
+    background: color-mix(in srgb, var(--primary-color) 26%, transparent);
+}
+
+.ai-completion-prompt .material-symbols-outlined {
+    font-size: 1.077em;
+    align-self: center;
+}
+
+.ai-completion-type-selector {
+    top: 100%;
+    left: 0;
+    z-index: 2;
+    margin-top: 3px;
+}
+
+.ai-completion-type-selector .option.menu-item {
+    /* Text-sized rather than the header .menu's larger items, to suit a
+       dropdown under an inline button. */
+    font-size: 1em;
+    font-weight: normal;
+    padding-block: 0.5em;
+    padding-inline: 0.75em 1.25em;
+    display: flex;
+    align-items: center;
+    gap: 0.625em;
+}
+
+.ai-completion-type-selector .option .material-symbols-outlined {
+    font-size: 1.143em;
+    color: var(--primary-color);
+}
+
+.ai-output {
+    position: relative;
+    padding: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    max-height: 400px;
+    height: 100%;
+    overflow: auto;
+    border-radius: 5px;
+    background: none;
+    border: 1px solid var(--accent-border-color);
+}
+
+.ai-output-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    margin-bottom: 10px;
+    font-size: 1.143em;
+}
+
+.ai-output-header .material-symbols-outlined {
+    font-size: 1.286em;
+}
+
+.ai-output-icon {
+    color: var(--primary-color);
+}
+
+.ai-output.error .ai-output-icon {
+    color: var(--alert-block-color);
+}
+
+.ai-output-title {
+    font-weight: 500;
+    flex: 1;
+    min-width: 0;
+}
+
+.ai-output.quiz .question-feedback::before {
+    margin: 10px;
+}
+
+.ai-output.quiz li.quiz-answer {
+    list-style-type: none;
+}
+
+.ai-output .buttons {
+    display: flex;
+    align-items: center;
+    gap: 0.357em;
+    flex-shrink: 0;
+}
+
+.ai-output.collapsed .thumbs-up,
+.ai-output.collapsed .thumbs-down {
+    display: none;
+}
+
+.ai-output .buttons button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5em;
+    height: 1.5em;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+}
+
+.ai-output .buttons .material-symbols-outlined {
+    font-size: 1em;
+}
+
+.ai-output .output p:first-child {
+    margin-top: 0;
+}
+
+.ai-output .output p:last-child {
+    margin-bottom: 0;
+}
+
+.ai-output .ai-content-warning {
+    display: block;
+    margin-top: 10px;
+}
+
+/* ============================================================
+   AI Chat
+   The "ai-chat[...]" persistent conversation widget - header (title,
+   suggest-topics, collapse/clear), scrollable message log, and its
+   auto-growing input pill.
+   ============================================================ */
+
+.ai-chat {
+    position: relative;
+    border: 1px solid var(--accent-border-color);
+    border-radius: 5px;
+}
+
+.ai-chat .ai-output {
+    display: flex;
+    flex-direction: column;
+    gap: 1.0625em;
+    padding: 0.9375em;
+    margin-bottom: 0;
+    margin-top: 0;
+    border-radius: 0;
+    border: none;
+    background: none;
+    overflow: auto;
+    max-height: 400px;
+    transition:
+        max-height 0.3s ease,
+        padding-top 0.3s ease,
+        padding-bottom 0.3s ease,
+        margin-top 0.3s ease,
+        margin-bottom 0.3s ease;
+}
+
+.ai-chat .ai-output.ai-output-collapsed {
+    max-height: 0;
+    overflow: hidden;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.ai-chat .message {
+    padding: 0.5em 0.5625em;
+    border-radius: 5px;
+    width: max-content;
+    max-width: 65vw;
+    border: 1px solid var(--accent-border-color);
+    overflow-wrap: break-word;
+}
+
+.ai-chat .message.user {
+    align-self: flex-end;
+}
+
+.ai-chat .message.user:dir(rtl) {
+    align-self: flex-start;
+}
+
+.ai-chat .message.ai {
+    align-self: flex-start;
+}
+
+.ai-chat .message.ai:dir(rtl) {
+    align-self: flex-end;
+}
+
+.ai-chat div:has(.ai-content-warning) {
+    padding: 0.9375em;
+    padding-top: 0;
+}
+
+/* ============================================================
+   AI Practice
+   The "ai-practice[...]" Learn/Practice/Challenge widget - a title +
+   style-selector row above a bordered card (header, scrolling response
+   area, and its input pill).
+   ============================================================ */
+
+.ai-practice-body {
+    position: relative;
+    border: 1px solid var(--accent-border-color);
+    border-radius: 5px;
+}
+
+.ai-practice-output {
+    display: flex;
+    flex-direction: column;
+    gap: 1.0625em;
+    padding: 0.9375em;
+    margin: 0;
+    border-radius: 0;
+    border: none;
+    background: none;
+}
+
+.ai-practice-output.ai-practice-output-collapsed {
+    display: none;
+}
+
+.ai-practice-output-style {
+    font-size: 0.929em;
+}
+
+.ai-practice-output-style-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    white-space: nowrap;
+    margin-bottom: 8px;
+}
+
+.ai-practice-output-style-wrapper h3 {
+    margin: 0;
+}
+
+.ai-practice-output-style-wrapper label {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.ai-practice-title {
+    font-family: 'theme-heading-font', sans-serif;
+    color: var(--heading-color);
+    font-size: 1.429em;
+    font-weight: 500;
+}
+
+.ai-practice .ai-practice-response:not(.loading) {
+    border-bottom: solid 1px var(--primary-color);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.ai-practice .ai-content-warning {
+    display: block;
+    padding: 0.9375em;
+}
+
+/* ============================================================
+   AI Content
+   The "ai-teach[...]"/"ai-show[...]"/"ai-quiz[...]"/"ai-resources[...]"
+   inline widgets - a title above a bordered card (header with just the AI
+   tool icon, generated content, and its AI-generated-content warning).
+   ============================================================ */
+
+.ai-content {
+    margin: 16px 0;
+}
+
+.ai-content.preview {
+    cursor: pointer;
+}
+
+.ai-content.preview .output {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.ai-content.preview .output .material-symbols-outlined {
+    color: var(--primary-color);
+    font-size: 1.143em;
+}
+
+.ai-content-title {
+    font-family: 'theme-heading-font', sans-serif;
+    color: var(--heading-color);
+    font-size: 1.429em;
+    font-weight: 500;
+    margin: 0 0 8px;
+}
+
+.ai-content-body {
+    position: relative;
+    border: 1px solid var(--accent-border-color);
+    border-radius: 5px;
+}
+
+.ai-content-body .output {
+    padding: 0.9375em;
+}
+
+.ai-content .ai-content-warning {
+    display: block;
+    padding: 0.9375em;
+}
+
+/*  TASKS  */
+
+ol.taskList {
+    padding-left: 1.071em;
+    margin-left: 0;
+}
+
+ol.taskList:dir(rtl) {
+    padding-left: 0px;
+    padding-right: 1.071em;
+    margin-right: 0;
+}
+
+ol .task-list-item {
+    position: relative;
+    margin: 10px 0 10px 2.714em;
+}
+
+ol .task-list-item:dir(rtl) {
+    margin: 10px 2.714em 10px 0;
+}
+
+ul.taskList {
+    padding-left: 1.786em;
+    margin-left: 0;
+}
+
+ul.taskList:dir(rtl) {
+    padding-left: 0;
+    padding-right: 1.786em;
+    margin-right: 0;
+}
+
+ul .task-list-item,
+ol .task-list-item {
+    /* The checkbox's negative offset below assumes the native outside
+       marker position. */
+    list-style-position: outside;
+}
+
+ul .task-list-item {
+    position: relative;
+    margin: 10px 0 10px 0px;
+    list-style-type: none;
+}
+
+.task-list-item label.checkbox {
+    /* An empty inline in the first line, so the box below centers on that
+       line's text even when a taller button grows the line. */
+    position: relative;
+}
+
+ol .task-list-item label.checkbox {
+    /* left must match ol.taskList's padding-left + .task-list-item's
+       margin-left above - all three scale together. */
+    left: -3.786em;
+}
+
+ol .task-list-item label.checkbox:dir(rtl) {
+    left: initial;
+    right: -3.786em;
+}
+
+ul .task-list-item label.checkbox {
+    /* left must match ul.taskList's padding-left above - both scale
+       together. */
+    left: -1.786em;
+}
+
+ul .task-list-item label.checkbox:dir(rtl) {
+    right: -1.786em;
+}
+
+.task-list-item .checkbox input[type='checkbox'] {
+    opacity: 0;
+    position: absolute;
+    padding: 0;
+    margin: 0;
+}
+
+/* A long button that opens a task wraps inside itself, and on the baseline
+   its last line would set the line's baseline, pulling the box down to it. */
+.task-list-item label.checkbox + .copyable,
+.task-list-item label.checkbox + .typeText {
+    vertical-align: text-top;
+}
+
+.task-list-item .checkbox span {
+    position: absolute;
+    inset-inline-start: 0;
+    top: 50%;
+    translate: 0 -50%;
+}
+
+.task-list-item .checkbox span::before {
+    color: white;
+    background-color: #fff;
+    content: '\a026';
+    font-family: 'lab-client-layout-v2';
+    font-size: 0.857em;
+    display: block;
+    line-height: 1;
+    padding: 2px;
+    margin: 0;
+    border: solid 1px #000;
+}
+
+.task-list-item .checkbox input:checked + span::before {
+    background-color: green;
+    border-color: green;
+}
+
+.task-list-item .checkbox input:focus + span::before,
+.task-list-item .checkbox input:focus-visible + span::before {
+    outline: 2px solid var(--text-color, var(--focus-outline-color));
+    outline-offset: 2px;
+}
+
+/* ACTIVITIES */
+
+.activity {
+    margin: 1.75em 0;
+}
+
+.activity .questionText {
+    margin-bottom: 8px;
+    white-space: pre-line;
+}
+
+.activity .answer {
+    margin: 5px 0;
+}
+
+.activity .answer label {
+    display: flex;
+    flex-flow: row;
+}
+
+.activity .answer label input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0 0.714em 0 0;
+    font: inherit;
+    color: currentColor;
+    width: 1em;
+    height: 1em;
+    border: 2px solid black;
+    /* No translateY here - this input uses align-self:center in a flex row
+       now, so the old inline-baseline nudge would misalign it. */
+    display: grid;
+    place-content: center;
+}
+
+.activity .answer label input:dir(rtl) {
+    margin: 0 0 0 0.714em;
+}
+
+.activity .answer label input[type='checkbox'] {
+    border-radius: 4px;
+}
+
+.activity .answer label input[type='radio'] {
+    border-radius: 50%;
+}
+
+.activity .answer label input::before {
+    content: '';
+    width: 0.3em;
+    height: 0.3em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+}
+
+.activity .answer label input[type='radio']::before {
+    border-radius: 50%;
+}
+
+.activity .answer label input[type='checkbox']::before {
+    border-radius: 2px;
+}
+
+.activity .answer label input:checked::before {
+    background-color: #fff;
+    transform: scale(1);
+}
+
+.activity .answer label input:focus {
+    outline: solid 1px blue;
+}
+
+.activity .answer label input:checked {
+    background-color: #333;
+}
+
+.activity .answer input {
+    align-self: center;
+    margin-right: 0.571em;
+}
+
+.activity .answer input:dir(rtl) {
+    margin-right: 0px;
+    margin-left: 8px;
+}
+
+.activity .answerText {
+    max-width: 100%;
+    min-width: 200px;
+    width: 300px;
+}
+
+.activity.requiredError::after {
+    content: 'Required';
+    color: red;
+    display: block;
+    margin-top: 5px;
+}
+
+.activity .evaluate {
+    margin: 10px 10px 0 0;
+}
+
+.activity .evaluate:dir(rtl) {
+    margin: 10px 0 0 10px;
+}
+
+.activityGroup.on-demand-evaluation .activity .evaluate {
+    display: none;
+}
+
+.activity .feedback {
+    position: relative;
+    border-radius: 5px;
+    margin-top: 0.714em;
+    padding: 1.071em 1.071em 1.071em 3em;
+    overflow: auto;
+    min-height: 1.071em;
+    word-break: keep-all;
+}
+
+.activity .feedback:dir(rtl) {
+    padding: 1.071em 3em 1.071em 1.071em;
+}
+
+.activity .feedback::before {
+    font-family: 'lab-client-layout-v2';
+    position: absolute;
+    content: '\a026';
+    margin-left: -1.556em;
+    top: 0.833em;
+    font-size: 1.286em;
+}
+
+.activity .feedback:dir(rtl)::before {
+    margin-left: 0;
+    margin-right: -1.556em;
+}
+
+.activity .feedback.positive:before {
+    content: '\a026';
+}
+
+.activity .feedback.negative:before {
+    content: '\a016';
+}
+
+.activity .feedback p:first-of-type,
+.activity .automatedActivityText p:first-of-type,
+.scriptTaskList .taskText p:first-of-type {
+    margin-top: 0;
+}
+
+.activity .feedback p:last-of-type,
+.activity .automatedActivityText p:last-of-type,
+.scriptTaskList .taskText p:last-of-type {
+    margin-bottom: 0;
+}
+
+.activity span.loading {
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.activity .automatedActivityText {
+    white-space: pre-line;
+}
+
+.activity .scriptResponse {
+    white-space: pre-wrap;
+}
+
+.activity .scriptResponse:not(:first-child) {
+    margin-top: 10px;
+}
+
+.activity .scriptTaskList {
+    margin: 10px 0;
+    padding: 10px;
+    display: block;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.activity .scriptTask .response {
+    margin-top: 10px;
+}
+
+.activity .scriptTask.pass .response {
+    color: green;
+}
+
+.activity .scriptTask.fail .response,
+.activity .scriptTask.error .response {
+    color: #ff3139;
+}
+
+.activity .scriptTask:not(:first-of-type) {
+    margin-top: 10px;
+}
+
+.activity .scriptTask .status {
+    position: absolute;
+    margin-left: -30px;
+}
+
+.activity .scriptTask .status:dir(rtl) {
+    margin-left: 0;
+    margin-right: -30px;
+}
+
+.activity .scriptTask {
+    margin-left: 30px;
+}
+
+.activity .scriptTask:dir(rtl) {
+    margin-left: 0;
+    margin-right: 30px;
+}
+
+.activity .scriptTask .running {
+    display: none;
+}
+
+.activity .scriptTask.running .running {
+    display: inline-block;
+}
+
+.activity .scriptTask.running .result {
+    display: none;
+}
+
+.activity .scriptTask .result:before {
+    border: solid #000 2px;
+    background-color: #fff;
+    opacity: 0.3;
+    content: '';
+    width: 1.143em;
+    height: 1.143em;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: -0.071em;
+    text-align: center;
+    line-height: 1.214em;
+    border-radius: 2px;
+}
+
+.activity .scriptTask.pass .result:before {
+    opacity: 1;
+    border-color: green;
+    content: '\a026';
+    font-family: 'lab-client-layout-v2';
+    color: green;
+    font-size: 0.857em;
+}
+
+.activity .scriptTask.fail .result:before {
+    opacity: 1;
+    border-color: #ff3139;
+    content: '\a000';
+    font-family: 'lab-client-layout-v2';
+    color: #ff3139;
+    font-size: 0.786em;
+}
+
+.activity .scriptTask .loading {
+    margin-top: 1px;
+}
+
+.clickFeedbackMessage {
+    position: absolute;
+    background-color: #333;
+    color: #ddd;
+    font-size: 0.929em;
+    padding: 0.714em;
+    z-index: 3000;
+    border-radius: 5px;
+}
+
+/* NOTIFICATIONS */
+
+#notificationContainer {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    bottom: 0;
+    box-sizing: border-box;
+    margin-right: 32px;
+    /* Base clearance for tabs with no footer. */
+    margin-bottom: 16px;
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#notificationContainer:dir(rtl) {
+    left: 0;
+    right: auto;
+    margin-right: 15px;
+    margin-left: 32px;
+}
+
+.notification {
+    position: relative;
+    width: clamp(min(17.143em, 80vw), 50vw, 28em);
+    max-width: 100%;
+    border-radius: 8px;
+    border: solid 2px #333;
+    box-shadow: rgba(0, 0, 0, 0.5) 2px 4px 8px;
+}
+
+.notificationContent {
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: auto;
+    padding: 25px;
+    box-sizing: border-box;
+}
+
+.closeNotification {
+    cursor: pointer;
+    float: right;
+    margin: 0 0 0.5em 0.75em;
+}
+
+.closeNotification:dir(rtl) {
+    float: left;
+    margin: 0 0.75em 0.5em 0;
+}
+
+.closeNotification::before {
+    content: '\a000';
+    font-family: 'lab-client-layout-v2';
+    display: inline-block;
+    vertical-align: top;
+    font-size: 1em;
+    padding: 0.214em;
+}
+
+.closeNotification:focus::before,
+.dialogCloseButton:focus::before {
+    outline: rgb(255, 255, 255, 0.5) solid 1px;
+}
+
+.notificationButtonWrapper {
+    margin-top: 15px;
+    display: flex;
+    gap: 8px;
+}
+
+.notificationButtonWrapper input[type='button'] {
+    flex: 1;
+}
+
+.notificationButtonWrapper input + input {
+    margin-left: 5px;
+}
+
+.notificationButtonWrapper input + input:dir(rtl) {
+    margin-left: 0px;
+    margin-right: 5px;
+}
+
+.listedNotification {
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    overflow: auto;
+    max-height: 400px;
+}
+
+.listedNotification .listedNotificationDate {
+    margin-bottom: 10px;
+    font-size: 0.786em;
+    opacity: 0.8;
+}
+
+.screen-reader-only {
+    position: absolute;
+    height: 1px;
+    width: 1px;
+    clip: rect(1px 1px 1px 1px);
+    clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+    -webkit-clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+    overflow: hidden !important;
+}
+
+/* UTILITIES */
+
+table.fields {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+table.fields .fieldName {
+    opacity: 0.8;
+    text-align: right;
+}
+
+table.fields td.fieldName {
+    padding-right: 10px;
+}
+
+table.fields .fieldName:dir(rtl) {
+    text-align: left;
+}
+
+table.fields td {
+    padding: 4px;
+}
+
+#helpTab table.fields td,
+#helpTab table.fields th {
+    padding: 8px 4px;
+}
+
+#helpTab table.fields th.fieldName {
+    min-width: 3rem;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.zoomable {
+    -ms-transform-origin: 0 0;
+    -moz-transform-origin: 0 0;
+    -o-transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+}
+
+.edit-link::before {
+    content: '\a033';
+    font-family: 'lab-client-layout-v2';
+    display: inline-block;
+    font-size: 0.857em;
+    margin-top: 0.083em;
+    cursor: pointer;
+    margin-right: 0.25em;
+}
+
+.edit-link:dir(rtl)::before {
+    margin-right: 0px;
+    margin-left: 3px;
+}
+
+.noselect {
+    cursor: default;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.sr-only {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/*  VIRTUALIZATION */
+
+.inputRelease {
+    display: none;
+}
+
+.machine,
+.contentResource,
+.container,
+.endpoint {
+    padding: 16px;
+    margin: 15px 0;
+    border-radius: 4px;
+    border: solid 2px transparent;
+}
+
+.machine:hover,
+.contentResource:hover,
+.container:hover,
+.endpoint:hover {
+    cursor: pointer;
+}
+
+.machine.selected:hover,
+.contentResource.selected:hover,
+.container.selected:hover,
+.endpoint.selected:hover {
+    cursor: auto;
+}
+
+.machine .machineNameCenter:focus-visible,
+.endpoint .name:focus-visible {
+    outline: 2px solid var(--primary-color, var(--focus-outline-color));
+    outline-offset: 2px;
+}
+
+.machine .thumbnail,
+.contentResource .thumbnail {
+    position: absolute;
+    max-width: 64px;
+    max-height: 48px;
+}
+
+.machine .machineName {
+    font-size: 1.071em;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    padding-left: 70px;
+}
+
+.machine .machineName:dir(rtl) {
+    padding-left: 0;
+    padding-right: 70px;
+}
+
+.machine .machineNameCenter {
+    height: 48px;
+    font-weight: bold;
+    display: table;
+    width: 100%;
+}
+
+.machine .action-buttons {
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+}
+
+.machine .loadDeveloperFilesContainer {
+    margin-bottom: 10px;
+}
+
+.machine .ctrlAltDel {
+    font-size: 0.857em;
+    font-weight: 400;
+    align-self: flex-start;
+    border: solid 1px var(--accent-border-color, #595959);
+}
+
+.machine .selectHeading {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.857em;
+    opacity: 0.75;
+}
+
+.machine select {
+    margin: 8px 0;
+}
+
+.machine .credentials {
+    margin: 8px 0;
+}
+
+.machine .credentials .fieldName {
+    padding-left: 0;
+    font-size: 0.857em;
+}
+
+.machine .credentials .fieldName:dir(rtl) {
+    padding-left: initial;
+    padding-right: 0;
+}
+
+.machine .loadDeveloperFiles::before {
+    font-family: 'lab-client-layout-v2';
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 0.1538em;
+    content: '\a020';
+    margin-right: 0.3077em;
+    font-size: 0.929em;
+}
+
+.machine .loadDeveloperFiles:dir(rtl)::before {
+    margin-right: 0;
+    margin-left: 4px;
+}
+
+.editVirtualMachineInstance {
+    margin-left: 18px;
+}
+
+.editVirtualMachineInstance:dir(rtl) {
+    margin-left: 0;
+    margin-right: 18px;
+}
+
+.machine .openInNewWindow {
+    margin-top: 10px;
+    display: block;
+}
+
+.open-in-new-window-link::before {
+    content: '\a008';
+}
+
+/*  CONTAINERS */
+
+.container .openTerminal::before {
+    content: '>_';
+    font-family: monospace;
+    display: inline-block;
+    margin-right: 0.214em;
+}
+
+.container .openTerminal:dir(rtl)::before {
+    margin-right: initial;
+    margin-left: 0.214em;
+}
+
+.container .name {
+    font-size: 1.071em;
+    font-weight: 500;
+}
+
+.container .controls div {
+    margin-top: 5px;
+}
+
+.container .controls div:first-child {
+    margin-top: 15px;
+}
+
+.container .reconnect::before {
+    content: '\a040';
+    font-family: 'lab-client-layout-v2';
+    display: inline-block;
+    margin-right: 0.357em;
+    font-weight: normal;
+}
+
+.container .reconnect:dir(rtl)::before {
+    margin-right: 0;
+    margin-left: 0.357em;
+}
+
+/*  ENDPOINTS */
+
+.endpoint {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.endpoint .name {
+    font-size: 1.071em;
+    font-weight: 600;
+}
+
+.endpoint .expanded-info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/*  EXTERNAL MANUALS */
+
+.tabContent.externalManual {
+    padding: 0px;
+    overflow-y: inherit;
+    overflow-x: inherit;
+}
+
+.externalManualWrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+}
+
+iframe.externalManual {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/*  CLOUD RESOURCES */
+
+.cloudResourceGroup .description,
+#externalResources.description {
+    font-size: 0.929em;
+    font-style: italic;
+}
+
+.cloudCredential {
+    margin-bottom: 20px;
+}
+
+table.fields td.cloudResource {
+    padding-bottom: 5px;
+}
+
+/* AUTHORING */
+
+.dialogChoice {
+    margin-bottom: 15px;
+}
+
+.dialogChoice label {
+    font-size: 1.2em;
+}
+
+.dialogChoiceDescription {
+    margin: 5px 0 5px 22px;
+}
+
+.dialogChoiceDescription:dir(rtl) {
+    margin: 5px 22px 5px 0;
+}
+
+.tree-node {
+    margin: 15px;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+.tree-node > .node-name {
+    cursor: default;
+    border-radius: 15px;
+    padding: 5px 10px;
+    margin-left: 8px;
+}
+
+.tree-node > .node-name:dir(rtl) {
+    margin-left: 0;
+    margin-right: 8px;
+}
+
+.tree-node > .node-image:before {
+    content: '\a015';
+    font-family: lab-client-layout-v2;
+    display: inline-block;
+    cursor: pointer;
+    margin-top: 3px;
+    vertical-align: top;
+    transform: rotate(0deg);
+    transition: transform linear 0.2s;
+}
+
+.tree-node.expanded > .node-image:before {
+    transform: rotate(90deg);
+    transition: transform linear 0.2s;
+}
+
+.tree-node > .children {
+    margin-left: 15px;
+}
+
+.tree-node > .children:dir(rtl) {
+    margin-left: 0;
+    margin-right: 15px;
+}
+
+.tree-node .node-name input[type='text'] {
+    background-color: transparent;
+    padding: 0;
+    border: none;
+}
+
+.tree-node .node-name input[type='text']:focus {
+    outline: 2px solid var(--primary-color, var(--focus-outline-color));
+}
+
+/* vm disk changes */
+.virtualMachineHeader {
+    font-size: 1em;
+    color: var(--text-color);
+}
+
+details.virtualMachine {
+    display: flex;
+    flex-direction: column;
+    padding: 16px 16px 8px 16px;
+    align-self: stretch;
+    border-radius: var(--borderRadius, 5px);
+    border: 1px solid var(--_components-text-light, #676767);
+}
+
+details.virtualMachine summary {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    flex: 1 0 0;
+    gap: 10px;
+}
+
+details.virtualMachine.checkbox summary {
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+details.virtualMachine.checkbox > summary::after {
+    content: none;
+}
+
+.virtualMachineName {
+    font-size: 1.143em;
+}
+
+.virtualMachine .disk {
+    margin: 0 0 10px 10px;
+}
+
+.virtualMachine input[type='checkbox'],
+input[type='radio'] {
+    margin: 8px;
+}
+
+details.checkbox[open] summary {
+    margin: 0px;
+}
+
+.context-menu {
+    position: absolute;
+    z-index: 3000;
+    background-color: #323232;
+    border: solid 1px #fff;
+}
+
+.context-menu-item {
+    padding: 8px;
+    min-width: 150px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.context-menu-item:hover {
+    background-color: #0067b8;
+}
+
+::placeholder {
+    color: var(--placeholder-text-color);
+}
+
+/*  MENTOR TAB */
+
+.mentor-tab-content {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+
+#mentor-iframe {
+    flex: 1 1 auto;
+    width: 100%;
+    border: none;
+    background: var(--background-default);
+    min-height: 0;
+    margin-top: 1px;
+}
+
+/* Unread-message badge on the Mentor tab heading. Absolute-positioned so the
+   badge takes no horizontal space in the layout: the tab heading width
+   doesn't shift when the dot toggles on/off, and any hover-underline /
+   bottom-border on the heading spans the text only, not an empty reserved
+   slot. Vertical centering via top:50% + translateY(-50%) keeps the dot
+   inside the visible text band regardless of the heading's box height
+   (V1's compact heading and V2's padded heading both work). */
+.tabHeading[data-target='mentorTab'] {
+    position: relative;
+}
+
+.mentor-unread-badge {
+    position: absolute;
+    top: 50%;
+    /* `inset-inline-end` is the logical equivalent of `right` in LTR and
+       `left` in RTL, so the badge always floats just past the *end* of the
+       label text regardless of writing direction. The negative value puts
+       it entirely past the heading's edge so it doesn't overlap the label
+       (the heading is sized to fit the label, no extra padding). Heading
+       width stays text-only, so any hover-underline / bottom-border on the
+       heading spans the label only. */
+    inset-inline-end: -10px;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--primary-color, currentColor);
+    pointer-events: none;
+}
+
+#fullScreenMessage.launchingGuidance #fullScreenMessageCenter {
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 62.857em;
+    margin: 0 auto;
+    text-align: center;
+}
+#fullScreenMessage.launchingGuidance #fullScreenMessageTextWrapper {
+    padding: 0 1.714em;
+}
+#fullScreenMessage.launchingGuidance #fullScreenMessageLoadingIcon {
+    border-top-color: var(--primary-color);
+}
+
+/* Setup-page launching screen (inline render of _PreinstanceLaunching).
+   Center the whole guidance block and neutralize the #buildingText left offset
+   the Building screen relies on. .verticalCenter handles vertical centering. */
+/* The launching screen is wider than the default #bodyWrapper cap (800px),
+   so widen the wrapper only when it hosts this screen. */
+#bodyWrapper:has(#preinstanceLaunchingTemplate) {
+    max-width: 55.714em;
+}
+#preinstanceLaunchingTemplate {
+    text-align: center;
+}
+#preinstanceLaunchingTemplate #buildingText {
+    margin: 0 auto;
+    max-width: 51.429em;
+    text-align: center;
+}
+#preinstanceLaunchingTemplate #buildingText:dir(rtl) {
+    margin: 0 auto;
+}
+
+/* Header: spinner on the left, vertically centered against the left-aligned
+   title + subtitle column; the whole unit is centered on the page. */
+#preinstanceLaunchingTemplate .launchHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.143em;
+    margin-bottom: 1.714em;
+}
+#preinstanceLaunchingTemplate .launchHeaderText {
+    text-align: left;
+}
+#preinstanceLaunchingTemplate .launchSpinner {
+    flex: 0 0 auto;
+    width: 2.286em;
+    height: 2.286em;
+    border-width: 0.286em;
+    border-top-color: var(--primary-color);
+}
+#preinstanceLaunchingTemplate #buildingTitle {
+    margin: 0;
+    padding-top: 0;
+    font-size: 2.286em;
+    font-weight: 500;
+    line-height: 1.2;
+}
+#preinstanceLaunchingTemplate .launchSubtitle {
+    margin: 0.286em 0 0;
+}
+/* Let cards/callouts fill the wider launching container instead of the 760px cap. */
+#preinstanceLaunchingTemplate .launchCards,
+#preinstanceLaunchingTemplate .launchCallout {
+    max-width: none;
+}
+
+.launchSubtitle {
+    font-size: 1.143em;
+    font-weight: 400;
+    margin: 0.571em 0 1.714em;
+}
+.launchCallout {
+    display: flex;
+    gap: 0.714em;
+    align-items: flex-start;
+    text-align: left;
+    background: color-mix(in srgb, var(--primary-color) 8%, var(--page-background-color));
+    color: var(--text-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    padding: 0.857em 1.143em;
+    margin: 0 auto 1.714em;
+    max-width: 54.286em;
+    font-size: 1em;
+    line-height: 1.5;
+}
+.launchCalloutFullscreen {
+    margin: 1.714em auto 0;
+}
+.launchCalloutIcon {
+    flex: 0 0 1.286em;
+    width: 1.286em;
+    height: 1.286em;
+    margin-top: 0.071em;
+}
+.launchCards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.143em;
+    max-width: 54.286em;
+    margin: 0 auto;
+}
+.launchCard {
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    padding: 1.429em 1.143em;
+    text-align: center;
+}
+.launchCard .launchCardIcon svg {
+    width: 2em;
+    height: 2em;
+    fill: none;
+    stroke: var(--primary-color);
+    stroke-width: 2;
+}
+.launchCardTitle {
+    font-size: 1.143em;
+    font-weight: 600;
+    margin: 0.714em 0 0.571em;
+}
+.launchCardBody {
+    font-size: 1em;
+    font-weight: 400;
+    line-height: 1.5;
+}
+@media (max-width: 600px) {
+    .launchCards {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<!-- saved from url=(0080)https://labclient.labondemand.com/LabClient/35e0bfef-456c-42f4-ba18-2eb8e892633a -->
+<html lang="en-US" dir="ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Initial Access Lab</title>
+    <link rel="shortcut icon" href="https://labclient.labondemand.com/images/favicon-32x32.png">
+    <script async="" src="./datadog-logs.js"></script><script src="./jquery.min.js"></script>
+    <script src="./jquery-ui.min.js"></script>
+    <link href="./jquery-ui.css" rel="stylesheet">
+    <script src="./jquery.timepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./jquery.timepicker.css">
+    <style>
+        html, body {
+            height: 100%;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #consoleWrapper {
+            position: absolute;
+            height: 100%;
+        }
+
+        #instructionsWrapper {
+            position: absolute;
+            height: 100%;
+            top: 0;
+            right: 0;
+        }
+
+            #instructionsWrapper:dir(rtl) {
+                right: auto;
+                left: 0;
+            }
+
+        #consoleIFrame, #instructionsIFrame {
+            width: 100%;
+            height: 100%;
+            border-style: none;
+        }
+
+        #instructionsIframe {
+            padding-left: 4px;
+            box-sizing: border-box;
+        }
+
+            #instructionsIframe:dir(rtl) {
+                padding-left: 0;
+                padding-right: 4px;
+            }
+
+        #splitter {
+            position: absolute;
+            z-index: 1;
+            cursor: ew-resize;
+            width: 0.214em;
+            background-color: #000;
+            height: 100%;
+        }
+
+        #splitter .splitter-handle {
+            box-sizing: border-box;
+            position: absolute;
+            /* Centers the handle over the splitter line: -(handle width -
+                splitter width) / 2. */
+            left: -0.286em;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 1.357em;
+            width: 0.786em;
+            background: inherit;
+            padding: 0.143em 0;
+            border-radius: 0.214em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+        }
+
+        #splitter .splitter-handle .splitter-handle-grip {
+            height: 100%;
+        }
+
+        .ui-draggable-dragging {
+            opacity: 0;
+        }
+    </style>
+    <link href="./lab-client-layout-v2.css" rel="stylesheet" type="text/css">
+    <link id="themeStylesheet" href="./styles-v2" rel="stylesheet">
+    <script>
+        window.LabClientConfig = {"labId":67502652,"labLayoutVersionId":2,"instructionsWidth":400,"consoleUrl":"/VirtualizationClient/35e0bfef-456c-42f4-ba18-2eb8e892633a/?childClient=1","instructionsWindowUrl":"/InstructionsWindow/35e0bfef-456c-42f4-ba18-2eb8e892633a","localization":{"splitWindows":"Split Windows","copiedToClipboard":"Copied to clipboard","copyingWasUnsuccessful":"Copying was unsuccessful","close":"Close","ok":"OK","cancel":"Cancel","sorryAnErrorOccurred":"Sorry an error occurred"}};
+    </script>
+    <script src="./lab-client.js"></script>
+</head>
+<body style="font-size: 100%; cursor: auto;">
+    <div id="consoleWrapper" role="region" aria-label="Lab Workspace" style="width: 1615.27px;">
+        <iframe id="consoleIFrame" title="Lab Workspace" src="./saved_resource.html"></iframe>
+    </div>
+    <div id="instructionsWrapper" role="region" aria-label="Lab Instructions" style="width: 711.727px; display: block;">
+        <div id="splitter" class="ui-draggable ui-draggable-handle" style="">
+            <div class="splitter-handle" tabindex="0" role="separator" aria-orientation="vertical" aria-valuemin="0" aria-valuemax="100" aria-valuenow="69">
+                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="grip-lines-vertical" class="svg-inline--fa fa-grip-lines-vertical fa-w-8 splitter-handle-grip" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512">
+                    <path fill="currentColor" d="M96 496V16c0-8.8-7.2-16-16-16H48c-8.8 0-16 7.2-16 16v480c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16zm128 0V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v480c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16z"></path>
+                </svg>
+            </div>
+        </div>
+        <iframe id="instructionsIFrame" src="./35e0bfef-456c-42f4-ba18-2eb8e892633a.html" title="Lab Instructions"></iframe>
+    </div>
+    <div id="fullScreenMessage" role="dialog" aria-modal="true" aria-labelledby="fullScreenMessageTitle" aria-describedby="fullScreenMessageText" class="" style="display: none;">
+        <div id="fullScreenMessageMask"></div>
+        <div id="fullScreenMessageIcon"></div>
+        <div id="fullScreenMessageCenter" class="baseColor">
+            <div id="fullScreenMessageTextWrapper">
+                <span id="fullScreenMessageLoadingIcon" class="loadingAnimation-large"></span>
+                <div id="fullScreenMessageTitle" role="heading" aria-level="1">End Lab</div>
+                <div id="fullScreenMessageText" role="status" aria-live="polite"><div style="margin:25px 0 10px 0;"><span class="sr-only">Please make a selection</span><div><label style="font-size:120%;"><input type="radio" name="endLabChoice" id="endLabComplete" checked="">End my lab and mark it as complete</label></div><div style="margin-top:16px;"><label style="font-size:120%;"><input type="radio" name="endLabChoice" id="endLabCancel">Cancel my lab</label></div><div id="endLabMakeSelection" style="margin-top:10px; visibility:hidden;" class="negative">Please make a selection</div></div></div>
+                <div id="fullScreenProgressWrapper" style="display: none;">
+                    <div id="fullScreenProgressText"></div>
+                    <div id="fullScreenProgressBar" class="primary-color-low-opacity-background" role="progressbar" aria-labelledby="fullScreenProgressText" aria-valuemin="0" aria-valuemax="100">
+                        <div id="fullScreenProgressFill" class="primary-color-background"></div>
+                    </div>
+                    <div id="fullScreenProgressAnnouncement" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
+                </div>
+                <div id="fullScreenMessageButtonWrapper" style="">
+                    <span id="fullScreenMessageButtons"><input type="button" value="OK" class="primary"><input type="button" value="Cancel" class="escape"></span>
+                    <input type="button" id="closeWindow" value="Close Window" style="display:none;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <script>
+      (function(h,o,u,n,d) {
+        h=h[d]=h[d]||{q:[],onReady:function(c){h.q.push(c)}}
+        d=o.createElement(u);d.async=1;d.src=n
+        n=o.getElementsByTagName(u)[0];n.parentNode.insertBefore(d,n)
+        })(window,document,'script','https://www.datadoghq-browser-agent.com/us3/v6/datadog-logs.js','DD_LOGS')
+      window.DD_LOGS.onReady(function() {
+          window.DD_LOGS.init({
+            clientToken: 'pub95df9c2772f25cae094492ee095d1bca',
+            site: 'us3.datadoghq.com',
+            env: 'prod',
+            service: 'lab-client-frontend',
+            forwardErrorsToLogs: true,
+            telemetrySampleRate: 100,
+            trackSessionAcrossSubdomains: true,
+            forwardConsoleLogs: ['error', 'warn'],
+          })
+        })
+    </script>
+
+    
+<script>
+    let iFrameDetectorModel = {
+        requireIFrame: false
+    };
+
+    function isInIFrame() {
+        return (window === window.parent) ? false : true;
+    }
+
+    $(function () {
+        if (iFrameDetectorModel.requireIFrame && !isInIFrame()) {
+            window.location.href = "/AccessDenied";
+        };
+    });
+
+</script>
+
+    <textarea id="copyInput" value="" style="position: absolute; left:-10000px; top:-10000px; "></textarea>
+
+
+</body></html>

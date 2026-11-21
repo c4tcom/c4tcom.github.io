@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<!-- saved from url=(0106)https://labclient.labondemand.com/VirtualizationClient/35e0bfef-456c-42f4-ba18-2eb8e892633a/?childClient=1 -->
+<html lang="en-US" dir="ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script async="" src="./datadog-logs.js"></script><script type="text/javascript" src="./strings-en.js"></script>
+    <meta name="viewport" content="width=device-width">
+    <title>RTO-061: Initial Access Lab</title>
+    <link rel="shortcut icon" href="https://labclient.labondemand.com/images/favicon-32x32.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="./virtualization-client-v2.css" rel="stylesheet" type="text/css">
+    <link href="./notifications-v2.css" rel="stylesheet" type="text/css">
+    <link href="./mentor-bubble.css" rel="stylesheet" type="text/css">
+    <script src="./jquery(1).min.js"></script>
+    <script src="./notifications-v2.js"></script>
+
+
+    <link id="themeStylesheet" href="./styles-v2" rel="stylesheet" type="text/css">
+
+
+        <link href="./xterm.min.css" rel="stylesheet" type="text/css">
+
+    <script src="./string-functions.js"></script>
+    <script src="./lab-instance-state.js"></script>
+    <script src="./mentor-environment-overlay.js"></script>
+    <script src="./screen-watch.js"></script>
+    <script src="./html-sanitizer.js"></script>
+    <script src="./LocalizeTo" type="text/javascript"></script>
+ 
+        <script src="./appcfg-lod.js"></script>
+        <script src="./resource.js"></script>
+        <script src="./hi5core_min.js"></script>
+        <script src="./hi5_min.js"></script>
+        <script src="./surface_min.js"></script>
+        <script src="./spark-mac-modifiers.js"></script>
+        <script src="./spark-paste-modifiers.js"></script>
+        <script src="./spark-single-paste.js"></script>
+        <script src="./spark-native-paste.js"></script>
+        <script src="./spark-mouse.js"></script>
+        <script src="./rdpcore_min.js"></script>
+        <script src="./rdp_min.js"></script>
+        <script src="./hyperv-spark.js"></script>
+        <script src="./xterm.min.js"></script>
+        <script src="./dom-to-image-more.min.js"></script>
+        <script src="./xterm-screen-data.js"></script>
+        <script src="./ssh-client.js"></script>
+
+    <script src="./mentor-bubble.js"></script>
+    <script src="./lab-client-api.js"></script>
+    
+</head>
+
+<body class="virtualization-client " style="font-size: 100%;">
+    <div id="contentDialog" role="dialog" aria-modal="true" aria-labelledby="contentDialogTitle" style="display: none;">
+        <div id="contentDialogContentWrapper">
+            <div id="contentDialogTitle">
+                <div id="closeContentDialogButton" style="display: none;" class="closeButton unselectable" title="Close" role="button" tabindex="0" aria-label="Close"></div>
+                <div id="closeContentDialogMessage" role="status" aria-live="polite" style="display: none;"></div>
+            </div>
+            <div id="contentDialogContent">
+                <iframe id="contentDialogIFrame" title="Content dialog" style="display: none;" src="./saved_resource(4).html" allowfullscreen=""></iframe>
+                <video id="contentDialogVideo" style="display: none;" controls=""></video>
+            </div>
+        </div>
+        <div id="contentDialogMask"></div>
+    </div>
+
+    <div id="fullScreenMessage" role="dialog" aria-modal="true" aria-labelledby="fullScreenMessageTitle" aria-describedby="fullScreenMessageText" style="display: none;" class="withLoadingImage">
+        <div id="fullScreenMessageMask"></div>
+        <div id="fullScreenMessageIcon" style="display: none;"></div>
+        <div id="fullScreenMessageCenter" class="baseColor">
+            <div id="fullScreenMessageTextWrapper">
+                <span id="fullScreenMessageLoadingIcon" class="loadingAnimation-large" role="img" aria-label="Loading..."></span>
+                <div id="fullScreenMessageTitle" role="heading" aria-level="1">Your virtual machines are starting</div>
+                <div id="fullScreenMessageText" role="status" aria-live="polite"></div>
+                <div id="fullScreenProgressWrapper" style="">
+                    <div id="fullScreenProgressText">Your lab will be ready in about 1 minute and 20 seconds.</div>
+                    <div id="fullScreenProgressBar" class="primary-color-low-opacity-background" role="progressbar" aria-labelledby="fullScreenProgressText" aria-valuemin="0" aria-valuemax="100" aria-valuenow="71">
+                        <div id="fullScreenProgressFill" class="primary-color-background" style="width: 500px;"></div>
+                    </div>
+                    <div id="fullScreenProgressAnnouncement" class="sr-only" role="status" aria-live="polite" aria-atomic="true">Your lab will be ready in about 1 minute and 20 seconds.</div>
+                </div>
+                <div id="fullScreenMessageButtonWrapper"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="labConsole" style="" class="childClient " role="main" aria-label="Lab Workspace">
+
+            <div id="titleBar" role="menubar" class="title-bar" aria-label="Lab controls">
+                <div id="fullscreen" title="Full Screen" class="virtualization-menu-button" tabindex="0" role="menuitem" aria-label="Full Screen"></div>
+
+                <div id="displayMenuTitle" title="Power and Display" class="virtualization-menu-button" tabindex="0" role="menuitem" aria-expanded="false" aria-haspopup="true" aria-label="Power and Display" style=""></div>
+                <ul id="displayMenu" class="virtualization-menu" role="menu" aria-label="Power and Display" style="left: 19.9405px; display: none;">
+                    <li class="menuItem menu-item" id="refreshDisplay" tabindex="0" role="menuitem" style="">Reconnect</li>
+                        <li class="menuItem menu-item" id="turnOnMachine" style="display: none;" tabindex="0" role="menuitem">Power On</li>
+                        <li class="menuItem menu-item" id="pauseMachine" tabindex="0" role="menuitem">Pause</li>
+                        <li class="menuItem menu-item" id="resumeMachine" style="display: none;" tabindex="0" role="menuitem">Resume</li>
+                        <li class="menuItem menu-item" id="resetMachine" tabindex="0" role="menuitem">Reset/Reboot</li>
+                        <li class="menuItem menu-item" id="turnOffMachine" tabindex="0" role="menuitem">Power Off</li>
+                    <div class="virtualization-menu-divider"></div>
+                    <li class="menuItem menu-item" id="fitWindowToMachine" tabindex="0" role="menuitem" style="">Fit Window to Machine</li>
+                    <li class="menuItem menu-item" id="fitMachineToWindow" tabindex="0" role="menuitem" style="">Fit Machine To Window</li>
+                        <li class="menuItem menu-item open-in-new-window-link icon-link" id="openInNewWindow" tabindex="0" role="menuitem">Open in New Window</li>
+                    <li class="menuItem menu-item open-in-new-window-link icon-link" id="open-multiple-display-window" tabindex="0" role="menuitem" style="display: none;">Open Multiple Display Window</li>
+                        <li class="menuItem menu-item split-windows-link icon-link" id="splitWindows" tabindex="0" role="menuitem">Split Windows</li>
+                    <li class="menuItem menu-item" id="revertMachine" tabindex="0" role="menuitem" style="display: none;">Revert Machine</li>
+                        <li class="virtualization-menu-divider"></li>
+                        <li class="menuItem menu-item" id="resetInternetGateway" tabindex="0" role="menuitem">Reset Internet Gateway</li>
+                </ul>
+
+                <div id="machineCommands" class="virtualization-menu-button" title="Keyboard" tabindex="0" role="menuitem" aria-expanded="false" aria-haspopup="true" aria-label="Keyboard" style=""></div>
+                <ul id="machineCommandsMenu" class="virtualization-menu" role="menu" aria-label="Keyboard commands" style="left: 44.1451px; display: none;">
+                    <li class="menuItem menu-item" id="ctlAltDel" tabindex="0" role="menuitem" aria-label="Type CTRL+ALT+DEL key combination in machine">Ctrl+Alt+Delete</li>
+                        <li class="menuItem menu-item" id="altTab" tabindex="0" role="menuitem" aria-label="Type ALT plus Tab key combination in machine">ALT+Tab</li>
+                        <li id="windowsKeyWrapper" class="menuItem menu-item parent parent-menu primary-icon-color" tabindex="0" role="menuitem" aria-expanded="false" aria-haspopup="true" style="display: none;">
+                            Windows Key
+                            <ul class="children virtualization-menu child-menu" role="menu" style="display: none;">
+                                <li class="menuItem menu-item" id="windowsKey" tabindex="0" role="menuitem" aria-label="Type Windows key in machine">Windows Key</li>
+                                <li class="menuItem menu-item" id="windowsKeyD" tabindex="0" role="menuitem" aria-label="Type Windows key plus D key combination in machine">Windows Key + D</li>
+                                <li class="menuItem menu-item" id="windowsKeyE" tabindex="0" role="menuitem" aria-label="Type Windows key plus E key combination  in machine">Windows Key + E</li>
+                                <li class="menuItem menu-item" id="windowsKeyF" tabindex="0" role="menuitem" aria-label="Type Windows key plus F key combination in machine">Windows Key + F</li>
+                                <li class="menuItem menu-item" id="windowsKeyM" tabindex="0" role="menuitem" aria-label="Type Windows key plus M key combination in machine">Windows Key + M</li>
+                                <li class="menuItem menu-item" id="windowsKeyR" tabindex="0" role="menuitem" aria-label="Type Windows key plus R key combination in machine">Windows Key + R</li>
+                                <li class="menuItem menu-item" id="windowsKeyX" tabindex="0" role="menuitem" aria-label="Type Windows key plus X key combination in machine">Windows Key + X</li>
+                                <li class="menuItem menu-item" id="windowsKeyPlus" tabindex="0" role="menuitem" aria-label="Type Windows key plus additional key combination in machine">Windows Key + ...</li>
+                            </ul>
+                        </li>
+                        <li class="menuItem menu-item" id="windowsKeyStandAlone" style="" tabindex="0" role="menuitem" aria-label="Type Windows key in machine">Windows Key</li>
+                        <li id="paste" class="menuItem menu-item parent parent-menu" tabindex="0" role="menuitem" aria-expanded="true" aria-haspopup="true">
+                            Type Text
+                            <ul class="children virtualization-menu child-menu" role="menu" style="left: 146.052px; margin-top: -24.9951px; display: none;">
+                                <li class="menuItem menu-item" id="pasteUsername" tabindex="0" role="menuitem" aria-label="Type username in machine">Type Username</li>
+                                <li class="menuItem menu-item" id="pastePassword" tabindex="0" role="menuitem" aria-label="Type password in machine">Type Password</li>
+                                <li class="menuItem menu-item" id="pasteClipboard" tabindex="0" role="menuitem" aria-label="Type clipboard text in machine">Type Clipboard Text</li>
+                            </ul>
+                        </li>
+                   
+                        <li class="menuItem menu-item" id="showVirtualKeyboard" tabindex="0" role="menuitem">Virtual Keyboard</li>
+                </ul>
+
+                    <div id="splitWindowTitleBarButton" class="virtualization-menu-button" tabindex="0" role="menuitem" title="Split Windows" aria-label="Split Windows">
+                        <span class="material-symbols-outlined" aria-hidden="true">select_window</span>
+                    </div>
+
+                <div id="quickMessage" role="status" aria-live="polite" aria-atomic="true"></div>
+
+                    <span id="machineName" class="machine-selector" tabindex="0" aria-expanded="false" role="menuitem" aria-haspopup="true" aria-label="Machine Selection">Attacker Desktop</span>
+                    <div id="machineSelectMenu" class="virtualization-menu" role="menu" style="left: 127.065px; display: none;">
+                        <div class="menuWrapper"><div class="menuItem menu-item selected" role="menuitem" tabindex="0" id="machineSelect351850">Attacker Desktop</div><div class="menuItem menu-item" role="menuitem" tabindex="0" id="machineSelect305660">Domain Controller</div><div class="menuItem menu-item" role="menuitem" tabindex="0" id="machineSelect305637">Workstation</div></div>
+                    </div>
+
+                    <div id="poorConnectionWarning" style="display: none;">
+                        <span id="poorConnectionWarningIndicator" tabindex="0" role="menuitem" aria-expanded="false" aria-haspopup="true" aria-label="Poor Connection">Poor Connection</span>
+                    <div id="poorConnectionTooltip" role="tooltip" aria-hidden="true" style="display: none; left: 233.339px;">
+                            It may just be temporary. If it persists, you might try resetting your router or Wi-Fi connection.
+                            <a href="https://docs.skillable.com/docs/how-do-i-resolve-connectivity-issues" target="_blank">Learn More</a>
+                        </div>
+                    </div>
+
+
+                    <div id="collapseInstructionsButton" class="virtualization-menu-button" tabindex="0" role="menuitem" title="Collapse Instructions Panel" aria-label="Collapse Instructions Panel" aria-expanded="true">
+                        <span class="material-symbols-outlined" aria-hidden="true">right_panel_close</span>
+                    </div>
+
+            </div>
+
+        <div id="vmWrapper" class="spark-remote-controller-wrapper" aria-label="Virtual Machines To access lab controls and break out of the vm focus press CTRL + ALT + Break" role="application" style="overflow: auto; right: 0px; bottom: 0px;"><div id="sparkViewWrapper-351850" class="sparkViewWrapper" style="text-align:left; position:relative; overflow:hidden;"><canvas id="vm-canvas-351850" width="1612" height="1124" style="outline: none; background-color:#000;"></canvas><div contenteditable="true" autocomplete="new-password" autocorrect="off" autocapitalize="off" spellcheck="false" inputmode="password" accesskey="f" id="wsinput" tabindex="1" style="opacity: 0.01; resize: none; position: absolute; margin: 0px; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; outline: none; left: 1.73295px; top: 30.4545px; padding: 787px 0px 0px 1128px; width: 484px; height: 337px; z-index: 88; cursor: default; font-weight: normal; overflow: hidden;"></div></div><div id="sparkViewWrapper-305660" class="sparkViewWrapper" style="text-align: left; position: relative; overflow: hidden; display: none;"></div><div id="sparkViewWrapper-305637" class="sparkViewWrapper" style="text-align: left; position: relative; overflow: hidden; display: none;"></div></div>
+        <div id="sshWrapper" class="endpoint-wrapper" style="display: none;" role="region" aria-label="SSH terminal"></div>
+        <div id="httpEndpointWrapper" class="endpoint-wrapper" style="display: none;" role="region" aria-label="HTTP endpoint"></div>
+        <div id="rdpEndpointWrapper" class="endpoint-wrapper spark-remote-controller-wrapper" style="display: none;" role="region" aria-label="RDP endpoint"></div>
+        <div id="telnetEndpointWrapper" class="endpoint-wrapper spark-remote-controller-wrapper" style="display: none;" role="region" aria-label="Telnet endpoint"></div>
+        <div id="vncEndpointWrapper" class="endpoint-wrapper spark-remote-controller-wrapper" style="display: none;" role="region" aria-label="VNC endpoint"></div>
+        <div id="containerWrapper" style="display: none;" role="region" aria-label="Containers"></div>
+        <div id="rdpWrapper" style="display: none;" role="region" aria-label="Remote desktop connection">
+            <div>This machine must be controlled outside of your browser via Remote Desktop.</div>
+            <input type="button" id="launchRdp" value="Launch Remote Desktop">
+            <table>
+                <caption class="sr-only">Remote desktop credentials</caption>
+                <tbody><tr>
+                    <th scope="row">Username:</th>
+                    <td><span id="rdpUsername"></span></td>
+                </tr>
+                <tr>
+                    <th scope="row">Password:</th>
+                    <td><span id="rdpPassword"></span></td>
+                </tr>
+            </tbody></table>
+        </div>        
+        <div id="contentResourceWrapper" style="display:none;" role="region" aria-label="Content resources"></div>
+        <div id="vmOff" style="display: none;" role="region" aria-label="Virtual machine power state">
+            <div>
+                <div class="unselectable">The selected machine is off.</div>
+                <input type="button" id="startMachine" class="primary" value="Start" aria-label="Start virtual machine">
+            </div>
+        </div>
+        <div id="vmOpenInSeparateWindow" style="display:none;" role="status" aria-live="polite">
+            Machine is open in a separate window.
+            <a id="closeMachineWindow" href="https://labclient.labondemand.com/VirtualizationClient/35e0bfef-456c-42f4-ba18-2eb8e892633a/?childClient=1#">Close Window</a>
+        </div>
+        <div id="notification" class="baseColor" style="display: none;" role="alert" aria-live="assertive" aria-atomic="true">
+            <div id="closeNotification" class="closeButton unselectable" role="button" tabindex="0" aria-label="Close"></div>
+            <div id="notificationScrollable">
+                <div id="notificationContent"></div>
+            </div>
+        </div>
+        <div id="notificationContainer" role="region" aria-label="Notifications"></div>
+    </div>
+
+        <div id="virtualKeyboardWrapper">
+    <div id="virtualKeyboard" class="virtualKeyboard" role="dialog" aria-modal="true" aria-label="Virtual Keyboard" style="display:none;">
+        <div class="closeButton" role="button" tabindex="0" aria-label="Close"></div>
+        <div class="keyWrapper" role="application" aria-label="Virtual Keyboard">
+            <ul class="keyboard-row fKeys" style="margin-bottom:10px;" role="group" aria-label="Function Keys">
+                <li class="key text" data-key="27" role="button" tabindex="0" aria-label="Escape key">Esc</li>
+                <li class="key text" data-key="112" style="margin-left:33px;" role="button" tabindex="0" aria-label="F1 key">F1</li>
+                <li class="key text" data-key="113" role="button" tabindex="0" aria-label="F2 key">F2</li>
+                <li class="key text" data-key="114" role="button" tabindex="0" aria-label="F3 key">F3</li>
+                <li class="key text" data-key="115" role="button" tabindex="0" aria-label="F4 key">F4</li>
+                <li class="key text" data-key="116" style="margin-right:16px;" role="button" tabindex="0" aria-label="F5 key">F5</li>
+                <li class="key text" data-key="117" role="button" tabindex="0" aria-label="F6 key">F6</li>
+                <li class="key text" data-key="118" role="button" tabindex="0" aria-label="F7 key">F7</li>
+                <li class="key text" data-key="119" role="button" tabindex="0" aria-label="F8 key">F8</li>
+                <li class="key text" data-key="120" style="width:31px; margin-left: 18px;" role="button" tabindex="0" aria-label="F9 key">F9</li>
+                <li class="key text" data-key="121" style="width:31px;" role="button" tabindex="0" aria-label="F10 key">F10</li>
+                <li class="key text" data-key="122" style="width:31px;" role="button" tabindex="0" aria-label="F11 key">F11</li>
+                <li class="key text" data-key="123" style="width:31px;" role="button" tabindex="0" aria-label="F12 key">F12</li>
+                <li class="key text" data-key="44" style="width: 40px; margin-left: 14px; visibility:hidden;" role="button" tabindex="-1" aria-label="Print Screen key">PrtSc</li>
+                <li class="key scrolllock" data-key="145" style="width:40px; visibility:hidden;" role="button" tabindex="-1" aria-label="Scroll Lock key">ScrLk</li>
+                <li class="key text" data-key="19" style="width:40px; visibility:hidden;" role="button" tabindex="-1" aria-label="Pause key">Pause</li>
+            </ul>
+            <ul class="keyboard-row" role="group" aria-label="Number keys and symbols">
+                <li class="key shiftable" data-shift="~" data-normal="`" data-key="192" role="button" tabindex="0" aria-label="Grave accent key">`</li>
+                <li class="key shiftable" data-shift="!" data-normal="1" data-key="49" role="button" tabindex="0" aria-label="1 key">1</li>
+                <li class="key shiftable" data-shift="@" data-normal="2" data-key="50" role="button" tabindex="0" aria-label="2 key">2</li>
+                <li class="key shiftable" data-shift="#" data-normal="3" data-key="51" role="button" tabindex="0" aria-label="3 key">3</li>
+                <li class="key shiftable" data-shift="$" data-normal="4" data-key="52" role="button" tabindex="0" aria-label="4 key">4</li>
+                <li class="key shiftable" data-shift="%" data-normal="5" data-key="53" role="button" tabindex="0" aria-label="5 key">5</li>
+                <li class="key shiftable" data-shift="^" data-normal="6" data-key="54" role="button" tabindex="0" aria-label="6 key">6</li>
+                <li class="key shiftable" data-shift="&amp;" data-normal="7" data-key="55" role="button" tabindex="0" aria-label="7 key">7</li>
+                <li class="key shiftable" data-shift="*" data-normal="8" data-key="56" role="button" tabindex="0" aria-label="8 key">8</li>
+                <li class="key shiftable" data-shift="(" data-normal="9" data-key="57" role="button" tabindex="0" aria-label="9 key">9</li>
+                <li class="key shiftable" data-shift=")" data-normal="0" data-key="48" role="button" tabindex="0" aria-label="0 key">0</li>
+                <li class="key shiftable" data-shift="_" data-normal="-" data-key="189" role="button" tabindex="0" aria-label="Minus key">-</li>
+                <li class="key shiftable" data-shift="+" data-normal="=" data-key="187" role="button" tabindex="0" aria-label="Equals key">=</li>
+                <li class="key text small" data-key="8" style="width: 71px;" role="button" tabindex="0" aria-label="Backspace key"><span style="font-size: 13pt;">←</span> Backspace</li>
+
+                <li class="key text small" data-key="45" style="width: 40px; margin-left: 14px;" role="button" tabindex="0" aria-label="Insert key">Insert</li>
+                <li class="key text small" data-key="36" style="width: 40px;" role="button" tabindex="0" aria-label="Home key">Home</li>
+                <li class="key text small" data-key="33" style="width:40px; " role="button" tabindex="0" aria-label="Page Up key">P Up</li>
+
+                <li class="key text small numlock down" data-key="144" style="margin-left: 14px; visibility:hidden;" role="button" tabindex="-1" aria-label="Num Lock key" aria-pressed="false">NLock</li>
+                <li class="key" data-key="111" role="button" tabindex="0" aria-label="Numpad divide key">/</li>
+                <li class="key" data-key="106" role="button" tabindex="0" aria-label="Numpad multiply key">*</li>
+                <li class="key" data-key="109" role="button" tabindex="0" aria-label="Numpad subtract key">-</li>
+            </ul>
+            <ul class="keyboard-row" role="group" aria-label="Top letter row">
+                <li class="key text" data-key="9" style="width:48px;" role="button" tabindex="0" aria-label="Tab key">Tab</li>
+                <li class="key shiftable capitalizable" data-shift="Q" data-normal="q" data-key="81" role="button" tabindex="0" aria-label="Q key">q</li>
+                <li class="key shiftable capitalizable" data-shift="W" data-normal="w" data-key="87" role="button" tabindex="0" aria-label="W key">w</li>
+                <li class="key shiftable capitalizable" data-shift="E" data-normal="e" data-key="69" role="button" tabindex="0" aria-label="E key">e</li>
+                <li class="key shiftable capitalizable" data-shift="R" data-normal="r" data-key="82" role="button" tabindex="0" aria-label="R key">r</li>
+                <li class="key shiftable capitalizable" data-shift="T" data-normal="t" data-key="84" role="button" tabindex="0" aria-label="T key">t</li>
+                <li class="key shiftable capitalizable" data-shift="Y" data-normal="y" data-key="89" role="button" tabindex="0" aria-label="Y key">y</li>
+                <li class="key shiftable capitalizable" data-shift="U" data-normal="u" data-key="85" role="button" tabindex="0" aria-label="U key">u</li>
+                <li class="key shiftable capitalizable" data-shift="I" data-normal="i" data-key="73" role="button" tabindex="0" aria-label="I key">i</li>
+                <li class="key shiftable capitalizable" data-shift="O" data-normal="o" data-key="79" role="button" tabindex="0" aria-label="O key">o</li>
+                <li class="key shiftable capitalizable" data-shift="P" data-normal="p" data-key="80" role="button" tabindex="0" aria-label="P key">p</li>
+                <li class="key shiftable capitalizable" data-shift="{" data-normal="[" data-key="219" role="button" tabindex="0" aria-label="Left bracket key">[</li>
+                <li class="key shiftable" data-shift="}" data-normal="]" data-key="221" role="button" tabindex="0" aria-label="Right bracket key">]</li>
+                <li class="key shiftable" data-shift="|" data-normal="\" data-key="220" style="width:52px;" role="button" tabindex="0" aria-label="Backslash key">\</li>
+                <li class="key text small" data-key="46" style="width: 40px; margin-left: 14px;" role="button" tabindex="0" aria-label="Delete key">Delete</li>
+                <li class="key text small" data-key="35" style="width: 40px;" role="button" tabindex="0" aria-label="End key">End</li>
+                <li class="key text small" data-key="34" style="width:40px; " role="button" tabindex="0" aria-label="Page Down key">P Down</li>
+
+                <li class="key numpad" data-numlock="7" data-normal="H" data-key="55" style="margin-left: 14px;" role="button" tabindex="0" aria-label="Numpad 7 key">7</li>
+                <li class="key numpad" data-numlock="8" data-normal="↑" data-key="56" role="button" tabindex="0" aria-label="Numpad 8 key">8</li>
+                <li class="key numpad" data-numlock="9" data-normal="PU" data-key="57" role="button" tabindex="0" aria-label="Numpad 9 key">9</li>
+                <li class="key" data-key="107" style="height:43px; position: absolute; right:0; top:0;" role="button" tabindex="0" aria-label="Numpad plus key">+</li>
+            </ul>
+            <ul class="keyboard-row" role="group" aria-label="Home letter row">
+                <li class="key text capslock" data-key="20" style="width:57px;" role="button" tabindex="0" aria-label="Caps Lock key" aria-pressed="false">Caps</li>
+                <li class="key shiftable capitalizable" data-shift="A" data-normal="a" data-key="65" role="button" tabindex="0" aria-label="A key">a</li>
+                <li class="key shiftable capitalizable" data-shift="S" data-normal="s" data-key="83" role="button" tabindex="0" aria-label="S key">s</li>
+                <li class="key shiftable capitalizable" data-shift="D" data-normal="d" data-key="68" role="button" tabindex="0" aria-label="D key">d</li>
+                <li class="key shiftable capitalizable" data-shift="F" data-normal="f" data-key="70" role="button" tabindex="0" aria-label="F key">f</li>
+                <li class="key shiftable capitalizable" data-shift="G" data-normal="g" data-key="71" role="button" tabindex="0" aria-label="G key">g</li>
+                <li class="key shiftable capitalizable" data-shift="H" data-normal="h" data-key="72" role="button" tabindex="0" aria-label="H key">h</li>
+                <li class="key shiftable capitalizable" data-shift="J" data-normal="j" data-key="74" role="button" tabindex="0" aria-label="J key">j</li>
+                <li class="key shiftable capitalizable" data-shift="K" data-normal="k" data-key="75" role="button" tabindex="0" aria-label="K key">k</li>
+                <li class="key shiftable capitalizable" data-shift="L" data-normal="l" data-key="76" role="button" tabindex="0" aria-label="L key">l</li>
+                <li class="key shiftable" data-shift=":" data-normal=";" data-key="186" role="button" tabindex="0" aria-label="Semicolon key">;</li>
+                <li class="key shiftable" data-shift="&quot;" data-normal="'" data-key="222" role="button" tabindex="0" aria-label="Quote key">'</li>
+                <li class="key text" data-key="13" style="width:76px;" role="button" tabindex="0" aria-label="Enter key"><span style="font-size: 14pt;">↵</span> Enter</li>
+
+                <li class="key numpad" data-numlock="4" data-normal="←" data-key="52" style="margin-left: 158px;" role="button" tabindex="0" aria-label="Numpad 4 key">4</li>
+                <li class="key numpad" data-numlock="5" data-normal="" data-key="53" role="button" tabindex="0" aria-label="Numpad 5 key">5</li>
+                <li class="key numpad" data-numlock="6" data-normal="→" data-key="54" role="button" tabindex="0" aria-label="Numpad 6 key">6</li>
+            </ul>
+            <ul class="keyboard-row" role="group" aria-label="Bottom letter row">
+                <li class="key text shift" data-key="16" style="width:73px;" role="button" tabindex="0" aria-label="Left Shift key" aria-pressed="false">Shift</li>
+                <li class="key shiftable capitalizable" data-shift="Z" data-normal="z" data-key="90" role="button" tabindex="0" aria-label="Z key">z</li>
+                <li class="key shiftable capitalizable" data-shift="X" data-normal="x" data-key="88" role="button" tabindex="0" aria-label="X key">x</li>
+                <li class="key shiftable capitalizable" data-shift="C" data-normal="c" data-key="67" role="button" tabindex="0" aria-label="C key">c</li>
+                <li class="key shiftable capitalizable" data-shift="V" data-normal="v" data-key="86" role="button" tabindex="0" aria-label="V key">v</li>
+                <li class="key shiftable capitalizable" data-shift="B" data-normal="b" data-key="66" role="button" tabindex="0" aria-label="B key">b</li>
+                <li class="key shiftable capitalizable" data-shift="N" data-normal="n" data-key="78" role="button" tabindex="0" aria-label="N key">n</li>
+                <li class="key shiftable capitalizable" data-shift="M" data-normal="m" data-key="77" role="button" tabindex="0" aria-label="M key">m</li>
+                <li class="key shiftable" data-shift="&lt;" data-normal="," data-key="188" role="button" tabindex="0" aria-label="Comma key">,</li>
+                <li class="key shiftable" data-shift="&gt;" data-normal="." data-key="190" role="button" tabindex="0" aria-label="Period key">.</li>
+                <li class="key shiftable" data-shift="?" data-normal="/" data-key="191" role="button" tabindex="0" aria-label="Forward slash key">/</li>
+                <li class="key text shift" data-key="16" style="width:93px;" role="button" tabindex="0" aria-label="Right Shift key" aria-pressed="false">Shift</li>
+                <li class="key text small" data-key="38" style="width: 40px; margin-left: 57px; font-size:14pt;" role="button" tabindex="0" aria-label="Up arrow key">↑</li>
+
+                <li class="key numpad" data-numlock="1" data-normal="E" data-key="49" style="margin-left: 57px;" role="button" tabindex="0" aria-label="Numpad 1 key">1</li>
+                <li class="key numpad" data-numlock="2" data-normal="↓" data-key="50" role="button" tabindex="0" aria-label="Numpad 2 key">2</li>
+                <li class="key numpad" data-numlock="3" data-normal="PD" data-key="51" role="button" tabindex="0" aria-label="Numpad 3 key">3</li>
+                <li class="key text small" data-key="13" style="height: 43px; position: absolute; right: 0; top: 0;" role="button" tabindex="0" aria-label="Enter key">Enter</li>
+            </ul>
+            <ul class="keyboard-row" role="group" aria-label="Modifier keys">
+                <li class="key text modifier" data-key="17" style="width:42px;" role="button" tabindex="0" aria-label="Left Control key" aria-pressed="false">Ctrl</li>
+                <li class="key text modifier windows" data-key="91" style="width:42px;" role="button" tabindex="0" aria-label="Left Windows key" aria-pressed="false">Win</li>
+                <li class="key text modifier" data-key="18" style="width:42px;" role="button" tabindex="0" aria-label="Left Alt key" aria-pressed="false">Alt</li>
+                <li class="key" data-key="32" style="width:222px;" role="button" tabindex="0" aria-label="Space bar"></li>
+                <li class="key text modifier" data-key="18" style="width:42px;" role="button" tabindex="0" aria-label="Right Alt key" aria-pressed="false">Alt</li>
+                <li class="key text modifier windows" data-key="92" style="width:42px;" role="button" tabindex="0" aria-label="Right Windows key" aria-pressed="false">Win</li>
+                <li class="key text modifier" data-key="17" style="width:42px;" role="button" tabindex="0" aria-label="Right Control key" aria-pressed="false">Ctrl</li>
+                <li class="key text small" data-key="37" style="width: 40px; margin-left: 14px; font-size: 14pt;" role="button" tabindex="0" aria-label="Left arrow key">←</li>
+                <li class="key text small" data-key="40" style="width: 40px; font-size: 14pt;" role="button" tabindex="0" aria-label="Down arrow key">↓</li>
+                <li class="key text small" data-key="39" style="width: 40px; font-size: 14pt;" role="button" tabindex="0" aria-label="Right arrow key">→</li>
+
+                <li class="key numpad" data-numlock="0" data-normal="Ins" data-key="48" style="margin-left: 13px; width: 62px;" role="button" tabindex="0" aria-label="Numpad 0 key">0</li>
+                <li class="key numpad" data-numlock="." data-normal="Del" data-key="110" role="button" tabindex="0" aria-label="Numpad decimal key">.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script src="./jquery.virtual-keyboard.js"></script>
+<link href="./jquery.virtual-keyboard.css" rel="stylesheet">
+
+    <div id="templates" style="display:none;" aria-hidden="true">
+        <div class="machine hoverColor selectedColor activeColor accent-background">
+            <div class="machineNameCenter" role="button" tabindex="0" aria-expanded="false">
+                <div class="machineName"></div>
+            </div>
+            <div class="inputRelease">
+                To release mouse, press <strong>Ctrl+Alt+Left Arrow</strong>
+            </div>
+            <div class="machineInfo">
+                <table class="credentials fields">
+                    <caption class="sr-only">Machine credentials</caption>
+                    <tbody><tr>
+                        <th scope="row" class="fieldName">Username</th>
+                        <td><span class="typeText username" title="Type Text" role="button" tabindex="0" aria-label="Type Username"></span></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="fieldName">Password</th>
+                        <td><span class="typeText password" title="Type Text" role="button" tabindex="0" aria-label="Type Password"></span></td>
+                    </tr>
+                </tbody></table>
+                <div class="floppyDrive">
+                </div>
+                <div class="dvdDrive">
+                    <div class="dvdDriveInner" style="display:none;">
+                        <label for="dvdDriveSelect" class="selectHeading">DVD Drive</label>
+                        <select id="dvdDriveSelect" aria-label="DVD Drive">
+                            <option value="-2">No Media</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="networkAdapters"></div>
+                <div class="action-buttons">
+                    <input type="button" class="ctrlAltDel ctrl-alt-del-button" value="Ctrl+Alt+Delete" aria-label="Send Ctrl Alt Delete">
+                        <div>
+                            <a class="openInNewWindow open-in-new-window-link icon-link" href="https://labclient.labondemand.com/VirtualizationClient/35e0bfef-456c-42f4-ba18-2eb8e892633a/?childClient=1#" aria-label="Open in New Window">Open in New Window</a>
+                        </div>
+                    <div class="open-multiple-display-window-wrapper" style="display:none;">
+                        <a class="open-multiple-display-window open-in-new-window-link icon-link" href="https://labclient.labondemand.com/VirtualizationClient/35e0bfef-456c-42f4-ba18-2eb8e892633a/?childClient=1#" aria-label="Open Multiple Display Window">Open Multiple Display Window</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contentResource hoverColor selectedColor activeColor" role="button" tabindex="0">
+            <div class="machineNameCenter">
+                <div class="machineName"></div>
+            </div>
+        </div>
+
+        <div class="networkAdapter">
+            <label for="networkAdapterSelect" class="selectHeading name">Network Adapter</label>
+            <select id="networkAdapterSelect" aria-label="Network Adapter">
+                <option value="-1">Not Connected</option>
+            </select>
+        </div>
+
+        <div class="endpoint accent-background">
+            <div class="name" role="button" tabindex="0" aria-expanded="false"></div>
+            <div class="expanded-info" style="display:none;">
+                <div class="description"></div>
+                <div class="credentials" style="display:none;">
+                    <table class="fields">
+                        <caption class="sr-only">Endpoint credentials</caption>
+                        <tbody><tr>
+                            <th scope="row" class="fieldName">Username</th>
+                            <td><span class="username copyable"></span></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="fieldName">Password</th>
+                            <td><span class="password copyable"></span></td>
+                        </tr>
+                    </tbody></table>
+                </div>
+                <div>
+                    <input type="button" class="reconnect" value="Reconnect" aria-label="Reconnect">
+                </div>
+                <div class="open-multiple-display-window-wrapper" style="display:none;">
+                    <a class="open-multiple-display-window open-in-new-window-link icon-link" href="https://labclient.labondemand.com/VirtualizationClient/35e0bfef-456c-42f4-ba18-2eb8e892633a/?childClient=1#" aria-label="Open Multiple Display Window">Open Multiple Display Window</a>
+                </div>
+            </div>            
+        </div>
+
+
+    </div>
+
+    <script>
+        var model = {
+            labInstanceId: 67502652,
+            antiforgeryToken: "CfDJ8HQSnP9K8HdOnDiHZ_L6eWCDQNQGRgcv0aRe8m-2rCrFybKWxCMoMwPYb7Sgu0NLtHz-CHHBWkKYFwgLofXaf-XQKPNygs1TBVYYVPBAa4fNdGOxrS-u1KnMuqoUwO9H3RHtb5TjcsiPCUbSA6Ky6XQ",
+            labProfileId: 216752,
+            key: "35e0bfef-456c-42f4-ba18-2eb8e892633a",
+            platformId: 2,
+            contentOnly: false,
+            isChildClient: true,
+            isMonitor: false,
+            isTakeControl: false,
+            showWhenStarting: false,
+            allowShowWhenStarting: false,
+            maxLabSaveDurationDays: 7,
+            maxSavedLabs: 2,
+            maxSnapshots: 0,
+            allowTimeExtensions: true,
+            promptForExtensionMinutes: 5,
+            extensionMinutes: 15,
+            impersonatorName: "",
+            monitorName: "",
+            showNavigationBar: false,
+            showTitleBar: true,
+            themeId: 5,
+            limitedScreenSizes: true,
+            hasStartState: false,
+            useStaticThumbnails: false,
+            evaluationId: null,
+            evaluationServiceUrl: "",
+            isExam: false,
+            postLabUrl: "",
+            freshFromPreinstance : false,
+            useCookies : true,
+            language: "en-US",
+            showConnectionQuality: true,
+            latencyEndpoint: "https://eu-latency.labondemand.com/ping",
+            useGetForLatencyEndpoint: false,
+            remoteControllerChanged: false,
+            completionStatus: 2,
+            showPasteLinks: true,
+            enableNavigationWarning: true,
+            enableRdpSessionShadowing: true,
+            sessionShadowUserName: "TA",
+            recordRdpSession: false,
+            useClientSideCursorRendering: false,
+            orgId: "4454",
+            forcedMachineId: null,            
+            autoFocus: true,
+            layoutVersion: 2,
+            useIntegratedBrowser: false,
+            useTabbedInterface: false,
+            showInstructionsWhileBuilding: true
+         };
+    </script>
+
+    
+    <script>
+      (function(h,o,u,n,d) {
+        h=h[d]=h[d]||{q:[],onReady:function(c){h.q.push(c)}}
+        d=o.createElement(u);d.async=1;d.src=n
+        n=o.getElementsByTagName(u)[0];n.parentNode.insertBefore(d,n)
+        })(window,document,'script','https://www.datadoghq-browser-agent.com/us3/v6/datadog-logs.js','DD_LOGS')
+      window.DD_LOGS.onReady(function() {
+          window.DD_LOGS.init({
+            clientToken: 'pub95df9c2772f25cae094492ee095d1bca',
+            site: 'us3.datadoghq.com',
+            env: 'prod',
+            service: 'lab-client-frontend',
+            forwardErrorsToLogs: true,
+            telemetrySampleRate: 100,
+            trackSessionAcrossSubdomains: true,
+            forwardConsoleLogs: ['error', 'warn'],
+          })
+        })
+    </script>
+
+    
+<script>
+    let iFrameDetectorModel = {
+        requireIFrame: false
+    };
+
+    function isInIFrame() {
+        return (window === window.parent) ? false : true;
+    }
+
+    $(function () {
+        if (iFrameDetectorModel.requireIFrame && !isInIFrame()) {
+            window.location.href = "/AccessDenied";
+        };
+    });
+
+</script>
+
+
+
+<div id="modalDialog" style="display:none;"><div id="modalContent"></div></div><div id="hi5_notifer_all" style="display: none;"></div></body></html>
