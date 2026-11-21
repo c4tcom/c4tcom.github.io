@@ -77,6 +77,11 @@ menu:
     url: /tags/
     parent: more
     weight: 20
+  - identifier: certmaster
+    name: Certmaster
+    url: https://certmaster.0xdeadbeef.ma
+    parent: more
+    weight: 25
 
 outputs:
   home:

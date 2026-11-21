@@ -1,3 +1,35 @@
+/* --- "more" dropdown panel styling ---
+   PaperMod renders the "more" submenu as a plain nested <ul> with no box
+   chrome by default, so on some theme versions it just stacks flat under
+   the "more" label instead of floating as a dropdown. Give it an actual
+   panel: background, border, shadow, spacing between entries. */
+#menu .dropdown-menu,
+#menu ul ul {
+  position: absolute;
+  background: var(--entry);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  padding: 6px 0;
+  min-width: 160px;
+  z-index: 30;
+}
+
+#menu ul ul li {
+  display: block;
+  padding: 0;
+}
+
+#menu ul ul li a {
+  display: block;
+  padding: 8px 16px;
+  white-space: nowrap;
+}
+
+#menu ul ul li a:hover {
+  background: var(--code-bg);
+}
+
 /* Highlight the CTFs entry in the "more" dropdown in HTB-green, as a cue
    it's HackTheBox-related until its own page exists. */
 #menu a[href*="/ctfs/"] span {
@@ -7,4 +39,15 @@
 #menu a[href*="/ctfs/"]:hover span,
 #menu a[href*="/ctfs/"] span.active {
   color: #9fef00;
+}
+
+/* Certmaster entry — external tool link, dark yellow to set it apart from
+   the regular content-page entries in the dropdown. */
+#menu a[href*="certmaster.0xdeadbeef.ma"] span {
+  color: #b8860b;
+}
+
+#menu a[href*="certmaster.0xdeadbeef.ma"]:hover span {
+  color: #b8860b;
+  text-decoration: underline;
 }
